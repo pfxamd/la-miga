@@ -26,7 +26,7 @@ The homepage imports four independent sections from `src/components/home/`. The 
 
 1. Keep product IDs stable: customer carts store IDs, not prices. Changes to slugs change URLs.
 2. Build image URLs with `withBase()` and navigation URLs with `siteBase` for GitHub Pages.
-3. Run `npm run verify` (types, tests, production build).
+3. Run `npm run verify` (types, tests, production build, broken-link/image-path audit).
 4. Check the hero and catalog on phone and desktop; open a product and its image gallery; add/remove quantities; verify the PFXAMD footer signature and link.
 5. Push changes to `main`; GitHub Actions publishes GitHub Pages.
 

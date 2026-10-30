@@ -13,7 +13,8 @@
     "check": "astro check",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "npm run check && npm run test && npm run build"
+    "verify": "npm run check && npm run test && npm run build && npm run audit:dist",
+    "audit:dist": "node scripts/audit-dist.mjs"
   },
   "dependencies": {
     "@astrojs/preact": "^6.1.0",

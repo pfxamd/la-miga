@@ -22,7 +22,7 @@ npm run test
 npm run build
 ```
 
-A combined quality gate is available via `npm run verify`.
+A combined quality gate is available via `npm run verify`: types, unit tests, production build and a static internal-link/asset audit.
 
 ## WhatsApp configuration
 
