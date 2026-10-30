@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CartDrawer from '../components/cart/CartDrawer';
 
 interface Props {
   title: string;
@@ -7,8 +8,9 @@ interface Props {
 }
 const {
   title,
-  description = 'Panadería artesanal especializada en pan. Tetuán, Marruecos.',
+  description = 'Pan de verdad, hecho con tiempo. LA MIGA, panadería artesanal en Tetuán.',
 } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 <!doctype html>
 <html lang="es">
@@ -16,10 +18,33 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f6f1e9" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <title>{title}</title>
   </head>
   <body>
+    <div class="announcement"><span>HECHO CON TIEMPO.</span> <span>HORNEADO CON CARIÑO.</span></div>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href={base} aria-label="La Miga — Inicio"><span class="brand__name">LA MIGA<span class="brand__dot">.</span></span><small>PANADERÍA ARTESANAL</small></a>
+        <nav class="nav" aria-label="Navegación principal">
+          <a href={`${base}#panes`}>Nuestros panes</a>
+          <a href={`${base}#obrador`}>El obrador</a>
+          <a href={`${base}#nosotros`}>Nosotros</a>
+        </nav>
+        <CartDrawer client:load />
+      </div>
+    </header>
     <slot />
+    <footer class="footer" id="contacto">
+      <div class="container">
+        <div class="footer__top">
+          <div><div class="footer__wordmark">LA MIGA<span>.</span></div><p>Pan hecho con tiempo. Compartido con ganas.</p></div>
+          <div><span class="eyebrow">ENCUÉNTRANOS</span><p>Tetuán, Marruecos</p><small>Recogida previa confirmación.</small></div>
+        </div>
+        <div class="footer__bottom"><span>© {new Date().getFullYear()} LA MIGA</span><span>PANADERÍA ARTESANAL · TETUÁN</span></div>
+      </div>
+    </footer>
   </body>
 </html>
