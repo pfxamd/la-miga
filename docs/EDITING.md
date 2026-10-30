@@ -10,7 +10,8 @@ The site is a small static Astro storefront. Keep changes focused; avoid rebuild
 | Workshop process | `src/components/home/BakeryProcess.astro` |
 | Brand story | `src/components/home/BrandStory.astro` |
 | Navbar, brand logo, footer, creator link | `src/layouts/BaseLayout.astro` |
-| Cart button and drawer | `src/components/cart/` |
+| Add-to-cart buttons | `src/components/cart/AddToCart.astro` (shared native handler) |
+| Cart drawer UI | `src/components/cart/CartDrawer.tsx` |
 | Cart rules, totals, WhatsApp message | `src/store/`, `src/lib/` |
 | Product detail template | `src/pages/pan/[slug].astro` |
 | Colors and typography | `src/styles/base.css` |

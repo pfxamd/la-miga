@@ -1,0 +1,40 @@
+---
+interface Props {
+  id: string;
+  productName: string;
+  title?: string;
+  full?: boolean;
+  available?: boolean;
+}
+const {
+  id, productName, title = 'Añadir', full = false, available = true,
+} = Astro.props;
+---
+<button
+  class:list={['add-button', { 'add-button--full': full }]}
+  type="button"
+  data-add-to-cart={id}
+  aria-label={available ? `Añadir ${productName} a la cesta` : `${productName} agotado`}
+  disabled={!available}
+>
+  <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M12 5v14M5 12h14" />
+  </svg>
+  <span>{available ? title : 'Agotado'}</span>
+</button>
+
+<script>
+  import { addToCart, openCart } from '../../store/cart';
+
+  // One delegated event handler for the entire catalog, not one Preact island per button.
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+    const button = event.target.closest<HTMLButtonElement>('button[data-add-to-cart]');
+    if (!button || button.disabled) return;
+
+    const id = button.dataset.addToCart;
+    if (!id) return;
+    addToCart(id);
+    openCart();
+  });
+</script>

@@ -21,8 +21,14 @@ export function createWhatsAppOrderUrl(phoneE164: string, lines: WhatsAppOrderLi
     )
   ) throw new Error('Cart is empty or contains invalid products.');
 
+  const message = formatOrderMessage(lines);
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+/** One source of truth for the preview text and the actual WhatsApp order link. */
+export function formatOrderMessage(lines: WhatsAppOrderLine[]): string {
   const total = lines.reduce((sum, item) => sum + item.quantity * item.unitPriceMAD, 0);
-  const message = [
+  return [
     'Hola, LA MIGA. Quiero hacer este pedido:',
     '',
     ...lines.map((item) => `• ${item.name} × ${item.quantity} — ${item.quantity * item.unitPriceMAD} MAD`),
@@ -31,6 +37,4 @@ export function createWhatsAppOrderUrl(phoneE164: string, lines: WhatsAppOrderLi
     '',
     '¿Podéis confirmar la disponibilidad y el horario de recogida?',
   ].join('\n');
-
-  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }

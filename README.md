@@ -4,7 +4,7 @@ A fictional, modern bread-only bakery storefront based in Tétouan, Morocco. The
 
 ## Tech stack
 
-Astro (static), TypeScript, Preact islands, Nano Stores persisted cart, PhotoSwipe, Embla Carousel, Lucide Preact and GitHub Pages. See [open-source decisions](docs/OPEN_SOURCE.md) for licenses and deployment rationale.
+Astro (static), TypeScript, one Preact cart drawer, native product buttons, Nano Stores persisted cart, PhotoSwipe and GitHub Pages. See [open-source decisions](docs/OPEN_SOURCE.md) for licenses and deployment rationale.
 
 ## Shopping flow
 

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
 import { products, withBase } from '../../data/products';
-import { createWhatsAppOrderUrl } from '../../lib/whatsapp';
+import { createWhatsAppOrderUrl, formatOrderMessage } from '../../lib/whatsapp';
 import { resolveOrder } from '../../lib/order';
 import {
   $cart, $cartOpen, closeCart, openCart, setCartQuantity, removeFromCart,
@@ -17,12 +17,7 @@ export default function CartDrawer() {
 
   const itemCount = cart.reduce((n, item) => n + item.quantity, 0);
   const order = useMemo(() => resolveOrder(cart, products), [cart]);
-  const message = useMemo(() => [
-    'Hola, LA MIGA. Quiero hacer este pedido:',
-    ...order.lines.map((item) => `• ${item.name} × ${item.quantity} — ${item.quantity * item.unitPriceMAD} MAD`),
-    `Total: ${order.totalMAD} MAD`,
-    '¿Podéis confirmar la disponibilidad y el horario de recogida?',
-  ].join('\n'), [order]);
+  const message = useMemo(() => formatOrderMessage(order.lines), [order]);
 
   const phoneReady = /^[1-9]\d{7,14}$/.test(configuredPhone.replace(/\D/g, ''));
   const checkoutUrl = phoneReady && !order.unavailable.length && order.lines.length

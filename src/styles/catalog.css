@@ -31,3 +31,6 @@
 .text-link{font-size:.71rem;font-weight:700;color:var(--mute);white-space:nowrap}
 .text-link:hover{color:var(--heat)}
 .catalog-footnote{text-align:right;color:var(--mute);font-size:.69rem;line-height:1.65;margin:1.6rem 0 0}
+
+.add-button:disabled{opacity:.48;cursor:not-allowed}
+.add-button:disabled:hover{background:var(--ink)}
