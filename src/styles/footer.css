@@ -1,6 +1,6 @@
 /* footer: LA MIGA */
-.footer{background:#1e1714;color:#efe3d5;padding-top:4rem}
-.footer__top{display:flex;justify-content:space-between;gap:3rem;padding-bottom:4rem}
+.footer{background:#1e1714;color:#efe3d5;padding-top:3.3rem}
+.footer__top{display:flex;justify-content:space-between;gap:3rem;padding-bottom:3rem}
 .footer__wordmark{font-family:Georgia,serif;font-size:clamp(3rem,7vw,6rem);letter-spacing:-.085em;font-weight:900;line-height:1}
 .footer__wordmark span{color:#c37957}
 .footer__top p{font-size:.88rem;color:#ccbaa9;margin:.7rem 0}
@@ -9,6 +9,8 @@
 
 
 /* Subtle creator signature at the very bottom of the footer. */
-.footer__credit{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem 0 1.25rem;font-size:.67rem;letter-spacing:.055em;color:#ae9988}
+.footer__credit{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem 0 1.25rem;font-size:.73rem;letter-spacing:.04em;color:#c6b4a5}
 .footer__credit a{font-weight:800;letter-spacing:.11em;color:#efe3d5;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:text-decoration-color .2s}
 .footer__credit a:hover,.footer__credit a:focus-visible{text-decoration-color:currentColor}
+
+.footer__credit a:focus-visible{outline-offset:3px}

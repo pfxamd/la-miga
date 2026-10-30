@@ -1,13 +1,13 @@
 /* catalog: LA MIGA */
-.section{padding:6.3rem 0}
-.section-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2.5rem}
-.section-heading h2{font-family:Georgia,serif;font-weight:800;letter-spacing:-.07em;font-size:clamp(2.7rem,4.8vw,4.9rem);line-height:1.07;margin:.6rem 0 0}
+.section{padding:5rem 0}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2.15rem}
+.section-heading h2{font-family:Georgia,serif;font-weight:800;letter-spacing:-.07em;font-size:clamp(2.7rem,4.5vw,4.5rem);line-height:1.07;margin:.6rem 0 0}
 .section-heading>p{max-width:295px;font-size:.85rem;line-height:1.7;color:var(--mute);margin:0}
-.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.8rem}
-.filter{background:transparent;border:1px solid var(--line);border-radius:40px;padding:.59rem .95rem;font-size:.73rem;font-weight:700;color:var(--ink);white-space:nowrap}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.65rem}
+.filter{background:transparent;border:1px solid var(--line);border-radius:40px;padding:.7rem 1rem;min-height:42px;font-size:.76rem;font-weight:700;color:var(--ink);white-space:nowrap}
 .filter span{font-size:.62rem;opacity:.7;margin-left:.3rem}
 .filter.is-active,.filter:hover{background:var(--ink);border-color:var(--ink);color:white}
-.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem 1.2rem}
+.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 1.25rem}
 .product-card{min-width:0}
 .product-card__visual{position:relative;aspect-ratio:1 / .88;overflow:hidden;display:grid;place-items:center;background:#e8d9c7}
 .product-card__visual--2{background:#e9e1d2}
@@ -16,16 +16,16 @@
 .product-card__index,.product-card__weight{position:absolute;z-index:2;left:1rem;top:1rem;font-size:.62rem;font-weight:700;letter-spacing:.1em}
 .product-card__weight{top:auto;left:auto;right:1rem;bottom:1rem}
 .product-card__image-link{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
-.product-card__visual img{width:94%;height:94%;object-fit:contain;filter:drop-shadow(0 12px 9px rgba(62,32,12,.17));transition:transform .35s ease}
-.product-card:hover .product-card__visual img{transform:scale(1.045) rotate(-2deg)}
+.product-card__visual img{width:88%;height:88%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 13px 11px rgba(62,32,12,.13));transition:transform .35s ease}
+.product-card:hover .product-card__visual img{transform:scale(1.045) translateY(-3px)}
 .product-card__info{display:flex;align-items:start;justify-content:space-between;gap:.65rem;padding-top:1rem}
-.product-card__title{font-family:Georgia,serif;font-size:1.34rem;letter-spacing:-.035em;font-weight:700}
+.product-card__title{font-family:Georgia,serif;font-size:1.29rem;letter-spacing:-.03em;font-weight:700}
 .product-card__title:hover{color:var(--heat)}
 .product-card__info p{font-size:.75rem;margin:.42rem 0 0;color:var(--mute)}
 .product-card__price{font-size:1.06rem;white-space:nowrap}
 .product-card__price small{font-size:.65rem;font-weight:700}
-.product-card__action{display:flex;align-items:center;justify-content:space-between;gap:.8rem;border-top:1px solid var(--line);margin-top:1.1rem;padding-top:.85rem}
-.add-button{border:0;background:var(--ink);color:white;display:inline-flex;justify-content:center;align-items:center;gap:.55rem;padding:.79rem 1.05rem;font-size:.72rem;font-weight:700;transition:background .2s}
+.product-card__action{display:flex;align-items:center;justify-content:space-between;gap:.8rem;border-top:1px solid var(--line);margin-top:1rem;padding-top:.9rem}
+.add-button{border:0;background:var(--ink);color:white;display:inline-flex;justify-content:center;align-items:center;gap:.55rem;padding:.83rem 1rem;min-height:44px;font-size:.74rem;font-weight:700;transition:background .2s}
 .add-button:hover{background:var(--heat)}
 .add-button svg{flex:none}
 .text-link{font-size:.71rem;font-weight:700;color:var(--mute);white-space:nowrap}
@@ -34,3 +34,11 @@
 
 .add-button:disabled{opacity:.48;cursor:not-allowed}
 .add-button:disabled:hover{background:var(--ink)}
+
+/* Quiet framing makes cut-out product photos feel like one cohesive collection. */
+.product-card__visual::before{content:'';position:absolute;inset:12% 18%;border:1px solid rgba(255,255,255,.42);border-radius:50%;pointer-events:none}
+.product-card__visual::after{content:'';position:absolute;inset:9px;border:1px solid rgba(89,55,36,.075);pointer-events:none}
+.product-card__visual img{will-change:auto}
+.product-card__index,.product-card__weight{font-variant-numeric:tabular-nums}
+.product-card__price{font-variant-numeric:tabular-nums}
+.product-card__action a{min-height:36px;display:inline-flex;align-items:center}

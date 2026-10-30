@@ -34,6 +34,17 @@ const base = siteBase;
           <a href={`${base}#obrador`}>El obrador</a>
           <a href={`${base}#nosotros`}>Nosotros</a>
         </nav>
+        <details class="mobile-nav">
+          <summary aria-label="Abrir menú de navegación">
+            <span>Menú</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14" /></svg>
+          </summary>
+          <nav class="mobile-nav__panel" aria-label="Navegación móvil">
+            <a href={`${base}#panes`}>Nuestros panes <span aria-hidden="true">↗</span></a>
+            <a href={`${base}#obrador`}>El obrador <span aria-hidden="true">↗</span></a>
+            <a href={`${base}#nosotros`}>Nosotros <span aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
         <CartDrawer client:load />
       </div>
     </header>
@@ -48,5 +59,20 @@ const base = siteBase;
         <div class="footer__credit">Diseño y desarrollo por <a href="https://pfxamd.com/" target="_blank" rel="noopener noreferrer" aria-label="PFXAMD — Diseño y desarrollo web">PFXAMD</a></div>
       </div>
     </footer>
+    <script>
+      const mobileMenu = document.querySelector<HTMLDetailsElement>('.mobile-nav');
+      if (mobileMenu) {
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!(target instanceof Node) || !mobileMenu.open) return;
+          if (!mobileMenu.contains(target) || (target instanceof Element && target.closest('.mobile-nav__panel a'))) {
+            mobileMenu.open = false;
+          }
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') mobileMenu.open = false;
+        });
+      }
+    </script>
   </body>
 </html>
