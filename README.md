@@ -1,42 +1,37 @@
-# LA MIGA
+# LA MIGA — Panadería Artesanal
 
-**LA MIGA — Panadería Artesanal** is a fictional, modern artisan bread bakery storefront set in Tétouan, Morocco.
+A fictional, modern bread-only bakery storefront based in Tétouan, Morocco. The site is designed like a real bakery business, with bespoke original imagery and a distinctive brand identity.
 
-## Stack
+## Tech stack
 
-- Astro (static generation), TypeScript
-- Preact islands for interactive shopping-cart and ordering UI
-- Nano Stores + persistent storage for cart state
-- Custom CSS and brand-specific art direction
-- GitHub Pages, published from `main` via GitHub Actions
+Astro (static), TypeScript, Preact islands, Nano Stores persisted cart, PhotoSwipe, Embla Carousel, Lucide Preact and GitHub Pages. See [open-source decisions](docs/OPEN_SOURCE.md) for licenses and deployment rationale.
 
-## Customer journey
+## Shopping flow
 
-Browse bread varieties → add to cart → review quantities and MAD total → send a prefilled order over WhatsApp.
+Bread catalog → choose quantities → cart → WhatsApp message containing selected products and MAD total. No database, account, payment gateway or server.
 
-No server, login, checkout payment gateway, or database is required. Product content and image assets are built statically.
+## Development
 
-## Commands
+Requires Node 24.
 
 ```bash
 npm install
 npm run dev
+npm run check
+npm run test
 npm run build
-npm run preview
 ```
 
-## Architecture
+A combined quality gate is available via `npm run verify`.
 
-- `src/pages/`: prerendered routes
-- `src/layouts/`: page shells
-- `src/data/products.ts`: typed product catalog
-- `src/store/cart.ts`: browser-persistent cart state
-- `src/lib/whatsapp.ts`: generated order message and link
-- `src/styles/`: CSS and future brand tokens
-- `public/`: original brand and product imagery (to be added)
+## WhatsApp configuration
+
+Copy `.env.example` to `.env` and provide a legitimate `PUBLIC_WHATSAPP_NUMBER` before activating the checkout button. Do not put a placeholder number into a live ordering link.
 
 ## Deployment
 
-Set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. The configuration uses `site: https://pfxamd.github.io` and `base: /la-miga`.
+Push to `main`. The workflow builds and tests the site, then uploads static files to GitHub Pages. Configure **Settings → Pages → Source: GitHub Actions** first. Default path is `https://pfxamd.github.io/la-miga/`.
 
-The storefront design, logo integration, real product selection, prices, and WhatsApp destination are intentionally not finalized during the initial infrastructure setup.
+## Project state
+
+The infrastructure and reusable utilities are prepared. Final visual design, logo integration, real product photos, product catalog, cart UI and business contact details are intentionally pending.
