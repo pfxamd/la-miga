@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AddToCart from '../components/cart/AddToCart';
-import { products, categoryLabels, withBase } from '../data/products';
+import { products, categoryLabels, withBase, siteBase } from '../data/products';
 
-const base = import.meta.env.BASE_URL;
+const base = siteBase;
 const featured = products[0];
 ---
 <BaseLayout title="LA MIGA — Panadería Artesanal · Tetuán">

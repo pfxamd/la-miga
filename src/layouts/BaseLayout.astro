@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import CartDrawer from '../components/cart/CartDrawer';
+import { siteBase } from '../data/products';
 
 interface Props {
   title: string;
@@ -10,7 +11,7 @@ const {
   title,
   description = 'Pan de verdad, hecho con tiempo. LA MIGA, panadería artesanal en Tetuán.',
 } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = siteBase;
 ---
 <!doctype html>
 <html lang="es">

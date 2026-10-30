@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AddToCart from '../../components/cart/AddToCart';
-import { categoryLabels, products, withBase } from '../../data/products';
+import { categoryLabels, products, withBase, siteBase } from '../../data/products';
 import type { BreadProduct } from '../../data/products';
 
 export const getStaticPaths = (() => products.map((product) => ({
@@ -11,7 +11,7 @@ export const getStaticPaths = (() => products.map((product) => ({
 }))) satisfies GetStaticPaths;
 
 const { product } = Astro.props as { product: BreadProduct };
-const base = import.meta.env.BASE_URL;
+const base = siteBase;
 ---
 <BaseLayout title={`${product.name} — LA MIGA`} description={product.description}>
   <main class="detail-page container">
