@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
 
 :root {
   color-scheme: light;
@@ -10,7 +9,7 @@
   --line: #ddd2c7;
   --wheat: #e8d9bc;
   --dark: #2a1a16;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   font-synthesis: none;
   background: var(--flour);
   color: var(--ink);
@@ -131,7 +130,7 @@ h1,h2,h3,p{margin-top:0}
 .cart-sheet{height:100%;display:flex;flex-direction:column}
 .cart-sheet__head{flex:none;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.5rem;border-bottom:1px solid var(--line)}
 .cart-sheet__head h2{font-family:Georgia,serif;font-size:1.8rem;margin:.25rem 0 0}
-.cart-sheet__head h2 span{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;color:var(--mute)}
+.cart-sheet__head h2 span{font-family:system-ui,sans-serif;font-size:.9rem;font-weight:500;color:var(--mute)}
 .icon-button{width:36px;height:36px;border:1px solid var(--line);background:transparent;font-size:1.7rem;line-height:1}
 .cart-items{padding:0 1.5rem;flex:1;overflow:auto}
 .cart-item{display:grid;grid-template-columns:92px 1fr auto;gap:.9rem;align-items:center;padding:1.2rem 0;border-bottom:1px solid var(--line)}

@@ -4,7 +4,7 @@ import type { BreadProduct } from '../data/products';
 
 describe('catalog-driven cart', () => {
   const catalog: BreadProduct[] = [{
-    id: 'bread-a', slug: 'bread-a', name: 'Pan A', description: 'Pan fresco',
+    id: 'bread-a', slug: 'bread-a', name: 'Pan A', subtitle: 'Buen pan', description: 'Pan fresco', ingredients: 'Trigo y agua',
     category: 'masa-madre', weightGrams: 400, priceMAD: 18,
     image: '/bread-a.webp', available: true,
   }];
