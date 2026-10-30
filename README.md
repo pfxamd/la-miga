@@ -32,6 +32,10 @@ Copy `.env.example` to `.env` and provide a legitimate `PUBLIC_WHATSAPP_NUMBER` 
 
 Push to `main`. The workflow builds and tests the site, then uploads static files to GitHub Pages. Configure **Settings → Pages → Source: GitHub Actions** first. Default path is `https://pfxamd.github.io/la-miga/`.
 
+## Maintenance
+
+See [Editing guide](docs/EDITING.md) for repeatable, scoped changes. The homepage and CSS are split by section while shopping logic remains separate.
+
 ## Project state
 
-The infrastructure and reusable utilities are prepared. Final visual design, logo integration, real product photos, product catalog, cart UI and business contact details are intentionally pending.
+The shop concept is published with original product imagery, the LA MIGA logo, six bread products, individual detail pages, and working cart. Prices are illustrative. WhatsApp checkout awaits a real recipient number.

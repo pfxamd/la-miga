@@ -1,0 +1,23 @@
+---
+import { products, withBase } from '../../data/products';
+const featured = products[0];
+---
+<section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="eyebrow eyebrow--accent"><span class="eyebrow__line"></span>PANADERÍA ARTESANAL · TETUÁN</span>
+          <h1>EL PAN,<br /><em>COMO DEBE</em><br />SER.</h1>
+          <p>Ingredientes sencillos, manos expertas y tiempo. Mucho tiempo. Así hacemos cada uno de nuestros panes.</p>
+          <a class="primary-link" href="#panes">Descubre nuestros panes <span aria-hidden="true">↗</span></a>
+          <div class="hero__meta"><span>01 / MASA MADRE</span><span>HORNEADO CADA DÍA</span></div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__art" aria-hidden="true"><span>LA<br/>MIGA</span><span class="hero__circle"></span></div>
+          <img class="hero__bread" src={withBase(featured.image)} width="512" height="512" alt="Pan de masa madre artesano con corteza dorada" fetchpriority="high" />
+          <div class="hero__stamp"><strong>100%</strong><small>AMOR<br />POR EL PAN</small></div>
+          <span class="hero__caption">Nº 01 · NUESTRO FAVORITO</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Nuestros valores"><div class="ticker__inner" aria-hidden="true"><span>MASA MADRE</span><i>✳</i><span>HORNEADO CADA DÍA</span><i>✳</i><span>HECHO A MANO</span><i>✳</i><span>DESDE TETUÁN</span><i>✳</i></div></div>

@@ -1,0 +1,31 @@
+/* base: LA MIGA */
+:root {
+  color-scheme: light;
+  --flour: #f6f1e9;
+  --paper: #fffdf8;
+  --ink: #281d19;
+  --mute: #79695e;
+  --heat: #ac5735;
+  --line: #ddd2c7;
+  --wheat: #e8d9bc;
+  --dark: #2a1a16;
+  font-family: system-ui, sans-serif;
+  font-synthesis: none;
+  background: var(--flour);
+  color: var(--ink);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5.8rem}
+body{margin:0;min-width:320px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+img{display:block}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--heat);outline-offset:4px}
+[hidden]{display:none!important}
+.container{width:min(100% - 3rem,1190px);margin-inline:auto}
+h1,h2,h3,p{margin-top:0}
+.eyebrow{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.17em;line-height:1.7;text-transform:uppercase}
+.eyebrow--accent{color:var(--heat)}
+.eyebrow__line{display:inline-block;vertical-align:middle;width:29px;height:1px;background:currentColor;margin-right:11px}

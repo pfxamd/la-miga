@@ -1,0 +1,48 @@
+---
+import AddToCart from '../cart/AddToCart';
+import { products, categoryLabels, withBase, siteBase } from '../../data/products';
+const base = siteBase;
+---
+<section class="products-section section" id="panes">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">RECIÉN SALIDOS DEL HORNO</span><h2>Nuestros <em>panes.</em></h2></div><p>Distintas formas, distintas historias.<br />Un mismo amor por el buen pan.</p></div>
+        <div class="filters" role="group" aria-label="Filtrar panes">
+          <button class="filter is-active" data-filter="todos" type="button" aria-pressed="true">Todos <span>{String(products.length).padStart(2,'0')}</span></button>
+          {Object.entries(categoryLabels).map(([key, label]) => <button class="filter" data-filter={key} type="button" aria-pressed="false">{label}</button>)}
+        </div>
+        <div class="product-grid">
+          {products.map((product, index) => (
+            <article class="product-card" data-category={product.category}>
+              <div class:list={['product-card__visual', `product-card__visual--${(index % 4) + 1}`]}>
+                <span class="product-card__index">LM / {String(index + 1).padStart(2,'0')}</span>
+                <a href={`${base}pan/${product.slug}/`} aria-label={`Ver ${product.name}`} class="product-card__image-link">
+                  <img src={withBase(product.image)} width="512" height="512" alt={product.name} loading="lazy" decoding="async" />
+                </a>
+                <span class="product-card__weight">{product.weightGrams} g</span>
+              </div>
+              <div class="product-card__info">
+                <div><a href={`${base}pan/${product.slug}/`} class="product-card__title">{product.name}</a><p>{product.subtitle}</p></div>
+                <strong class="product-card__price">{product.priceMAD} <small>MAD</small></strong>
+              </div>
+              <div class="product-card__action"><AddToCart client:load id={product.id} title="Añadir a la cesta" /><a href={`${base}pan/${product.slug}/`} class="text-link">Ver detalles ↗</a></div>
+            </article>
+          ))}
+        </div>
+        <p class="catalog-footnote">Precios orientativos para esta demostración · Disponibilidad sujeta a confirmación.</p>
+      </div>
+    </section>
+<script>
+    const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.product-card'));
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        const value = button.dataset.filter;
+        for (const item of buttons) {
+          const selected = item === button;
+          item.classList.toggle('is-active', selected);
+          item.setAttribute('aria-pressed', String(selected));
+        }
+        for (const card of cards) card.hidden = value !== 'todos' && card.dataset.category !== value;
+      });
+    }
+  </script>

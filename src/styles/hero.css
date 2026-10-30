@@ -1,0 +1,25 @@
+/* hero: LA MIGA */
+.hero{overflow:hidden;border-bottom:1px solid var(--line)}
+.hero__inner{display:grid;grid-template-columns:1.02fr .98fr;min-height:512px}
+.hero__copy{padding:3.7rem 1.4rem 3rem 0;align-self:center;position:relative;z-index:2}
+.hero h1{font-family:Georgia,'Times New Roman',serif;font-weight:900;font-size:clamp(3.6rem,6.1vw,6.6rem);letter-spacing:-.082em;line-height:.98;margin:1.75rem 0}
+.hero h1 em,.section-heading h2 em,.story-section h2 em{color:var(--heat);font-weight:400;font-style:italic}
+.hero__copy>p{max-width:410px;color:var(--mute);font-size:.98rem;line-height:1.85}
+.primary-link{margin-top:1.15rem;background:var(--heat);color:white;font-size:.79rem;letter-spacing:.02em;font-weight:700;padding:1rem 1.15rem;display:inline-flex;align-items:center;justify-content:space-between;gap:2.4rem;transition:background .2s,transform .2s}
+.primary-link:hover{background:var(--ink);transform:translateY(-2px)}
+.primary-link--dark{background:var(--ink)}
+.primary-link--dark:hover{background:var(--heat)}
+.primary-link span{font-size:1.1rem}
+.hero__meta{display:flex;gap:1.1rem;justify-content:space-between;max-width:422px;border-top:1px solid var(--line);margin-top:2.75rem;padding-top:1rem;font-size:.57rem;font-weight:700;letter-spacing:.16em;color:var(--mute)}
+.hero__visual{position:relative;min-width:0;display:grid;place-items:center;padding:1.5rem}
+.hero__art{position:absolute;inset:2.2rem 0 2.1rem 1rem;background:#e1c8ac;overflow:hidden;border-radius:46% 46% 12px 12px / 47% 47% 12px 12px}
+.hero__art>span:first-child{position:absolute;font-family:Georgia,serif;font-size:clamp(5rem,15vw,14rem);font-weight:900;letter-spacing:-.1em;line-height:.78;color:rgba(123,74,48,.14);top:5%;left:2%}
+.hero__circle{position:absolute;aspect-ratio:1;border:1px solid rgba(255,255,255,.55);width:110%;border-radius:50%;left:21%;top:14%;box-shadow:0 0 0 70px rgba(255,255,255,.05),0 0 0 140px rgba(255,255,255,.06)}
+.hero__bread{position:relative;z-index:1;width:115%;max-width:none;filter:drop-shadow(0 30px 27px rgba(89,49,21,.2));transform:rotate(-7deg);object-fit:contain}
+.hero__stamp{position:absolute;z-index:2;right:-.2rem;top:12%;width:97px;height:97px;border-radius:50%;background:var(--heat);color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(10deg)}
+.hero__stamp strong{font-family:Georgia,serif;font-size:1.65rem;line-height:1.1}
+.hero__stamp small{font-size:.56rem;font-weight:700;line-height:1.35;letter-spacing:.07em}
+.hero__caption{position:absolute;z-index:2;bottom:3.3rem;right:1.7rem;font-size:.58rem;letter-spacing:.15em;font-weight:700}
+.ticker{border-bottom:1px solid var(--line);overflow:hidden;background:var(--paper)}
+.ticker__inner{min-height:53px;display:flex;align-items:center;justify-content:space-around;gap:1.8rem;width:min(100% - 3rem,1190px);margin:auto;white-space:nowrap;font-size:.63rem;font-weight:750;letter-spacing:.12em}
+.ticker i{font-size:1.06rem;color:var(--heat);font-style:normal}

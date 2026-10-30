@@ -1,0 +1,34 @@
+/* cart: LA MIGA */
+.cart-dialog{width:min(100%,460px);max-width:100%;max-height:100dvh;height:100dvh;position:fixed;inset:0 0 0 auto;margin:0;padding:0;border:0;background:var(--paper);color:var(--ink);box-shadow:-15px 0 65px rgba(28,13,8,.2);overflow:hidden}
+.cart-dialog::backdrop{background:rgba(29,19,15,.56)}
+.cart-sheet{height:100%;display:flex;flex-direction:column}
+.cart-sheet__head{flex:none;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.5rem;border-bottom:1px solid var(--line)}
+.cart-sheet__head h2{font-family:Georgia,serif;font-size:1.8rem;margin:.25rem 0 0}
+.cart-sheet__head h2 span{font-family:system-ui,sans-serif;font-size:.9rem;font-weight:500;color:var(--mute)}
+.icon-button{width:36px;height:36px;border:1px solid var(--line);background:transparent;font-size:1.7rem;line-height:1}
+.cart-items{padding:0 1.5rem;flex:1;overflow:auto}
+.cart-item{display:grid;grid-template-columns:92px 1fr auto;gap:.9rem;align-items:center;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.cart-item__image{width:92px;height:92px;background:#e8ddcf;display:grid;place-items:center}
+.cart-item__image img{width:90%;height:90%;object-fit:contain}
+.cart-item__body strong{font-family:Georgia,serif;font-size:1rem}
+.cart-item__body small{display:block;color:var(--mute);margin:.33rem 0 .6rem;font-size:.73rem}
+.qty-control{display:inline-flex;border:1px solid var(--line);align-items:center}
+.qty-control button{background:transparent;border:0;width:29px;height:27px;font-size:1.05rem}
+.qty-control span{font-size:.76rem;min-width:28px;text-align:center}
+.cart-remove{border:0;background:transparent;color:var(--mute);font-size:1.4rem;align-self:start}
+.cart-missing{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0}
+.cart-missing button{background:none;border:0;text-decoration:underline}
+.cart-sheet__footer{padding:1.25rem 1.5rem 1.7rem;border-top:1px solid var(--line);background:var(--paper)}
+.cart-total{display:flex;justify-content:space-between;align-items:center;font-size:.85rem}
+.cart-total strong{font-family:Georgia,serif;font-size:1.65rem}
+.cart-note{font-size:.73rem;color:var(--mute);line-height:1.6;margin:.5rem 0 1rem}
+.cart-alert{background:#ffeddb;color:#7b372a;padding:.7rem;font-size:.75rem}
+.checkout-button{border:0;width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--heat);color:white;padding:1rem 1.1rem;font-size:.82rem;font-weight:750}
+.checkout-button:disabled{opacity:.5;cursor:not-allowed}
+.checkout-button:hover:not(:disabled){background:var(--ink)}
+.preview-order textarea{resize:vertical;width:100%;border:1px solid var(--line);padding:.6rem;font-size:.68rem;line-height:1.4;background:var(--flour);color:var(--ink);margin-bottom:.5rem}
+.cart-empty{padding:4rem 1.5rem;text-align:center}
+.cart-empty>span{font-size:3rem;color:var(--heat)}
+.cart-empty h3{font-family:Georgia,serif;font-size:1.5rem;margin:.5rem 0}
+.cart-empty p{color:var(--mute);font-size:.84rem}
+.button-secondary{margin-top:.9rem;border:1px solid var(--ink);background:transparent;padding:.8rem 1rem;font-size:.78rem;font-weight:700}
