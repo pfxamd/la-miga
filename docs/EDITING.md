@@ -1,6 +1,6 @@
 # Editing LA MIGA
 
-The site is a small static Astro storefront. Keep changes focused; avoid rebuilding existing sections to update a single detail.
+The site is a small static Astro storefront with no unused carousel or icon framework. Keep changes focused; avoid rebuilding existing sections to update a single detail.
 
 | Task | Edit here |
 | --- | --- |

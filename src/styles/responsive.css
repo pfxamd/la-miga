@@ -11,8 +11,6 @@
 @media(max-width:720px){
   .container{width:min(100% - 2rem,1190px)}
   .site-header__inner{min-height:64px;gap:.4rem}
-  .brand__name{font-size:1.38rem}
-  .brand small{font-size:.44rem}
   .nav{display:none}
   .cart-trigger{gap:.4rem;padding:.52rem .65rem}
   .cart-trigger__label{display:none}
@@ -78,12 +76,4 @@
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
-
-/* Approved LA MIGA identity asset, stored locally rather than loaded from a remote CDN. */
-.brand__img{width:165px;height:auto;max-height:62px;object-fit:contain}
 @media(max-width:720px){.brand__img{width:135px}}
-
-/* Subtle creator signature at the very bottom of the footer. */
-.footer__credit{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem 0 1.25rem;font-size:.67rem;letter-spacing:.055em;color:#ae9988}
-.footer__credit a{font-weight:800;letter-spacing:.11em;color:#efe3d5;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:text-decoration-color .2s}
-.footer__credit a:hover,.footer__credit a:focus-visible{text-decoration-color:currentColor}
