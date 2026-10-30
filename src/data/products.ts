@@ -107,6 +107,9 @@ export function productBySlug(slug: string) {
   return products.find((product) => product.slug === slug);
 }
 
-export const siteBase = `${import.meta.env.BASE_URL.replace(/\\/+$/, '')}/`;
+export const siteBase = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
 export const withBase = (asset: string): string =>
-  `${siteBase}${asset.replace(/^\\/+/, '')}`;
+  `${siteBase}${asset.startsWith('/') ? asset.slice(1) : asset}`;
