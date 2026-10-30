@@ -260,3 +260,7 @@ h1,h2,h3,p{margin-top:0}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* Approved LA MIGA identity asset, stored locally rather than loaded from a remote CDN. */
+.brand__img{width:165px;height:auto;max-height:62px;object-fit:contain}
+@media(max-width:720px){.brand__img{width:135px}}
