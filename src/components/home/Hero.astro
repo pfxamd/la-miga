@@ -43,16 +43,13 @@ const featured = products[0];
       <div class="hero__art" aria-hidden="true">
         <HeroEngraving />
       </div>
-      <div class="hero__ground" aria-hidden="true"></div>
-      <img
-        class="hero__bread"
-        src={withBase(featured.image)}
-        width="800"
-        height="800"
-        alt={`Pan artesanal: ${featured.name}`}
-        fetchpriority="high"
-        decoding="async"
-      />
+      <div class="hero__bread-stage" role="img" aria-label={`Pan artesanal: ${featured.name}`}>
+        <img class="hero__bread-layer hero__bread-layer--shadow" src={withBase('assets/hero-layers/base-shadow.webp')} width="800" height="800" alt="" aria-hidden="true" decoding="async" />
+        <img class="hero__bread-layer hero__bread-layer--body" src={withBase('assets/hero-layers/bread-body.webp')} width="800" height="800" alt="" aria-hidden="true" fetchpriority="high" decoding="async" />
+        <img class="hero__bread-layer hero__bread-layer--score" src={withBase('assets/hero-layers/score-main.webp')} width="800" height="800" alt="" aria-hidden="true" decoding="async" />
+        <img class="hero__bread-layer hero__bread-layer--flour" src={withBase('assets/hero-layers/flour-surface.webp')} width="800" height="800" alt="" aria-hidden="true" decoding="async" />
+        <img class="hero__bread-layer hero__bread-layer--dust" src={withBase('assets/hero-layers/flour-particles.webp')} width="800" height="800" alt="" aria-hidden="true" decoding="async" />
+      </div>
       <span class="hero__visual-index" aria-hidden="true">FIG. 01 — LA MIGA</span>
       <div class="hero__product-label" aria-hidden="true">
         <span class="hero__product-number">NUESTRA SELECCIÓN / 01</span>
@@ -69,3 +66,34 @@ const featured = products[0];
     <span>DESDE TETUÁN</span>
   </div>
 </div>
+
+<script>
+  // The real bread photograph is split into registered, transparent layers.
+  // No scroll interception: native wheel and touch motion remain untouched.
+  const hero = document.querySelector<HTMLElement>('.hero');
+  const stage = document.querySelector<HTMLElement>('.hero__bread-stage');
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (hero && stage && !motionPreference.matches) {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const offset = hero.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.max(260, hero.offsetHeight * .64);
+      const t = Math.max(0, Math.min(1, (window.scrollY - offset) / distance));
+      // Photo masks stay registered; only soft detail and independent dust move.
+      stage.style.setProperty('--bread-flour-opacity', String(Math.min(1, Math.max(0, (t - .1) / .72))));
+      stage.style.setProperty('--bread-score-opacity', String(.18 + t * .6));
+      stage.style.setProperty('--bread-dust-opacity', String(Math.min(.77, t * .95)));
+      stage.style.setProperty('--bread-dust-x', `${t * 17}px`);
+      stage.style.setProperty('--bread-dust-y', `${-t * 14}px`);
+      stage.style.setProperty('--bread-flour-y', `${(1 - t) * -2}px`);
+    };
+    const schedule = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(update);
+    };
+    schedule();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+  }
+</script>
