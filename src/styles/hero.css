@@ -22,3 +22,18 @@
 .ticker:hover .ticker__inner{animation-play-state:paused}
 @keyframes ticker-scroll{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ticker__inner{animation:none;will-change:auto}.ticker__group:nth-child(2){display:none}.ticker__group{min-width:100%;justify-content:space-around}}
+
+/* A calmer, clearer stage for the bread selector. */
+.hero__visual{height:600px}
+.hero-picker__scene{bottom:115px}
+.hero-picker__halo{top:3%;width:72%;left:16%;border-color:rgba(127,68,52,.18)}
+.hero-picker__info{bottom:52px;left:4%;max-width:52%}
+.hero-picker__info span{display:block;margin-bottom:.35rem}
+.hero-picker__info h2{margin:0 0 .3rem}
+.hero-picker__controls button{transition:background .2s,color .2s,border-color .2s,transform .2s}
+.hero-picker__controls button:hover{border-color:var(--heat);transform:translateY(-2px)}
+.hero-picker__controls button:focus-visible,.hero-picker__dots button:focus-visible{outline:2px solid var(--heat);outline-offset:3px}
+.hero-picker__dots button{width:24px;height:24px}
+.hero-picker__dots button:after{inset:8px}
+@media(max-width:720px){.hero__visual{height:430px}.hero-picker__scene{bottom:115px}.hero-picker__info{bottom:48px;max-width:60%}.hero-picker__info h2{font-size:1.55rem}.hero-picker__controls{bottom:50px;gap:.45rem}.hero-picker__controls button{width:44px;height:44px}.hero-picker__dots{bottom:10px;gap:.25rem}}
+@media(max-width:380px){.hero-picker__info h2{font-size:1.3rem}.hero-picker__info p{font-size:.67rem}}
