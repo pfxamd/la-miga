@@ -46,10 +46,6 @@
 .equipment-item p{font-size:.78rem;line-height:1.75;color:var(--mute);margin:0}
 .workshop-outro__inner{display:flex;align-items:center;justify-content:space-between;gap:2rem}
 .workshop-outro h2{font-family:var(--font-display);font-size:clamp(1.7rem,3vw,2.8rem);font-weight:620;letter-spacing:-.06em;margin:.2rem 0}
-.story-intro__mark{justify-self:end;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.15rem;width:220px;aspect-ratio:1;border:1px solid var(--heat);border-radius:50%;transform:rotate(-9deg);color:var(--heat)}
-.story-intro__mark span{font-family:var(--font-display);font-size:1.4rem;line-height:1}
-.story-intro__mark strong{font-family:var(--font-display);font-size:3rem;letter-spacing:-.09em;line-height:1}
-.story-intro__mark small{font-size:.5rem;letter-spacing:.1em;font-weight:750;margin-top:.55rem}
 .about-story__grid{display:grid;grid-template-columns:.93fr 1.07fr;align-items:center;gap:clamp(2rem,5vw,5.5rem)}
 .about-story__visual{position:relative;display:grid;place-items:center;aspect-ratio:1.06;background:var(--stage-1);padding:1.4rem;overflow:hidden}
 .about-story__visual>.eyebrow{position:absolute;top:1.1rem;left:1.1rem}
@@ -98,8 +94,7 @@
  .order-steps__inner,.about-story__grid,.contact-grid{grid-template-columns:1fr;gap:1.8rem}
  .order-steps__inner>a{grid-column:auto}
  .workshop-illustration{justify-self:start;width:min(100%,300px);aspect-ratio:1.6}
- .story-intro__mark,.contact-intro__accent{justify-self:start;width:150px;height:150px}
- .story-intro__mark strong{font-size:2rem}.story-intro__mark small{font-size:.4rem}
+ .contact-intro__accent{justify-self:start;width:150px;height:150px}
  .contact-intro__accent span{font-size:3.3rem}
  .values-grid{grid-template-columns:1fr}
  .values-grid article{border-right:0;border-bottom:1px solid var(--line);padding:1.25rem 0}

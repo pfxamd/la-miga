@@ -24,6 +24,7 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Responsive adjustments | `src/styles/responsive.css` |
 | Original WebP product photos | `public/assets/bread/` |
 | Original logo | `public/assets/brand/` |
+| Nuestra Historia imagery and layout | `src/pages/nosotros/index.astro`, `src/styles/nosotros.css`, `docs/NOSOTROS_PHOTOS.md` |
 
 The homepage imports independently scoped featured/shop/process/story sections from `src/components/home/` and has direct links to separate pages. The stylesheet entry `src/styles/global.css` only imports other CSS modules. Maintain existing class names when editing to avoid unintended layout changes.
 

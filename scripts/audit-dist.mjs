@@ -48,6 +48,9 @@ for (const route of ['panes/', 'obrador/', 'nosotros/', 'contacto/']) {
 await assertFile('assets/brand/la-miga-logo.webp', 'branding');
 const breadImages = files.filter((path) => path.startsWith('assets/bread/') && path.endsWith('.webp'));
 if (breadImages.length < 6) errors.push('Missing locally optimized bread imagery');
+for (const photo of ['fachada', 'hogaza', 'miga', 'trigo', 'harina', 'obrador']) {
+  await assertFile(`assets/nosotros/${photo}.webp`, 'Nuestra Historia photography');
+}
 
 if (errors.length) {
   console.error('Static site audit failed:\n' + errors.map((error) => `- ${error}`).join('\n'));
