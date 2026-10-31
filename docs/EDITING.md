@@ -14,7 +14,8 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Shared internal-page styling | `src/styles/pages.css` |
 | Workshop process | `src/components/home/BakeryProcess.astro` |
 | Brand story | `src/components/home/BrandStory.astro` |
-| Navbar, brand logo, footer, creator link | `src/layouts/BaseLayout.astro` |
+| Navbar, brand logo, footer, creator link | `src/layouts/BaseLayout.astro`, `src/styles/footer.css`, `src/components/ui/SocialIcon.astro` |
+| Example footer contact details and optional future real links | `src/data/contact.ts` |
 | Add-to-cart buttons | `src/components/cart/AddToCart.astro` (shared native handler) |
 | Cart drawer UI | `src/components/cart/CartDrawer.tsx` |
 | Cart rules, totals, WhatsApp message | `src/store/`, `src/lib/` |

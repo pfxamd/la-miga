@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import CartDrawer from '../components/cart/CartDrawer';
 import { siteBase } from '../data/products';
+import SocialIcon from '../components/ui/SocialIcon.astro';
+import { contactDetails } from '../data/contact';
 
 interface Props {
   title: string;
@@ -37,7 +39,7 @@ const navigation = [
     <meta property="og:description" content={description} />
     <title>{title}</title>
   </head>
-  <body>
+  <body id="top">
     <div class="announcement"><span>HECHO CON TIEMPO.</span> <span>HORNEADO CON CARIÑO.</span></div>
     <header class="site-header">
       <div class="container site-header__inner">
@@ -60,12 +62,88 @@ const navigation = [
     <slot />
     <footer class="footer" id="contacto">
       <div class="container">
-        <div class="footer__top">
-          <div><div class="footer__wordmark">LA MIGA<span>.</span></div><p>Pan hecho con tiempo. Compartido con ganas.</p></div>
-          <div><span class="eyebrow">EXPLORA</span><nav class="footer__nav" aria-label="Explorar LA MIGA"><a href={`${base}panes/`}>Nuestros panes</a><a href={`${base}obrador/`}>El obrador</a><a href={`${base}nosotros/`}>Nuestra historia</a></nav></div>
-          <div><span class="eyebrow">ENCUÉNTRANOS</span><p>Tetuán, Marruecos</p><a class="footer__contact" href={`${base}contacto/`}>Contacto y pedidos ↗</a></div>
+        <div class="footer__lead">
+          <div class="footer__lead-copy">
+            <span class="footer__kicker">LA MIGA / PANADERÍA ARTESANAL</span>
+            <h2>El buen pan <em>se comparte.</em></h2>
+          </div>
+          <a class="footer__lead-link" href={`${base}contacto/`}>
+            <span>Hablemos de pan</span>
+            <span class="footer__lead-arrow"><SocialIcon name="arrow" size={23} /></span>
+          </a>
+          <svg class="footer__grain" viewBox="0 0 240 180" fill="none" aria-hidden="true" focusable="false">
+            <g stroke="currentColor" stroke-linecap="round" stroke-width="1.2">
+              <path d="M48 158C91 133 119 90 146 22M71 147C90 113 120 78 171 47M105 121C118 109 143 99 195 92"/>
+              <path d="M95 96C71 94 68 80 77 60C97 67 105 79 95 96ZM111 72C94 53 99 40 117 30C132 47 129 61 111 72ZM130 49C119 31 127 19 146 13C155 29 149 44 130 49Z"/>
+              <path d="M120 92C129 74 147 69 165 79C156 96 138 103 120 92ZM147 63C156 49 173 50 187 62C177 77 163 78 147 63ZM101 122C82 124 76 116 73 101C91 98 102 105 101 122Z"/>
+              <path d="M182 128h23M193.5 116.5v23"/>
+            </g>
+          </svg>
         </div>
-        <div class="footer__bottom"><span>© {new Date().getFullYear()} LA MIGA</span><span>PANADERÍA ARTESANAL · TETUÁN</span></div>
+
+        <div class="footer__main">
+          <div class="footer__identity">
+            <a href={base} class="footer__wordmark" aria-label="LA MIGA — Inicio">LA MIGA<span>.</span></a>
+            <p>Pan hecho con tiempo.<br />Compartido con ganas.</p>
+            <span class="footer__identity-note">TETUÁN · MARRUECOS / EST. EN LA IDEA</span>
+          </div>
+          <div class="footer__explore">
+            <span class="footer__eyebrow">EN LA PANADERÍA</span>
+            <nav class="footer__nav" aria-label="Explorar LA MIGA">
+              <a href={`${base}panes/`}>Nuestros panes <span aria-hidden="true">↗</span></a>
+              <a href={`${base}obrador/`}>El obrador <span aria-hidden="true">↗</span></a>
+              <a href={`${base}nosotros/`}>Nuestra historia <span aria-hidden="true">↗</span></a>
+              <a href={`${base}contacto/`}>Contacto y pedidos <span aria-hidden="true">↗</span></a>
+            </nav>
+          </div>
+          <div class="footer__community">
+            <span class="footer__eyebrow">SIGUE LA MIGA</span>
+            <p>Las historias saben mejor cuando se comparten.</p>
+            <div class="footer__socials" aria-label="Perfiles sociales de demostración">
+              <div class="footer__social" title="Instagram — perfil de demostración sin cuenta conectada">
+                <span class="footer__social-icon"><SocialIcon name="instagram" size={21}/></span>
+                <span>Instagram</span>
+              </div>
+              <div class="footer__social" title="Facebook — perfil de demostración sin cuenta conectada">
+                <span class="footer__social-icon"><SocialIcon name="facebook" size={21}/></span>
+                <span>Facebook</span>
+              </div>
+              <div class="footer__social" title="TikTok — perfil de demostración sin cuenta conectada">
+                <span class="footer__social-icon"><SocialIcon name="tiktok" size={21}/></span>
+                <span>TikTok</span>
+              </div>
+            </div>
+            <span class="footer__social-handle">{contactDetails.socialHandleExample} <small>· DEMO</small></span>
+          </div>
+        </div>
+
+        <div class="footer__contact-strip" aria-label="Canales de contacto">
+          <a class="footer__channel footer__channel--active" href={`${base}contacto/`}>
+            <span class="footer__channel-icon"><SocialIcon name="whatsapp" size={22}/></span>
+            <span class="footer__channel-copy"><small>WHATSAPP / PEDIDOS</small><strong>Prepara tu pedido</strong></span>
+            <SocialIcon name="arrow" size={18}/>
+          </a>
+          <div class="footer__channel" aria-label="Correo electrónico de ejemplo, no operativo">
+            <span class="footer__channel-icon"><SocialIcon name="mail" size={22}/></span>
+            <span class="footer__channel-copy"><small>CORREO / DEMO</small><strong>{contactDetails.emailExample}</strong></span>
+          </div>
+          <div class="footer__channel" aria-label="Número telefónico de ejemplo, no operativo">
+            <span class="footer__channel-icon"><SocialIcon name="phone" size={22}/></span>
+            <span class="footer__channel-copy"><small>TELÉFONO / DEMO</small><strong>{contactDetails.phoneExample}</strong></span>
+          </div>
+          <a class="footer__channel footer__channel--active" href={contactDetails.mapUrl} target="_blank" rel="noopener noreferrer" aria-label="Ver la ciudad de Tetuán en Google Maps, ubicación general">
+            <span class="footer__channel-icon"><SocialIcon name="pin" size={22}/></span>
+            <span class="footer__channel-copy"><small>UBICACIÓN GENERAL</small><strong>{contactDetails.city}, {contactDetails.country}</strong></span>
+            <SocialIcon name="arrow" size={18}/>
+          </a>
+        </div>
+        <p class="footer__demo-note">* Datos de contacto y perfiles sociales de ejemplo. Los pedidos se preparan en la cesta; sin número de WhatsApp configurado.</p>
+
+        <div class="footer__bottom">
+          <span>© {new Date().getFullYear()} LA MIGA</span>
+          <span>HARINA · AGUA · SAL · TIEMPO</span>
+          <a href="#top" class="footer__back-top" aria-label="Volver al inicio de la página">VOLVER ARRIBA ↑</a>
+        </div>
         <div class="footer__credit">Diseño y desarrollo por <a href="https://pfxamd.com/" target="_blank" rel="noopener noreferrer" aria-label="PFXAMD — Diseño y desarrollo web">PFXAMD</a></div>
       </div>
     </footer>

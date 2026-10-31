@@ -44,9 +44,6 @@
   .story-section__badge div{font-size:2.2rem}
   .story-section__badge small{font-size:.47rem}
   .story-section h2{font-size:2.8rem}
-  .footer__top{display:block;padding-bottom:2rem}
-  .footer__top>div+div{margin-top:2rem}
-  .footer__bottom{gap:1rem;font-size:.54rem}
   .detail-layout{grid-template-columns:1fr;gap:2rem}
   .detail-visual{min-height:320px;padding:1rem}
   .detail-copy h1{font-size:3.4rem}
@@ -58,7 +55,6 @@
   .product-card__action{display:grid;justify-items:stretch;gap:.4rem}
   .add-button{width:100%;font-size:.67rem;gap:.3rem;padding:.7rem .35rem}
   .text-link{margin-top:0;min-height:32px}
-  .footer__bottom{flex-direction:column}
   .detail-facts>div{grid-template-columns:85px 1fr}
 }
 @media(prefers-reduced-motion:reduce){

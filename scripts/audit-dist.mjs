@@ -57,6 +57,13 @@ for (const page of ['index.html', 'panes/index.html']) {
 const homepage = await readFile(new URL('index.html', dist), 'utf8');
 if (!homepage.includes('https://pfxamd.com/')) errors.push('Missing creator credit link');
 if (!homepage.includes('LA MIGA')) errors.push('Missing LA MIGA brand text');
+for (const page of htmlFiles) {
+  const html = await readFile(new URL(page, dist), 'utf8');
+  for (const marker of ['footer__socials', 'footer__contact-strip', 'footer__credit', 'footer__demo-note']) {
+    if (!html.includes(marker)) errors.push(`${page}: missing global editorial footer part ${marker}`);
+  }
+}
+
 for (const route of ['panes/', 'obrador/', 'nosotros/', 'contacto/']) {
   if (!homepage.includes(`${publicBase}${route}`)) errors.push(`Homepage missing navigation link: ${route}`);
 }
