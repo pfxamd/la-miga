@@ -59,6 +59,11 @@ if (!homepage.includes('https://pfxamd.com/')) errors.push('Missing creator cred
 if (!homepage.includes('LA MIGA')) errors.push('Missing LA MIGA brand text');
 for (const page of htmlFiles) {
   const html = await readFile(new URL(page, dist), 'utf8');
+  if (!html.includes('site-header__progress')) errors.push(`${page}: missing scroll progress indicator`);
+}
+
+for (const page of htmlFiles) {
+  const html = await readFile(new URL(page, dist), 'utf8');
   for (const marker of ['footer__socials', 'footer__contact-strip', 'footer__credit', 'footer__demo-note']) {
     if (!html.includes(marker)) errors.push(`${page}: missing global editorial footer part ${marker}`);
   }

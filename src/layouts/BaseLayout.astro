@@ -58,6 +58,7 @@ const navigation = [
         </details>
         <CartDrawer client:load />
       </div>
+      <span class="site-header__progress" aria-hidden="true"></span>
     </header>
     <slot />
     <footer class="footer" id="contacto">
@@ -161,6 +162,10 @@ const navigation = [
           if (event.key === 'Escape') mobileMenu.open = false;
         });
       }
+    </script>
+    <script>
+      import { initScrollExperience } from '../lib/scroll-experience';
+      initScrollExperience();
     </script>
   </body>
 </html>

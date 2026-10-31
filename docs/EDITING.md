@@ -24,6 +24,7 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Typography and foundational element styling | `src/styles/base.css` |
 | Section design | Corresponding file under `src/styles/` |
 | Responsive adjustments | `src/styles/responsive.css` |
+| Scroll progress, subtle section entrance and anchor offsets | `src/lib/scroll-experience.ts`, `src/styles/scroll-experience.css` |
 | Original WebP product photos | `public/assets/bread/` |
 | Original logo | `public/assets/brand/` |
 | Nuestra Historia imagery and layout | `src/pages/nosotros/index.astro`, `src/styles/nosotros.css`, `docs/NOSOTROS_PHOTOS.md` |

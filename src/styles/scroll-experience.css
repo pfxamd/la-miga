@@ -1,0 +1,73 @@
+/* LA MIGA — scroll art direction: ink-and-clay progress, restrained rise.
+   Native browser wheel/touch scrolling remains completely unchanged. */
+
+/* One drawn line under the stationary navigation, without layout shifts. */
+.site-header{transition:background-color .28s ease,box-shadow .28s ease,border-color .28s ease}
+.site-header.site-header--scrolled{
+  background:rgba(246,242,233,.985);
+  border-bottom-color:rgba(150,63,53,.28);
+  box-shadow:0 8px 24px rgba(45,24,21,.055);
+}
+.site-header__progress{
+  position:absolute;
+  height:2px;
+  bottom:-1px;
+  left:0;
+  right:0;
+  z-index:2;
+  background:var(--heat);
+  transform-origin:0 50%;
+  transform:scaleX(0);
+  pointer-events:none;
+}
+
+/* Preserve smooth in-page anchor navigation and allow space for the sticky nav. */
+html{scroll-padding-top:calc(73px + 1.25rem);scrollbar-color:#ab6b59 var(--flour);scrollbar-width:thin}
+:where(section[id],article[id],h2[id],h3[id],footer[id]){scroll-margin-top:calc(73px + 1.25rem)}
+@media(max-width:720px){
+  html{scroll-padding-top:calc(64px + .9rem)}
+  :where(section[id],article[id],h2[id],h3[id],footer[id]){scroll-margin-top:calc(64px + .9rem)}
+}
+
+/* A slim warm scrollbar blends with the existing ink-and-flour palette. */
+@supports selector(::-webkit-scrollbar){
+  html::-webkit-scrollbar{width:9px}
+  html::-webkit-scrollbar-track{background:var(--flour)}
+  html::-webkit-scrollbar-thumb{
+    background:var(--copper);
+    border-radius:10px;
+    border:2px solid var(--flour);
+  }
+  html::-webkit-scrollbar-thumb:hover{background:var(--heat)}
+}
+
+/* Only JS-tagged off-screen elements animate; no hidden-content fallback. */
+.scroll-motion-ready .scroll-rise{
+  transition:opacity .65s cubic-bezier(.22,.75,.22,1),
+             transform .72s cubic-bezier(.2,.78,.22,1);
+}
+.scroll-motion-ready .scroll-rise:not(.is-revealed){
+  opacity:0;
+  transform:translate3d(0,17px,0);
+}
+.scroll-motion-ready .scroll-rise.is-revealed{
+  opacity:1;
+  transform:translate3d(0,0,0);
+}
+@media(max-width:720px){
+ .scroll-motion-ready .scroll-rise:not(.is-revealed){transform:translate3d(0,11px,0)}
+ .scroll-motion-ready .scroll-rise{transition-duration:.5s,.56s}
+}
+
+/* Users opting out of animation always see static content. */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .site-header{transition:none}
+  .scroll-motion-ready .scroll-rise,
+  .scroll-motion-ready .scroll-rise:not(.is-revealed),
+  .scroll-motion-ready .scroll-rise.is-revealed{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+}
