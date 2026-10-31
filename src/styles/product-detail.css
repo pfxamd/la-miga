@@ -27,3 +27,6 @@
 .detail-visual__image img{position:relative;transition:transform .3s ease}
 @media(hover:hover){.detail-visual__image:hover img{transform:scale(1.035)}}
 .detail-buy .add-button{min-height:48px}
+
+.detail-facts dd{overflow-wrap:anywhere}
+.detail-facts dt{color:var(--ink)}

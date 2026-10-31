@@ -33,3 +33,7 @@ The homepage imports four independent sections from `src/components/home/`. The 
 ## Order flow
 
 Prices and availability are resolved against the static catalog. WhatsApp handoff only works after the real `PUBLIC_WHATSAPP_NUMBER` is configured. Until then, the cart supports copying the message; it never silently sends an order.
+
+## Real bread source notes
+
+See [PRODUCT_RESEARCH.md](PRODUCT_RESEARCH.md). Bread types and base ingredients are documented from Spanish food authorities and commercial bakeries. Prices, stock and presented formulations belong to the LA MIGA concept, not a certified operating bakery.

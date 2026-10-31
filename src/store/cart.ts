@@ -5,7 +5,7 @@ import {
   type CartLine,
 } from '../lib/cart-model';
 
-export const $cart = persistentAtom<CartLine[]>('la-miga:cart:v1', [], {
+export const $cart = persistentAtom<CartLine[]>('la-miga:cart:v2', [], {
   encode: JSON.stringify,
   decode: parseStoredCart,
 });
