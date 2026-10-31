@@ -15,3 +15,10 @@
 .ticker{border-bottom:1px solid var(--line);overflow:hidden;background:var(--paper)}.ticker__inner{min-height:49px;display:flex;align-items:center;justify-content:space-around;gap:1.7rem;width:min(100% - 3rem,1190px);margin:auto;white-space:nowrap;font-size:.61rem;font-weight:750;letter-spacing:.13em}.ticker i{font-size:.9rem;color:var(--heat);font-style:normal}
 @media(max-width:720px){.hero__inner{grid-template-columns:1fr;gap:0}.hero__copy{padding:2.2rem 0 .5rem}.hero h1{font-size:clamp(3.7rem,14vw,5.7rem);margin:1.2rem 0}.hero__copy>p{font-size:.88rem}.hero__meta{margin-top:1.4rem}.hero__visual{height:410px}.hero-picker__scene{inset:0 0 85px}.hero-picker__controls span{display:none}.hero-picker__info{bottom:52px}.hero-picker__controls{bottom:48px}.ticker__inner{min-height:43px}}
 @media(prefers-reduced-motion:reduce){.hero-picker__bread.is-active,.hero-picker__bread.is-exiting,.hero-picker__scene.is-landing .hero-picker__board,.hero-picker__scene.is-landing .hero-picker__contact{animation:none}.hero-picker__bread.is-exiting{visibility:hidden}}
+
+/* Continuous, seamless values ribbon. */
+.ticker__inner{width:max-content;margin:0;gap:0;justify-content:flex-start;animation:ticker-scroll 32s linear infinite;will-change:transform}
+.ticker__group{display:flex;align-items:center;justify-content:space-around;gap:2rem;flex:none;min-width:max(100vw, 1050px);padding-inline:1rem}
+.ticker:hover .ticker__inner{animation-play-state:paused}
+@keyframes ticker-scroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker__inner{animation:none;will-change:auto}.ticker__group:nth-child(2){display:none}.ticker__group{min-width:100%;justify-content:space-around}}
