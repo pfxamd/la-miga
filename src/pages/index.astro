@@ -1,15 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/home/Hero.astro';
-import BreadCatalog from '../components/home/BreadCatalog.astro';
+import FeaturedBreads from '../components/home/FeaturedBreads.astro';
 import BakeryProcess from '../components/home/BakeryProcess.astro';
 import BrandStory from '../components/home/BrandStory.astro';
+import { siteBase } from '../data/products';
 ---
-<BaseLayout title="LA MIGA — Panadería Artesanal · Tetuán">
+<BaseLayout title="LA MIGA — Panadería Artesanal · Tetuán" active="inicio">
   <main>
     <Hero />
-    <BreadCatalog />
+    <FeaturedBreads />
     <BakeryProcess />
     <BrandStory />
+    <section class="home-contact-strip">
+      <div class="container home-contact-strip__inner">
+        <div><span class="eyebrow">NOS VEMOS EN TETUÁN</span><h2>¿Hablamos de <em>pan?</em></h2></div>
+        <a class="editorial-link" href={`${siteBase}contacto/`}>Cómo encontrarnos <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
   </main>
 </BaseLayout>

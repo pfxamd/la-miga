@@ -14,3 +14,9 @@
 .footer__credit a:hover,.footer__credit a:focus-visible{text-decoration-color:currentColor}
 
 .footer__credit a:focus-visible{outline-offset:3px}
+
+.footer__nav{display:grid;gap:.55rem;margin:.8rem 0 0}
+.footer__nav a,.footer__contact{font-size:.83rem;line-height:1.45;color:#ead9ca;transition:color .2s}
+.footer__nav a:hover,.footer__contact:hover{color:var(--rose)}
+.footer__contact{display:inline-block;margin-top:.2rem;border-bottom:1px solid rgba(230,194,181,.5);padding-bottom:.25rem}
+.footer__top>.footer__nav{max-width:180px}

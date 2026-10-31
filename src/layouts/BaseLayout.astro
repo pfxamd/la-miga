@@ -6,12 +6,21 @@ import { siteBase } from '../data/products';
 interface Props {
   title: string;
   description?: string;
+  active?: 'inicio' | 'panes' | 'obrador' | 'nosotros' | 'contacto';
 }
 const {
   title,
+  active,
   description = 'Pan de verdad, hecho con tiempo. LA MIGA, panadería artesanal en Tetuán.',
 } = Astro.props;
 const base = siteBase;
+const navigation = [
+  { id: 'inicio', label: 'Inicio', href: base },
+  { id: 'panes', label: 'Nuestros panes', href: `${base}panes/` },
+  { id: 'obrador', label: 'El obrador', href: `${base}obrador/` },
+  { id: 'nosotros', label: 'Nosotros', href: `${base}nosotros/` },
+  { id: 'contacto', label: 'Contacto', href: `${base}contacto/` },
+] as const;
 ---
 <!doctype html>
 <html lang="es">
@@ -23,6 +32,7 @@ const base = siteBase;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..850;1,400..850&display=swap" rel="stylesheet" />
+    <link rel="canonical" href={Astro.url.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <title>{title}</title>
@@ -33,9 +43,7 @@ const base = siteBase;
       <div class="container site-header__inner">
         <a class="brand" href={base} aria-label="La Miga — Inicio"><img class="brand__img" src={`${base}assets/brand/la-miga-logo.webp`} alt="LA MIGA — Panadería Artesanal" width="220" height="71" /></a>
         <nav class="nav" aria-label="Navegación principal">
-          <a href={`${base}#panes`}>Nuestros panes</a>
-          <a href={`${base}#obrador`}>El obrador</a>
-          <a href={`${base}#nosotros`}>Nosotros</a>
+          {navigation.map((item) => <a href={item.href} aria-current={active === item.id ? 'page' : undefined}>{item.label}</a>)}
         </nav>
         <details class="mobile-nav">
           <summary aria-label="Abrir menú de navegación">
@@ -43,9 +51,7 @@ const base = siteBase;
             <svg aria-hidden="true" viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14" /></svg>
           </summary>
           <nav class="mobile-nav__panel" aria-label="Navegación móvil">
-            <a href={`${base}#panes`}>Nuestros panes <span aria-hidden="true">↗</span></a>
-            <a href={`${base}#obrador`}>El obrador <span aria-hidden="true">↗</span></a>
-            <a href={`${base}#nosotros`}>Nosotros <span aria-hidden="true">↗</span></a>
+            {navigation.map((item) => <a href={item.href} aria-current={active === item.id ? 'page' : undefined}>{item.label} <span aria-hidden="true">↗</span></a>)}
           </nav>
         </details>
         <CartDrawer client:load />
@@ -56,7 +62,8 @@ const base = siteBase;
       <div class="container">
         <div class="footer__top">
           <div><div class="footer__wordmark">LA MIGA<span>.</span></div><p>Pan hecho con tiempo. Compartido con ganas.</p></div>
-          <div><span class="eyebrow">ENCUÉNTRANOS</span><p>Tetuán, Marruecos</p><small>Recogida previa confirmación.</small></div>
+          <div><span class="eyebrow">EXPLORA</span><nav class="footer__nav" aria-label="Explorar LA MIGA"><a href={`${base}panes/`}>Nuestros panes</a><a href={`${base}obrador/`}>El obrador</a><a href={`${base}nosotros/`}>Nuestra historia</a></nav></div>
+          <div><span class="eyebrow">ENCUÉNTRANOS</span><p>Tetuán, Marruecos</p><a class="footer__contact" href={`${base}contacto/`}>Contacto y pedidos ↗</a></div>
         </div>
         <div class="footer__bottom"><span>© {new Date().getFullYear()} LA MIGA</span><span>PANADERÍA ARTESANAL · TETUÁN</span></div>
         <div class="footer__credit">Diseño y desarrollo por <a href="https://pfxamd.com/" target="_blank" rel="noopener noreferrer" aria-label="PFXAMD — Diseño y desarrollo web">PFXAMD</a></div>

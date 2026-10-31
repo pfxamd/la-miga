@@ -6,7 +6,11 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | --- | --- |
 | Bread catalog (name, category, price, weight, ingredients, photo, availability) | `src/data/products.ts` |
 | Homepage headline, featured product | `src/components/home/Hero.astro` |
-| Product grid and filters | `src/components/home/BreadCatalog.astro` |
+| Full catalog and category filters | `src/components/home/BreadCatalog.astro` |
+| One reusable bread product card | `src/components/shop/BreadCard.astro` |
+| Three featured products on home | `src/components/home/FeaturedBreads.astro` |
+| Standalone page content | `src/pages/panes/index.astro`, `src/pages/obrador/index.astro`, `src/pages/nosotros/index.astro`, `src/pages/contacto/index.astro` |
+| Shared internal-page styling | `src/styles/pages.css` |
 | Workshop process | `src/components/home/BakeryProcess.astro` |
 | Brand story | `src/components/home/BrandStory.astro` |
 | Navbar, brand logo, footer, creator link | `src/layouts/BaseLayout.astro` |
@@ -21,14 +25,14 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Original WebP product photos | `public/assets/bread/` |
 | Original logo | `public/assets/brand/` |
 
-The homepage imports four independent sections from `src/components/home/`. The stylesheet entry `src/styles/global.css` only imports other CSS modules. Maintain existing class names when editing to avoid unintended layout changes.
+The homepage imports independently scoped featured/shop/process/story sections from `src/components/home/` and has direct links to separate pages. The stylesheet entry `src/styles/global.css` only imports other CSS modules. Maintain existing class names when editing to avoid unintended layout changes.
 
 ## Before publishing
 
 1. Keep product IDs stable: customer carts store IDs, not prices. Changes to slugs change URLs.
 2. Build image URLs with `withBase()` and navigation URLs with `siteBase` for GitHub Pages.
 3. Run `npm run verify` (types, tests, production build, broken-link/image-path audit).
-4. Check the hero and catalog on phone and desktop; open a product and its image gallery; add/remove quantities; verify the PFXAMD footer signature and link.
+4. Check the hero and catalog on phone and desktop; navigate to all four standalone pages, open a product and its image gallery; add/remove quantities; verify the PFXAMD footer signature and link.
 5. Push changes to `main`; GitHub Actions publishes GitHub Pages.
 
 ## Order flow

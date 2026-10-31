@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteBase } from '../../data/products';
+---
+<BaseLayout title="Contacto y pedidos — LA MIGA" description="Cómo preparar tu pedido de pan, consultar nuestra ubicación general en Tetuán y conocer el proceso de recogida." active="contacto">
+  <main>
+    <header class="inner-intro inner-intro--contact">
+      <div class="container inner-intro__grid">
+        <div>
+          <span class="eyebrow inner-intro__eyebrow">LA MIGA / CONTACTO</span>
+          <h1>Hablemos <em>de pan.</em></h1>
+          <p>¿Ya sabes qué pan te apetece? Empieza por la colección y prepara tu cesta en unos pasos.</p>
+        </div>
+        <div class="contact-intro__accent" aria-hidden="true"><span>LM</span><small>TETUÁN / MARRUECOS</small></div>
+      </div>
+    </header>
+    <section class="section contact-section">
+      <div class="container contact-grid">
+        <div class="contact-main">
+          <span class="eyebrow">TU PEDIDO, PASO A PASO</span>
+          <h2>Del catálogo <em>a tu mesa.</em></h2>
+          <ol class="contact-steps">
+            <li><span>01</span><div><h3>Elige tu pan</h3><p>Descubre las variedades, los ingredientes y el precio de cada pieza.</p></div></li>
+            <li><span>02</span><div><h3>Prepara la cesta</h3><p>Añade tus favoritos y ajusta las cantidades en cualquier momento.</p></div></li>
+            <li><span>03</span><div><h3>Comparte el pedido</h3><p>La cesta genera un resumen listo para copiar. La atención directa por WhatsApp se habilitará cuando esté disponible.</p></div></li>
+          </ol>
+          <a class="primary-link" href={`${siteBase}panes/`}>Elegir mis panes <span aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="contact-facts">
+          <span class="eyebrow">DÓNDE ESTAMOS</span>
+          <h2>Tetuán<span>.</span></h2>
+          <p>Marruecos</p>
+          <div class="contact-facts__line"><span>UBICACIÓN</span><strong>Tetuán · dirección exacta por confirmar</strong></div>
+          <div class="contact-facts__line"><span>HORARIO</span><strong>Por anunciar</strong></div>
+          <div class="contact-facts__line"><span>PEDIDOS</span><strong>Resumen desde tu cesta</strong></div>
+          <div class="contact-facts__signature">LA MIGA / PANADERÍA ARTESANAL</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

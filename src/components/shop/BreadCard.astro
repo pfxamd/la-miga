@@ -1,0 +1,30 @@
+---
+import AddToCart from '../cart/AddToCart.astro';
+import { siteBase, withBase } from '../../data/products';
+import type { BreadProduct } from '../../data/products';
+
+interface Props { product: BreadProduct; index: number; }
+const { product, index } = Astro.props;
+const detail = `${siteBase}pan/${product.slug}/`;
+---
+<article class="product-card" data-category={product.category}>
+  <div class:list={['product-card__visual', `product-card__visual--${(index % 4) + 1}`]}>
+    <span class="product-card__index">LM / {String(index + 1).padStart(2, '0')}</span>
+    <a href={detail} aria-label={`Ver ${product.name}`} class="product-card__image-link">
+      <img src={withBase(product.image)} width="800" height="800" alt={product.name} loading="lazy" decoding="async" />
+    </a>
+    <span class="product-card__weight">{product.weightGrams} g</span>
+  </div>
+  <div class="product-card__info">
+    <div>
+      <a href={detail} class="product-card__title">{product.name}</a>
+      <p>{product.subtitle}</p>
+      <p class="product-card__ingredients">{product.ingredients}</p>
+    </div>
+    <strong class="product-card__price">{product.priceMAD} <small>MAD</small></strong>
+  </div>
+  <div class="product-card__action">
+    <AddToCart id={product.id} productName={product.name} title="Añadir a la cesta" available={product.available} />
+    <a href={detail} class="text-link">Ver detalles ↗</a>
+  </div>
+</article>

@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BakeryProcess from '../../components/home/BakeryProcess.astro';
+import { siteBase } from '../../data/products';
+const equipment = [
+  {num: '01', title: 'La amasadora', type: 'PRECISIÓN', text: 'Une harina y agua sin perder el control de la textura. Cada masa necesita su propio ritmo.', symbol: 'amasadora'},
+  {num: '02', title: 'Las cestas', type: 'FERMENTACIÓN', text: 'Sostienen las hogazas durante el reposo y ayudan a conservar su forma.', symbol: 'cestas'},
+  {num: '03', title: 'El banco de trabajo', type: 'FORMADO', text: 'Una superficie limpia para dividir, pesar y dar a cada pan su silueta.', symbol: 'banco'},
+  {num: '04', title: 'El horno de solera', type: 'COCCIÓN', text: 'El calor uniforme y el vapor influyen en la corteza, el color y la miga.', symbol: 'horno'},
+];
+---
+<BaseLayout title="El obrador — LA MIGA" description="Descubre el proceso del pan: amasado, fermentación, formado y horneado en LA MIGA." active="obrador">
+  <main>
+    <header class="inner-intro inner-intro--workshop">
+      <div class="container inner-intro__grid">
+        <div>
+          <span class="eyebrow inner-intro__eyebrow">LA MIGA / DENTRO DEL OBRADOR</span>
+          <h1>Donde empieza <em>todo.</em></h1>
+          <p>El buen pan no necesita secretos. Necesita harina, agua, buenas herramientas y respetar cada paso.</p>
+        </div>
+        <div class="workshop-illustration" aria-hidden="true">
+          <svg viewBox="0 0 350 245" fill="none">
+            <g stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+              <rect x="80" y="35" width="180" height="37" rx="6" />
+              <path d="M170 35V19h27v16M115 72l10 72h89l11-72M125 144h89M145 144v30h49v-30" />
+              <path d="M109 85h121M107 94h125M125 115c14 9 26 9 40 0s26-9 40 0M132 129h80" stroke-dasharray="4 6" />
+              <path d="M98 174h146M113 174l-6 39M233 174l6 39M103 213h16M226 213h17" />
+              <circle cx="239" cy="54" r="8" />
+              <path d="M55 170V51M51 51h10M273 194h41M293 174v41" stroke-width="1" />
+            </g>
+          </svg>
+          <span>ESTUDIO 01 / AMASADO</span>
+        </div>
+      </div>
+    </header>
+    <section class="section workshop-equipment">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="eyebrow">EL EQUIPO DEL OBRADOR</span><h2>Las herramientas <em>importan.</em></h2></div>
+          <p>Los instrumentos adecuados ayudan a que cada pan reciba el cuidado que necesita.</p>
+        </div>
+        <div class="equipment-grid">
+          {equipment.map((item) => (
+            <article class="equipment-item">
+              <div class="equipment-item__top"><span>{item.num}</span><span>{item.type}</span></div>
+              <div class:list={['equipment-item__drawing', `equipment-item__drawing--${item.symbol}`]} aria-hidden="true">
+                <span class="equipment-item__glyph">{item.symbol === 'amasadora' ? '◒' : item.symbol === 'cestas' ? '◎' : item.symbol === 'banco' ? '≋' : '◧'}</span>
+                <span class="equipment-item__rule"></span>
+              </div>
+              <h3>{item.title}</h3><p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <BakeryProcess showLink={false} />
+    <section class="section workshop-outro">
+      <div class="container workshop-outro__inner">
+        <span class="eyebrow">DEL OBRADOR A TU MESA</span>
+        <h2>Todo esto, para <em>una buena miga.</em></h2>
+        <a class="editorial-link" href={`${siteBase}panes/`}>Conoce nuestros panes <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

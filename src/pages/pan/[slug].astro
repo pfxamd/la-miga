@@ -13,14 +13,14 @@ export const getStaticPaths = (() => products.map((product) => ({
 const { product } = Astro.props as { product: BreadProduct };
 const base = siteBase;
 ---
-<BaseLayout title={`${product.name} — LA MIGA`} description={product.description}>
+<BaseLayout title={`${product.name} — LA MIGA`} description={product.description} active="panes">
   <main class="detail-page container">
-    <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href={base}>Inicio</a><span aria-hidden="true">/</span><a href={`${base}#panes`}>Nuestros panes</a><span aria-hidden="true">/</span><span>{product.name}</span></nav>
+    <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href={base}>Inicio</a><span aria-hidden="true">/</span><a href={`${base}panes/`}>Nuestros panes</a><span aria-hidden="true">/</span><span>{product.name}</span></nav>
     <div class="detail-layout">
       <div class="detail-visual"><span class="eyebrow">{categoryLabels[product.category]} · {product.weightGrams} G</span><a href={withBase(product.image)} class="detail-visual__image" data-pswp-width="800" data-pswp-height="800" aria-label={`Ampliar imagen de ${product.name}`}><img src={withBase(product.image)} width="800" height="800" alt={product.name} decoding="async"/></a><span class="detail-visual__note">HAZ CLIC PARA AMPLIAR ↗</span></div>
       <div class="detail-copy"><span class="eyebrow eyebrow--accent">PAN HECHO CON TIEMPO</span><h1>{product.name}<span>.</span></h1><p class="detail-subtitle">{product.subtitle}</p><p class="detail-description">{product.description}</p><dl class="detail-facts"><div><dt>Peso</dt><dd>{product.weightGrams} g</dd></div><div><dt>Ingredientes</dt><dd>{product.ingredients}</dd></div><div><dt>Forma</dt><dd>{product.shape}</dd></div><div><dt>Elaboración</dt><dd>{product.method}</dd></div><div><dt>Alérgenos</dt><dd>{product.allergens}</dd></div><div><dt>Disponibilidad</dt><dd>{product.available ? 'Bajo confirmación' : 'Temporalmente agotado'}</dd></div></dl><div class="detail-buy"><strong>{product.priceMAD} <small>MAD</small></strong><AddToCart id={product.id} productName={product.name} title="Añadir a la cesta" available={product.available} full /></div><p class="detail-note">Precio orientativo. Recogida previa confirmación por WhatsApp.</p></div>
     </div>
-    <div class="detail-return"><a href={`${base}#panes`}>← Volver a todos los panes</a></div>
+    <div class="detail-return"><a href={`${base}panes/`}>← Volver a todos los panes</a></div>
   </main>
   <script>
     import { mountLightbox } from '../../lib/lightbox';

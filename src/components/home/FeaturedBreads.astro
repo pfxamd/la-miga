@@ -1,0 +1,23 @@
+---
+import BreadCard from '../shop/BreadCard.astro';
+import { products, siteBase } from '../../data/products';
+const selected = products.slice(0, 3);
+---
+<section class="section featured-section" aria-labelledby="featured-title">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">UNA PRIMERA ELECCIÓN</span>
+        <h2 id="featured-title">Los <em>favoritos.</em></h2>
+      </div>
+      <p>Un pan para cada momento. Descubre nuestras primeras tres propuestas.</p>
+    </div>
+    <div class="product-grid product-grid--featured">
+      {selected.map((product, index) => <BreadCard product={product} index={index} />)}
+    </div>
+    <div class="featured-section__end">
+      <span class="eyebrow">¿QUIERES VERLOS TODOS?</span>
+      <a class="editorial-link" href={`${siteBase}panes/`}>Explorar los 6 panes <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products, siteBase, withBase } from '../../data/products';
+const bread = products[0];
+---
+<BaseLayout title="Nuestra historia — LA MIGA" description="La idea detrás de LA MIGA, una pequeña panadería artesanal de Tetuán especializada en pan." active="nosotros">
+  <main>
+    <header class="inner-intro inner-intro--story">
+      <div class="container inner-intro__grid">
+        <div>
+          <span class="eyebrow inner-intro__eyebrow">LA MIGA / NUESTRA HISTORIA</span>
+          <h1>Una idea <em>muy sencilla.</em></h1>
+          <p>Hacer pan del que apetece partir un trozo antes de llegar a casa.</p>
+        </div>
+        <div class="story-intro__mark" aria-hidden="true">
+          <span>LA</span><strong>MIGA</strong><small>HECHO CON TIEMPO · TETUÁN</small>
+        </div>
+      </div>
+    </header>
+    <section class="section about-story">
+      <div class="container about-story__grid">
+        <div class="about-story__visual">
+          <span class="eyebrow">EL PAN COMO PROTAGONISTA</span>
+          <img src={withBase(bread.image)} width="800" height="800" loading="lazy" decoding="async" alt={bread.name} />
+          <span class="about-story__note">01 / HARINA · AGUA · TIEMPO</span>
+        </div>
+        <div class="about-story__copy">
+          <span class="eyebrow">LO QUE NOS MUEVE</span>
+          <h2>No buscamos hacer de todo. <em>Solo buen pan.</em></h2>
+          <p>LA MIGA nace de una idea personal: abrir una panadería donde el pan vuelva a tener todo el protagonismo. Sin vitrinas interminables ni distracciones. Solo variedades bien escogidas.</p>
+          <p>Nos gustan las formas que cuentan algo de su origen: una barra alargada, un pan de miga firme, un mollete suave. Cada uno tiene su lugar en la mesa.</p>
+          <a class="editorial-link" href={`${siteBase}panes/`}>Descubre la colección <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="section values-section">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">NUESTROS PRINCIPIOS</span><h2>Menos ruido. <em>Más pan.</em></h2></div></div>
+        <div class="values-grid">
+          <article><span>01 / SENCILLEZ</span><h3>Ingredientes claros</h3><p>Sabemos qué lleva cada variedad y lo contamos sin complicaciones.</p></article>
+          <article><span>02 / OFICIO</span><h3>Cuidar el proceso</h3><p>Formado, reposo y cocción merecen tanta atención como el resultado.</p></article>
+          <article><span>03 / CERCANÍA</span><h3>Desde Tetuán</h3><p>Un proyecto de barrio, pensado para el placer cotidiano del buen pan.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="about-story__end"><div class="container"><p>Una hogaza. Una barra. Una buena historia.</p><a href={`${siteBase}obrador/`} class="editorial-link editorial-link--light">Descubre nuestro obrador <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+</BaseLayout>

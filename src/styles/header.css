@@ -26,3 +26,8 @@
 .mobile-nav__panel a+a{border-top:1px solid var(--line)}
 .mobile-nav__panel a span{color:var(--heat)}
 .mobile-nav__panel a:hover,.mobile-nav__panel a:focus-visible{background:var(--flour)}
+
+/* Keep navigation consistent across real routes. */
+.nav a[aria-current="page"]{color:var(--heat)}
+.nav a[aria-current="page"]::after{right:0}
+.mobile-nav__panel a[aria-current="page"]{background:var(--flour);color:var(--heat)}

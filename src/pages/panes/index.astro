@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadCatalog from '../../components/home/BreadCatalog.astro';
+import { products, siteBase } from '../../data/products';
+---
+<BaseLayout title="Nuestros panes — LA MIGA" description="Conoce los seis tipos de pan artesano de LA MIGA: variedades españolas, ingredientes y precios." active="panes">
+  <main>
+    <header class="inner-intro inner-intro--shop">
+      <div class="container inner-intro__grid">
+        <div>
+          <span class="eyebrow inner-intro__eyebrow">LA MIGA / COLECCIÓN 01</span>
+          <h1>Pan, en todas <em>sus formas.</em></h1>
+          <p>De la barra crujiente al mollete más suave. Seis panes para elegir, compartir y volver a disfrutar.</p>
+        </div>
+        <div class="inner-intro__aside" aria-label="Información del catálogo">
+          <span class="inner-intro__number">{String(products.length).padStart(2,'0')}</span>
+          <span>VARIEDADES DE PAN<br />UNA SOLA PASIÓN</span>
+        </div>
+      </div>
+    </header>
+    <BreadCatalog />
+    <section class="order-steps">
+      <div class="container order-steps__inner">
+        <div>
+          <span class="eyebrow">ASÍ DE SENCILLO</span>
+          <h2>Elige. Añade. <em>Comparte.</em></h2>
+        </div>
+        <ol>
+          <li><span>01</span>Explora nuestras variedades.</li>
+          <li><span>02</span>Añade los panes a tu cesta.</li>
+          <li><span>03</span>Prepara el resumen de tu pedido.</li>
+        </ol>
+        <a href={`${siteBase}contacto/`} class="editorial-link">Información de pedidos <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

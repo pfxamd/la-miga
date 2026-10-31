@@ -17,6 +17,9 @@ const files = await readdir(dist, { recursive: true });
 const htmlFiles = files.filter((path) => path.endsWith('.html'));
 
 if (!htmlFiles.includes('index.html')) errors.push('Missing homepage');
+for (const path of ['panes/index.html', 'obrador/index.html', 'nosotros/index.html', 'contacto/index.html']) {
+  if (!htmlFiles.includes(path)) errors.push(`Missing real site page: ${path}`);
+}
 if (htmlFiles.filter((path) => path.startsWith('pan/') && path.endsWith('/index.html')).length < 6) {
   errors.push('Missing bread detail pages');
 }
@@ -39,6 +42,9 @@ for (const path of htmlFiles) {
 const homepage = await readFile(new URL('index.html', dist), 'utf8');
 if (!homepage.includes('https://pfxamd.com/')) errors.push('Missing creator credit link');
 if (!homepage.includes('LA MIGA')) errors.push('Missing LA MIGA brand text');
+for (const route of ['panes/', 'obrador/', 'nosotros/', 'contacto/']) {
+  if (!homepage.includes(`${publicBase}${route}`)) errors.push(`Homepage missing navigation link: ${route}`);
+}
 await assertFile('assets/brand/la-miga-logo.webp', 'branding');
 const breadImages = files.filter((path) => path.startsWith('assets/bread/') && path.endsWith('.webp'));
 if (breadImages.length < 6) errors.push('Missing locally optimized bread imagery');

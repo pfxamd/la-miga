@@ -10,6 +10,17 @@ The current design system is **Tinta & Corteza** — flour-white surfaces, cocoa
 
 Astro (static), TypeScript, one Preact cart drawer, native product buttons, Nano Stores persisted cart, PhotoSwipe and GitHub Pages. See [open-source decisions](docs/OPEN_SOURCE.md) for licenses and deployment rationale.
 
+## Pages
+
+- `/` — focused storefront landing page, three featured breads and short workshop/story previews
+- `/panes/` — full catalog with category filters
+- `/pan/[slug]/` — six individually prerendered product pages
+- `/obrador/` — bakery tools, machines and production stages
+- `/nosotros/` — LA MIGA brand narrative and values
+- `/contacto/` — location context and ordering instructions (no invented business address, hours or phone number)
+
+All pages share the same navigation, cart, logo, brand tokens, footer and creator signature.
+
 ## Shopping flow
 
 Bread catalog → choose quantities → cart → WhatsApp message containing selected products and MAD total. No database, account, payment gateway or server.

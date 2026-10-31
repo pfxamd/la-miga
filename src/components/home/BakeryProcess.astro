@@ -1,11 +1,23 @@
-<section class="process-section section" id="obrador">
-      <div class="container">
-        <div class="section-heading section-heading--light"><div><span class="eyebrow">DE LA HARINA AL HORNO</span><h2>El arte de <em>hacer pan.</em></h2></div><p>Nuestro obrador combina buenas herramientas, paciencia y las manos que dan forma a cada pieza.</p></div>
-        <div class="process-grid">
-          <div class="process-step"><span>01</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M22 86h116M41 78q8-41 39-41t39 41M29 91l9-10m93 10-9-10M49 54h62M60 67h40" /></svg><h3>El amasado</h3><p>Harina, agua y una mezcla precisa hasta conseguir la textura perfecta.</p></div>
-          <div class="process-step"><span>02</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M23 86h114M36 72q9-35 44-35t44 35M42 72q39 18 76 0M80 24v-9m-18 13-7-8m43 8 7-8" /></svg><h3>La fermentación</h3><p>El tiempo hace lo suyo y convierte una masa sencilla en algo especial.</p></div>
-          <div class="process-step"><span>03</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M28 83q17-35 52-35t52 35q-52 19-104 0ZM51 72l16-15m-1 21 17-20m-1 24 16-20" /></svg><h3>El formado</h3><p>Cada pieza toma forma antes de recibir su corte característico.</p></div>
-          <div class="process-step"><span>04</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M24 92V52q1-32 56-32t56 32v40ZM39 92V59q1-23 41-23t41 23v33M40 92h80M55 80q-3-16 7-23m18 23q-5-16 6-25m17 25q-3-16 7-23" /></svg><h3>El horneado</h3><p>Calor, corteza dorada y ese aroma que anuncia que el pan está listo.</p></div>
-        </div>
+---
+import { siteBase } from '../../data/products';
+interface Props { showLink?: boolean; }
+const { showLink = true } = Astro.props;
+---
+<section class="process-section section" id="obrador" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-heading section-heading--light">
+      <div>
+        <span class="eyebrow">DE LA HARINA AL HORNO</span>
+        <h2 id="process-title">El arte de <em>hacer pan.</em></h2>
       </div>
-    </section>
+      <p>Buenas herramientas, paciencia y manos que dan forma a cada pieza.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step"><span>01</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M22 86h116M41 78q8-41 39-41t39 41M29 91l9-10m93 10-9-10M49 54h62M60 67h40" /></svg><h3>El amasado</h3><p>Harina, agua y una mezcla precisa para conseguir la textura adecuada.</p></div>
+      <div class="process-step"><span>02</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M23 86h114M36 72q9-35 44-35t44 35M42 72q39 18 76 0M80 24v-9m-18 13-7-8m43 8 7-8" /></svg><h3>La fermentación</h3><p>Tiempo para que la masa desarrolle su textura, aroma y sabor.</p></div>
+      <div class="process-step"><span>03</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M28 83q17-35 52-35t52 35q-52 19-104 0ZM51 72l16-15m-1 21 17-20m-1 24 16-20" /></svg><h3>El formado</h3><p>Cada variedad toma su forma: barra, hogaza, rosca o panecillo.</p></div>
+      <div class="process-step"><span>04</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M24 92V52q1-32 56-32t56 32v40ZM39 92V59q1-23 41-23t41 23v33M40 92h80M55 80q-3-16 7-23m18 23q-5-16 6-25m17 25q-3-16 7-23" /></svg><h3>El horneado</h3><p>Calor y vapor para conseguir una corteza dorada y una miga cuidada.</p></div>
+    </div>
+    {showLink && <div class="process-section__link"><a href={`${siteBase}obrador/`} class="editorial-link editorial-link--light">Entra en el obrador <span aria-hidden="true">↗</span></a></div>}
+  </div>
+</section>
