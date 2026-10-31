@@ -67,7 +67,7 @@ const sunflowerLayers = [
       <h2 id="seed-lab-title">De la semilla <em>al calor.</em></h2>
       <p>Una hogaza, unas pipas de girasol y el aroma de lo recién horneado. Cada detalle encuentra su lugar.</p>
       <div class="seed-lab__phase" aria-live="polite">
-        <span class="seed-lab__phase-count" data-seed-phase-count>01 / 04</span>
+        
         <div>
           <span class="seed-lab__phase-title" data-seed-phase-title>Pan recién hecho</span>
           <span class="seed-lab__phase-note" data-seed-phase-note>El comienzo</span>
@@ -128,7 +128,6 @@ const sunflowerLayers = [
     const seeded = lab.querySelector<HTMLElement>('[data-seed-finish]');
     const vaporBack = lab.querySelector<HTMLElement>('[data-seed-steam="back"]');
     const vaporFront = lab.querySelector<HTMLElement>('[data-seed-steam="front"]');
-    const phaseCount = lab.querySelector<HTMLElement>('[data-seed-phase-count]');
     const phaseTitle = lab.querySelector<HTMLElement>('[data-seed-phase-title]');
     const phaseNote = lab.querySelector<HTMLElement>('[data-seed-phase-note]');
 
@@ -185,7 +184,6 @@ const sunflowerLayers = [
       const phase = progress >= 0.73 ? 3 : progress >= 0.67 ? 2 : progress >= 0.045 ? 1 : 0;
       if (phase !== currentPhase) {
         currentPhase = phase;
-        if (phaseCount) phaseCount.textContent = phases[phase][0];
         if (phaseTitle) phaseTitle.textContent = phases[phase][1];
         if (phaseNote) phaseNote.textContent = phases[phase][2];
       }

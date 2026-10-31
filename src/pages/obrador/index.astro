@@ -22,7 +22,7 @@ const moments = [
           <p>Harina, agua, buenas herramientas y tiempo. Cada pieza nace de un proceso cuidado.</p>
         </div>
         <div class="inner-intro__aside">
-          <span class="inner-intro__number">06</span>
+          
           <span>ESCENAS DEL<br />OBRADOR</span>
         </div>
       </div>
@@ -34,7 +34,7 @@ const moments = [
           <a href={withBase('assets/obrador/hero.webp')} data-pswp-width="1530" data-pswp-height="333" aria-label="Ampliar la vista del obrador">
             <img src={withBase('assets/obrador/hero.webp')} width="1530" height="333" decoding="async" fetchpriority="high" alt="Interior de una panadería con mesas de trabajo, cestas de fermentación, panes y horno profesional." />
           </a>
-          <figcaption><span>00 / EL ESPACIO</span><strong>Hecho con tiempo.</strong></figcaption>
+          <figcaption><span>EL OBRADOR</span><strong>Hecho con tiempo.</strong></figcaption>
         </figure>
       </div>
     </section>
@@ -48,7 +48,7 @@ const moments = [
         <div class="obrador-equipment__grid">
           {tools.map((item) => (
             <article class="obrador-equipment__item">
-              <div class="obrador-photo-meta"><span>LM / {item.id}</span><span>{item.category}</span></div>
+              <div class="obrador-photo-meta"><span>{item.category}</span></div>
               <a class="obrador-photo" href={withBase(`assets/obrador/${item.image}.webp`)} data-pswp-width={String(item.w)} data-pswp-height={String(item.h)} aria-label={`Ampliar: ${item.name}`}>
                 <img src={withBase(`assets/obrador/${item.image}.webp`)} width={item.w} height={item.h} alt={item.alt} loading="lazy" decoding="async" />
                 <span aria-hidden="true">↗</span>
@@ -74,7 +74,7 @@ const moments = [
                 <img src={withBase(`assets/obrador/${item.image}.webp`)} width={item.w} height={item.h} alt={item.alt} loading="lazy" decoding="async" />
                 <span aria-hidden="true">↗</span>
               </a>
-              <figcaption><span class="obrador-moments__meta">LM / {item.id} — {item.category}</span><h3>{item.name}</h3><p>{item.text}</p></figcaption>
+              <figcaption><span class="obrador-moments__meta">{item.category}</span><h3>{item.name}</h3><p>{item.text}</p></figcaption>
             </figure>
           ))}
         </div>

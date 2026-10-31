@@ -27,7 +27,7 @@ const breads = [
         <div class="hero-picker__contact" aria-hidden="true"></div>
         {breads.map((bread, index) => <img class:list={['hero-picker__bread', { 'is-active': index === 0 }]} src={withBase(`assets/hero-picker/${bread.image}.webp`)} alt={bread.name} width="1024" height="1024" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" aria-hidden={index !== 0 ? 'true' : 'false'} />)}
       </div>
-      <div class="hero-picker__info" aria-live="polite"><span data-picker-count>01 / 08</span><h2 data-picker-name>{breads[0].name}</h2><p data-picker-note>{breads[0].note}</p></div>
+      <div class="hero-picker__info" aria-live="polite"><h2 data-picker-name>{breads[0].name}</h2><p data-picker-note>{breads[0].note}</p></div>
       <div class="hero-picker__controls" aria-label="Cambiar pan"><button type="button" data-prev aria-label="Pan anterior">←</button><span>DESLIZA PARA ELEGIR</span><button type="button" data-next aria-label="Pan siguiente">→</button></div>
       <div class="hero-picker__dots" aria-label="Elegir un pan">{breads.map((bread, index) => <button type="button" class:list={[{ 'is-active': index === 0 }]} aria-label={`Ver ${bread.name}`} aria-pressed={index === 0 ? 'true' : 'false'} data-index={index}></button>)}</div>
     </div>
@@ -49,7 +49,6 @@ const breads = [
       setTimeout(() => old.classList.remove('is-exiting'), 500);
       current = next; incoming.classList.remove('is-exiting'); incoming.classList.add('is-active'); incoming.setAttribute('aria-hidden', 'false');
       dots.forEach((dot, i) => { dot.classList.toggle('is-active', i === current); dot.setAttribute('aria-pressed', String(i === current)); });
-      picker.querySelector('[data-picker-count]').textContent = `${String(current + 1).padStart(2, '0')} / 08`;
       picker.querySelector('[data-picker-name]').textContent = breads[current].name;
       picker.querySelector('[data-picker-note]').textContent = breads[current].note;
       scene.classList.remove('is-landing'); void scene.offsetWidth; scene.classList.add('is-landing');

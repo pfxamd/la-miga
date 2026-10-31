@@ -11,8 +11,6 @@ export const getStaticPaths = (() => products.map((product) => ({
 }))) satisfies GetStaticPaths;
 
 const { product } = Astro.props as { product: BreadProduct };
-const index = products.findIndex((p) => p.id === product.id);
-const number = String(index + 1).padStart(2, '0');
 const related = [...products.filter((p) => p.category === product.category && p.id !== product.id),
   ...products.filter((p) => p.category !== product.category && p.id !== product.id)].slice(0, 2);
 const base = siteBase;
@@ -27,7 +25,7 @@ const base = siteBase;
 
     <section class="detail-layout" aria-labelledby="detail-title">
       <div class="detail-visual">
-        <span class="detail-visual__overline">LA MIGA / PAN Nº {number}</span>
+        <span class="detail-visual__overline">PAN ARTESANO</span>
         <svg class="detail-visual__diagram" viewBox="0 0 540 500" fill="none" aria-hidden="true" focusable="false">
           <g stroke="currentColor" stroke-width="1.1">
             <path d="M73 288C68 151 162 67 282 64C403 61 472 152 470 268C469 376 379 438 267 438C162 438 74 392 73 288Z"/>
@@ -58,7 +56,7 @@ const base = siteBase;
       </div>
 
       <div class="detail-copy">
-        <span class="eyebrow eyebrow--accent">COLECCIÓN 01 / {number} — PAN ARTESANO</span>
+        <span class="eyebrow eyebrow--accent">PAN ARTESANO</span>
         <h1 id="detail-title">{product.name}<span>.</span></h1>
         <p class="detail-subtitle">{product.subtitle}</p>
         <p class="detail-description">{product.description}</p>
@@ -70,7 +68,7 @@ const base = siteBase;
         </dl>
 
         <div class="detail-ingredients">
-          <span class="detail-eyebrow">01 / QUÉ LLEVA</span>
+          <span class="detail-eyebrow">QUÉ LLEVA</span>
           <h2>Lo esencial, <em>bien hecho.</em></h2>
           <p>{product.ingredients}</p>
           <p class="detail-allergens">{product.allergens}</p>
@@ -86,12 +84,12 @@ const base = siteBase;
 
     <section class="detail-craft" aria-labelledby="craft-title">
       <div class="detail-craft__heading">
-        <span class="detail-eyebrow">LA FICHA DEL PAN / {number}</span>
+        <span class="detail-eyebrow">CONOCE ESTE PAN</span>
         <h2 id="craft-title">Detrás de <em>cada miga.</em></h2>
       </div>
       <div class="detail-craft__grid">
-        <div><span class="detail-craft__number">01 / LA FORMA</span><h3>Su silueta.</h3><p>{product.shape}</p></div>
-        <div><span class="detail-craft__number">02 / EL PROCESO</span><h3>Su elaboración.</h3><p>{product.method}</p></div>
+        <div><span class="detail-craft__number">LA FORMA</span><h3>Su silueta.</h3><p>{product.shape}</p></div>
+        <div><span class="detail-craft__number">EL PROCESO</span><h3>Su elaboración.</h3><p>{product.method}</p></div>
       </div>
     </section>
 

@@ -6,7 +6,6 @@ import type { BreadProduct } from '../../data/products';
 interface Props { product: BreadProduct; index: number; }
 const { product, index } = Astro.props;
 const detail = `${siteBase}pan/${product.slug}/`;
-const number = String(index + 1).padStart(2, '0');
 const category = categoryLabels[product.category];
 const lowerIngredients = product.ingredients.toLowerCase();
 const lowerMethod = (product.method ?? '').toLowerCase();
@@ -32,7 +31,6 @@ const craftDetail = lowerIngredients.includes('masa madre')
       </g>
       <circle cx="32" cy="24" r="16" stroke="currentColor" stroke-width=".7" />
     </svg>
-    <span class="product-card__index">LM / {number}</span>
     <a href={detail} aria-label={`Ver ${product.name}`} class="product-card__image-link">
       <img src={withBase(product.image)} width="800" height="800" alt={product.name} loading="lazy" decoding="async" />
     </a>
