@@ -1,7 +1,7 @@
 /* responsive: LA MIGA */
 @media(max-width:960px){
   .nav{gap:1.15rem}
-  .hero h1{font-size:clamp(3.4rem,6vw,5rem)}
+  .hero h1{font-size:clamp(4.15rem,7.6vw,6.1rem)}
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .process-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2.3rem 0}
   .process-step:nth-child(2){border-right:0}
@@ -15,18 +15,19 @@
   .mobile-nav{display:block}
   .cart-trigger{gap:.4rem;padding:.52rem .65rem}
   .cart-trigger__label{display:none}
-  .hero__inner{grid-template-columns:1fr;min-height:auto}
-  .hero__copy{padding:2.35rem 0 1rem}
-  .hero h1{font-size:clamp(3.25rem,10.5vw,5rem);margin:1.2rem 0}
+  .hero__inner{grid-template-columns:1fr;min-height:auto;gap:.45rem}
+  .hero__copy{padding:2.4rem 0 .6rem}
+  .hero h1{font-size:clamp(4.15rem,14vw,6.4rem);margin:1.3rem 0 1.2rem}
   .hero__copy>p{font-size:.88rem}
   .hero__meta{margin-top:2rem}
-  .hero__visual{min-height:330px;padding:0 1rem}
-  .hero__art{inset:0 0 .9rem 0}
-  .hero__art>span:first-child{font-size:29vw}
-  .hero__bread{width:min(100%,460px)}
-  .hero__stamp{right:0;top:1rem;width:76px;height:76px}
-  .hero__stamp strong{font-size:1.35rem}
-  .hero__caption{bottom:1.6rem;right:1rem}
+  .hero__visual{min-height:325px;padding:.4rem 0 1.1rem}
+  .hero__art{inset:0 0 .8rem 0;border-bottom-right-radius:72px}
+  .hero__art:after{border-bottom-right-radius:58px}
+  .hero__bread{width:min(94%,435px)}
+  .hero__art-id{top:1.2rem;left:1.1rem;font-size:.57rem}
+  .hero__product-label{bottom:1.5rem;right:0;padding:.55rem .7rem}
+  .hero__product-title{font-size:.98rem}
+  .hero__meta{margin-top:1.7rem}
   .ticker__inner{width:max-content;gap:1.1rem;min-height:43px;padding:0 1rem;font-size:.56rem}
   .section{padding:3.4rem 0}
   .section-heading{display:block;margin-bottom:1.7rem}
@@ -64,7 +65,7 @@
   .detail-copy h1{font-size:3.4rem}
 }
 @media(max-width:420px){
-  .hero h1{font-size:3.35rem}
+  .hero h1{font-size:clamp(3.8rem,14.2vw,4.75rem)}
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem .8rem}
   .product-card__visual{aspect-ratio:1 / .96}
   .product-card__title{font-size:1.03rem;line-height:1.22}
@@ -86,7 +87,7 @@
   .product-card__action a{min-height:32px;font-size:.71rem}
   .product-card__weight,.product-card__index{font-size:.58rem}
   .cart-trigger{min-width:44px;min-height:44px;justify-content:center}
-  .hero__visual{min-height:305px}
+  .hero__visual{min-height:300px}
 }
 @media(max-width:350px){
   .product-grid{grid-template-columns:1fr}

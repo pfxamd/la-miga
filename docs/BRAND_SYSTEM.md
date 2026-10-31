@@ -33,7 +33,7 @@ Derived neutral card-stage colors live in `src/styles/tokens.css`. They should n
 - Use **white `#FFFFFF` on Rojo Arcilla** for interactive buttons; their approximate contrast is 6.9:1. Tinta/Harina is above 14:1; secondary text on Harina is above 5:1.
 - Use flat color surfaces, tactile paper-like neutrals and extremely restrained code-drawn scoring/heat lines. Avoid heavy gradients and glossy generic 3D graphics.
 - Product images are original isolated bread packshots on warm neutral cards; no photograph background, fake labels or props. Keep an equal visual scale and let each bread silhouette communicate the variety.
-- Headings: expressive high-contrast serif editorial hierarchy. Body and interface: compact, precise sans serif. Fonts are subject to a separate type-design pass; **do not import arbitrary remote font files**.
+- Headings: expressive high-contrast serif editorial hierarchy. Body and interface: compact, precise sans serif. Headings and product names use Fraunces (variable open-source display serif), loaded from Google Fonts with font-display swap; all body text remains system sans to limit font transfer. Logo is always the original image, not recreated with the font.
 - Preserve a clear path: catalog → quantity → cart → WhatsApp. Visual flourishes may not obscure names, weights, prices, ingredients or buttons.
 - The website's visual femininity is in careful composition, typography and soft tonal contrast, **not** obvious pink/flowers/bows.
 - For dark process sections, use `--dark` with flour/rose foregrounds. For light mode, never insert unrelated dark sections; the process and footer are intentional branded dark zones.
@@ -45,3 +45,7 @@ All canonical values live at `src/styles/tokens.css`, imported once by `src/styl
 Logo: `public/assets/brand/la-miga-logo.webp`. Do not replace the approved mark with a font approximation.  
 Storefront: [LA MIGA](https://pfxamd.github.io/la-miga/).  
 Design authorship footer: [PFXAMD](https://pfxamd.com/).
+
+## Current editorial hero
+
+The leading headline is `Pan de verdad.` in a two-line Fraunces treatment. The framed bread stage is deliberately asymmetric and contains original hand-authored SVG contours echoing scoring cuts and fermentation. The old oversized circular `100% AMOR POR EL PAN` badge and decorative large LA MIGA ghost text were removed in favor of a small product identification label. All motion is CSS-only and honors reduced-motion settings.

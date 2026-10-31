@@ -8,14 +8,14 @@
 .process-step:last-child{padding-right:0;border-right:0}
 .process-step>span{color:var(--rose);font-size:.67rem;font-weight:700;letter-spacing:.15em}
 .process-step svg{width:100%;height:115px;fill:none;stroke:var(--rose);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin:.75rem 0 .75rem}
-.process-step h3{font-family:Georgia,serif;font-size:1.35rem;margin:0 0 .6rem}
+.process-step h3{font-family:var(--font-display);font-size:1.35rem;margin:0 0 .6rem}
 .process-step p{font-size:.78rem;line-height:1.75;color:#c7bcb3;margin:0}
 .story-section__inner{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:clamp(2rem,5vw,5rem)}
 .story-section__badge{background:var(--rose);border-radius:50%;aspect-ratio:1;max-width:320px;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;transform:rotate(-8deg);border:12px solid var(--flour);outline:1px dashed var(--heat)}
-.story-section__badge>span{font-family:Georgia,serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-.08em}
+.story-section__badge>span{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-.08em}
 .story-section__badge div{font-size:3rem;color:var(--heat)}
 .story-section__badge small{font-size:.57rem;letter-spacing:.1em;font-weight:700}
-.story-section h2{font-family:Georgia,serif;font-size:clamp(2.5rem,5vw,4.6rem);letter-spacing:-.075em;line-height:1.1;margin:.7rem 0 1.6rem}
+.story-section h2{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.6rem);letter-spacing:-.075em;line-height:1.1;margin:.7rem 0 1.6rem}
 .story-section__text>p{max-width:515px;color:var(--mute);line-height:1.85}
 
 .process-step{transition:background-color .2s ease}

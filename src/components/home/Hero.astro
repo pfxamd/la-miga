@@ -1,23 +1,55 @@
 ---
-import { products, withBase } from '../../data/products';
+import { products, withBase, siteBase } from '../../data/products';
+import HeroEngraving from './HeroEngraving.astro';
 const featured = products[0];
 ---
-<section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <span class="eyebrow eyebrow--accent"><span class="eyebrow__line"></span>PANADERÍA ARTESANAL · TETUÁN</span>
-          <h1>EL PAN,<br /><em>COMO DEBE</em><br />SER.</h1>
-          <p>Ingredientes sencillos, manos expertas y tiempo. Mucho tiempo. Así hacemos cada uno de nuestros panes.</p>
-          <a class="primary-link" href="#panes">Descubre nuestros panes <span aria-hidden="true">↗</span></a>
-          <div class="hero__meta"><span>01 / MASA MADRE</span><span>HORNEADO CADA DÍA</span></div>
-        </div>
-        <div class="hero__visual">
-          <div class="hero__art" aria-hidden="true"><span>LA<br/>MIGA</span><span class="hero__circle"></span></div>
-          <img class="hero__bread" src={withBase(featured.image)} width="800" height="800" alt={featured.name} fetchpriority="high" />
-          <div class="hero__stamp"><strong>100%</strong><small>AMOR<br />POR EL PAN</small></div>
-          <span class="hero__caption">Nº 01 · NUESTRO FAVORITO</span>
-        </div>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-index">LM / 001</span>
+        <span>PANADERÍA ARTESANAL · TETUÁN</span>
       </div>
-    </section>
-
-    <div class="ticker" aria-label="Nuestros valores"><div class="ticker__inner" aria-hidden="true"><span>MASA MADRE</span><i>✳</i><span>HORNEADO CADA DÍA</span><i>✳</i><span>HECHO A MANO</span><i>✳</i><span>DESDE TETUÁN</span><i>✳</i></div></div>
+      <h1 id="hero-title"><span>Pan de</span><em>verdad<span class="hero__full-stop">.</span></em></h1>
+      <p>Harina, agua, sal y tiempo. Panes con carácter, elaborados con cuidado para disfrutar de lo sencillo.</p>
+      <a class="primary-link" href={`${siteBase}#panes`}>
+        <span>Descubre nuestros panes</span>
+        <svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none">
+          <path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <div class="hero__meta">
+        <span>01 / 06 · PANES ARTESANOS</span>
+        <span>HECHO EN TETUÁN</span>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__art" aria-hidden="true">
+        <HeroEngraving />
+        <span class="hero__art-id">LA MIGA / OBRADOR</span>
+        <span class="hero__art-rule"></span>
+      </div>
+      <img
+        class="hero__bread"
+        src={withBase(featured.image)}
+        width="800"
+        height="800"
+        alt={`Pan artesanal: ${featured.name}`}
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="hero__product-label" aria-hidden="true">
+        <span class="hero__product-number">01 — 06</span>
+        <span class="hero__product-title">{featured.name}</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ticker" aria-label="Nuestros valores">
+  <div class="ticker__inner">
+    <span>HARINA & AGUA</span><i aria-hidden="true">✳</i>
+    <span>TIEMPO & PACIENCIA</span><i aria-hidden="true">✳</i>
+    <span>PAN DE VERDAD</span><i aria-hidden="true">✳</i>
+    <span>DESDE TETUÁN</span>
+  </div>
+</div>

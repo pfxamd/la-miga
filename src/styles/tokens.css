@@ -4,6 +4,7 @@
  */
 :root {
   /* Identity anchors: ink and flour echo the existing LA MIGA wordmark. */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --ink: #381B14;       /* Tinta — brand typography */
   --flour: #F6F2E9;     /* Harina — warm page canvas */
   --heat: #963F35;      /* Rojo Arcilla — primary action */
