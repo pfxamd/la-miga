@@ -1,71 +1,65 @@
 ---
-import { products, withBase, siteBase } from '../../data/products';
-import HeroEngraving from './HeroEngraving.astro';
-const featured = products[0];
+import { withBase, siteBase } from '../../data/products';
+const breads = [
+  { image: 'gallego', name: 'Pan gallego', note: 'Corteza rústica · trigo' },
+  { image: 'mollete', name: 'Mollete andaluz', note: 'Suave y ligero · trigo' },
+  { image: 'centeno', name: 'Pan de centeno', note: 'Carácter intenso · centeno' },
+  { image: 'cristal', name: 'Pan de cristal', note: 'Fino y crujiente · trigo' },
+  { image: 'candeal', name: 'Pan candeal', note: 'Miga firme · trigo' },
+  { image: 'borona', name: 'Boroña de maíz', note: 'Rústico y dorado · maíz' },
+  { image: 'barra', name: 'Barra rústica', note: 'Crujiente y ligera · trigo' },
+  { image: 'nueces', name: 'Nueces y pasas', note: 'Frutos secos · trigo' },
+];
 ---
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__inner">
-    <svg class="hero__thread" viewBox="0 0 1200 530" preserveAspectRatio="none" fill="none" aria-hidden="true" focusable="false">
-      <g stroke="currentColor" stroke-linecap="round">
-        <path d="M360 472C449 459 495 418 564 349C651 261 710 235 818 239" />
-        <path d="M381 490C466 472 526 427 596 364C685 287 739 270 831 273" />
-        <path d="M422 508C511 477 556 445 626 391C712 326 767 308 857 307" />
-      </g>
-      <g class="hero__thread-ticks" stroke="currentColor">
-        <path d="M570 334l9 22M603 354l9 22M635 377l9 22"/>
-        <circle cx="818" cy="239" r="4"/><circle cx="857" cy="307" r="3"/>
-      </g>
-    </svg>
-
     <div class="hero__copy">
-      <div class="hero__eyebrow">
-        <span class="hero__eyebrow-index">LM / 001</span>
-        <span>PANADERÍA ARTESANAL · TETUÁN</span>
-      </div>
-      <h1 id="hero-title">
-        <span class="hero__title-lead">Pan <span>de</span></span>
-        <em class="hero__title-finish">verdad<span class="hero__full-stop">.</span></em>
-      </h1>
-      <p>Harina, agua, sal y tiempo. Seis panes con carácter para volver a disfrutar de lo sencillo.</p>
-      <a class="primary-link" href={`${siteBase}panes/`}>
-        <span>Descubre nuestros panes</span>
-        <svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none">
-          <path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
-      <div class="hero__meta">
-        <span>01 / 06 · PANES ARTESANOS</span>
-        <span>HECHO EN TETUÁN</span>
-      </div>
+      <div class="hero__eyebrow">PANADERÍA ARTESANAL · TETUÁN</div>
+      <h1 id="hero-title"><span class="hero__title-lead">Pan <span>de</span></span><em class="hero__title-finish">verdad<span class="hero__full-stop">.</span></em></h1>
+      <p>Ocho panes, ocho maneras de disfrutar lo sencillo. Elige tu favorito.</p>
+      <a class="primary-link" href={`${siteBase}panes/`}>Descubre nuestros panes <span aria-hidden="true">↗</span></a>
+      <div class="hero__meta"><span>HECHO EN TETUÁN</span><span>HARINA · AGUA · TIEMPO</span></div>
     </div>
-
-    <div class="hero__visual">
-      <div class="hero__art" aria-hidden="true">
-        <HeroEngraving />
+    <div class="hero__visual" data-bread-picker tabindex="0" aria-label="Selección de panes. Usa las flechas para cambiar de pan.">
+      <div class="hero-picker__halo" aria-hidden="true"></div>
+      <div class="hero-picker__scene" data-scene>
+        <img class="hero-picker__board" src={withBase('assets/hero-picker/board.webp')} alt="" width="1024" height="1024" />
+        <div class="hero-picker__contact" aria-hidden="true"></div>
+        {breads.map((bread, index) => <img class:list={['hero-picker__bread', { 'is-active': index === 0 }]} src={withBase(`assets/hero-picker/${bread.image}.webp`)} alt={bread.name} width="1024" height="1024" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" aria-hidden={index !== 0 ? 'true' : 'false'} />)}
       </div>
-      <div class="hero__ground" aria-hidden="true"></div>
-      <img
-        class="hero__bread"
-        src={withBase(featured.image)}
-        width="800"
-        height="800"
-        alt={`Pan artesanal: ${featured.name}`}
-        fetchpriority="high"
-        decoding="async"
-      />
-      <span class="hero__visual-index" aria-hidden="true">FIG. 01 — LA MIGA</span>
-      <div class="hero__product-label" aria-hidden="true">
-        <span class="hero__product-number">NUESTRA SELECCIÓN / 01</span>
-        <span class="hero__product-title">{featured.name}</span>
-      </div>
+      <div class="hero-picker__info" aria-live="polite"><span data-picker-count>01 / 08</span><h2 data-picker-name>{breads[0].name}</h2><p data-picker-note>{breads[0].note}</p></div>
+      <div class="hero-picker__controls" aria-label="Cambiar pan"><button type="button" data-prev aria-label="Pan anterior">←</button><span>DESLIZA PARA ELEGIR</span><button type="button" data-next aria-label="Pan siguiente">→</button></div>
+      <div class="hero-picker__dots" aria-label="Elegir un pan">{breads.map((bread, index) => <button type="button" class:list={[{ 'is-active': index === 0 }]} aria-label={`Ver ${bread.name}`} aria-pressed={index === 0 ? 'true' : 'false'} data-index={index}></button>)}</div>
     </div>
   </div>
 </section>
-<div class="ticker" aria-label="Nuestros valores">
-  <div class="ticker__inner">
-    <span>HARINA &amp; AGUA</span><i aria-hidden="true">✳</i>
-    <span>TIEMPO &amp; PACIENCIA</span><i aria-hidden="true">✳</i>
-    <span>PAN DE VERDAD</span><i aria-hidden="true">✳</i>
-    <span>DESDE TETUÁN</span>
-  </div>
-</div>
+<div class="ticker" aria-label="Nuestros valores"><div class="ticker__inner"><span>HARINA &amp; AGUA</span><i aria-hidden="true">✳</i><span>TIEMPO &amp; PACIENCIA</span><i aria-hidden="true">✳</i><span>PAN DE VERDAD</span><i aria-hidden="true">✳</i><span>DESDE TETUÁN</span></div></div>
+<script define:vars={{ breads }}>
+  const picker = document.querySelector('[data-bread-picker]');
+  if (picker) {
+    const items = [...picker.querySelectorAll('.hero-picker__bread')];
+    const dots = [...picker.querySelectorAll('[data-index]')];
+    const scene = picker.querySelector('[data-scene]');
+    let current = 0, touchX = null, timer;
+    function select(next) {
+      next = (next + items.length) % items.length;
+      if (next === current) return;
+      const old = items[current], incoming = items[next];
+      old.classList.remove('is-active'); old.classList.add('is-exiting'); old.setAttribute('aria-hidden', 'true');
+      setTimeout(() => old.classList.remove('is-exiting'), 500);
+      current = next; incoming.classList.remove('is-exiting'); incoming.classList.add('is-active'); incoming.setAttribute('aria-hidden', 'false');
+      dots.forEach((dot, i) => { dot.classList.toggle('is-active', i === current); dot.setAttribute('aria-pressed', String(i === current)); });
+      picker.querySelector('[data-picker-count]').textContent = `${String(current + 1).padStart(2, '0')} / 08`;
+      picker.querySelector('[data-picker-name]').textContent = breads[current].name;
+      picker.querySelector('[data-picker-note]').textContent = breads[current].note;
+      scene.classList.remove('is-landing'); void scene.offsetWidth; scene.classList.add('is-landing');
+      clearTimeout(timer); timer = setTimeout(() => scene.classList.remove('is-landing'), 950);
+    }
+    picker.querySelector('[data-prev]').addEventListener('click', () => select(current - 1));
+    picker.querySelector('[data-next]').addEventListener('click', () => select(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => select(i)));
+    picker.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(current + (e.key === 'ArrowRight' ? 1 : -1)); } });
+    picker.addEventListener('touchstart', e => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+    picker.addEventListener('touchend', e => { if (touchX !== null) { const diff = e.changedTouches[0].clientX - touchX; if (Math.abs(diff) > 45) select(current + (diff < 0 ? 1 : -1)); touchX = null; } }, { passive: true });
+  }
+</script>
