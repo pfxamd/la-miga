@@ -5,13 +5,28 @@ const featured = products[0];
 ---
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__inner">
+    <svg class="hero__thread" viewBox="0 0 1200 530" preserveAspectRatio="none" fill="none" aria-hidden="true" focusable="false">
+      <g stroke="currentColor" stroke-linecap="round">
+        <path d="M360 472C449 459 495 418 564 349C651 261 710 235 818 239" />
+        <path d="M381 490C466 472 526 427 596 364C685 287 739 270 831 273" />
+        <path d="M422 508C511 477 556 445 626 391C712 326 767 308 857 307" />
+      </g>
+      <g class="hero__thread-ticks" stroke="currentColor">
+        <path d="M570 334l9 22M603 354l9 22M635 377l9 22"/>
+        <circle cx="818" cy="239" r="4"/><circle cx="857" cy="307" r="3"/>
+      </g>
+    </svg>
+
     <div class="hero__copy">
       <div class="hero__eyebrow">
         <span class="hero__eyebrow-index">LM / 001</span>
         <span>PANADERÍA ARTESANAL · TETUÁN</span>
       </div>
-      <h1 id="hero-title"><span>Pan de</span><em>verdad<span class="hero__full-stop">.</span></em></h1>
-      <p>Harina, agua, sal y tiempo. Panes con carácter, elaborados con cuidado para disfrutar de lo sencillo.</p>
+      <h1 id="hero-title">
+        <span class="hero__title-lead">Pan <span>de</span></span>
+        <em class="hero__title-finish">verdad<span class="hero__full-stop">.</span></em>
+      </h1>
+      <p>Harina, agua, sal y tiempo. Seis panes con carácter para volver a disfrutar de lo sencillo.</p>
       <a class="primary-link" href={`${siteBase}panes/`}>
         <span>Descubre nuestros panes</span>
         <svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none">
@@ -23,12 +38,12 @@ const featured = products[0];
         <span>HECHO EN TETUÁN</span>
       </div>
     </div>
+
     <div class="hero__visual">
       <div class="hero__art" aria-hidden="true">
         <HeroEngraving />
-        <span class="hero__art-id">LA MIGA / OBRADOR</span>
-        <span class="hero__art-rule"></span>
       </div>
+      <div class="hero__ground" aria-hidden="true"></div>
       <img
         class="hero__bread"
         src={withBase(featured.image)}
@@ -38,8 +53,9 @@ const featured = products[0];
         fetchpriority="high"
         decoding="async"
       />
+      <span class="hero__visual-index" aria-hidden="true">FIG. 01 — LA MIGA</span>
       <div class="hero__product-label" aria-hidden="true">
-        <span class="hero__product-number">01 — 06</span>
+        <span class="hero__product-number">NUESTRA SELECCIÓN / 01</span>
         <span class="hero__product-title">{featured.name}</span>
       </div>
     </div>
@@ -47,8 +63,8 @@ const featured = products[0];
 </section>
 <div class="ticker" aria-label="Nuestros valores">
   <div class="ticker__inner">
-    <span>HARINA & AGUA</span><i aria-hidden="true">✳</i>
-    <span>TIEMPO & PACIENCIA</span><i aria-hidden="true">✳</i>
+    <span>HARINA &amp; AGUA</span><i aria-hidden="true">✳</i>
+    <span>TIEMPO &amp; PACIENCIA</span><i aria-hidden="true">✳</i>
     <span>PAN DE VERDAD</span><i aria-hidden="true">✳</i>
     <span>DESDE TETUÁN</span>
   </div>

@@ -55,3 +55,9 @@ The leading headline is `Pan de verdad.` in a two-line Fraunces treatment. The f
 The `Los favoritos` section on the homepage treats the three real-bread WebP cutouts as floating editorial objects rather than enclosing them in cream photo boxes. The images sit directly over the flour-colored page, use responsive radial ground shadows, slightly different fixed angles, and small inline SVG scoring lines. This is an aesthetic treatment of existing transparent assets, not a new runtime animation system. A subtle hover lift appears only on hover-enabled devices and respects reduced-motion preferences.
 
 Keep three columns on desktop and two on small phones (one only below 350px). Product titles, MAD prices, cart controls and detail links remain in their existing locations. Hide ingredient preview **only in the home featured section**; show it in the full catalog and individual detail pages.
+
+## Hero revision: one composition, not a boxed packshot
+
+The `Pan de verdad.` title and the featured `Pan estilo payés` are now connected by the original inline `hero__thread` SVG. The same custom contour-line vocabulary wraps the loaf in the `HeroEngraving.astro` vector artwork. The old large beige solid background shape is removed; bread floats directly on the `Harina` canvas with restrained ground/drop shadows, lightweight type labels, and a deliberate serif size contrast between `Pan`, `de`, and `verdad.`. The main CTA still navigates to `/panes/`.
+
+Hero-specific responsive design lives in `src/styles/hero.css` so it cannot clash with generic `responsive.css`; it stays two-column on desktop and stacks text then bread on phone, without oversized cover images, runtime motion dependencies, mouse-follow interactions, or accessibility-breaking animations.
