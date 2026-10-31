@@ -9,6 +9,16 @@ const detail = `${siteBase}pan/${product.slug}/`;
 ---
 <article class="product-card" data-category={product.category}>
   <div class:list={['product-card__visual', `product-card__visual--${(index % 4) + 1}`]}>
+    <svg class="product-card__etch" viewBox="0 0 180 140" fill="none" aria-hidden="true" focusable="false">
+      <g stroke="currentColor" stroke-width=".9" stroke-linecap="round">
+        <path d="M15 121C32 83 72 40 139 24" />
+        <path d="M31 128C48 85 88 56 158 35" />
+        <path d="M52 132C72 96 107 72 172 56" />
+        <path d="M67 91l23 8M92 67l23 7M114 45l22 7" />
+        <path d="M20 24h24M32 12v24" />
+      </g>
+      <circle cx="32" cy="24" r="16" stroke="currentColor" stroke-width=".7" />
+    </svg>
     <span class="product-card__index">LM / {String(index + 1).padStart(2, '0')}</span>
     <a href={detail} aria-label={`Ver ${product.name}`} class="product-card__image-link">
       <img src={withBase(product.image)} width="800" height="800" alt={product.name} loading="lazy" decoding="async" />

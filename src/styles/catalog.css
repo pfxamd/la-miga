@@ -1,54 +1,85 @@
-/* catalog: LA MIGA */
+/* LA MIGA — PAN EN EL AIRE
+ * Bread photos are transparent packshots on the page itself, never boxed cards.
+ * A bespoke etched line motif, natural shadow and slight stagger give each
+ * silhouette room without disrupting the product grid or purchase flow.
+ */
 .section{padding:5rem 0}
 .section-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2.15rem}
 .section-heading h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.07em;font-size:clamp(2.7rem,4.5vw,4.3rem);line-height:1.07;margin:.6rem 0 0}
 .section-heading>p{max-width:295px;font-size:.85rem;line-height:1.7;color:var(--mute);margin:0}
+
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.65rem}
 .filter{background:transparent;border:1px solid var(--line);border-radius:40px;padding:.7rem 1rem;min-height:42px;font-size:.76rem;font-weight:700;color:var(--ink);white-space:nowrap}
 .filter span{font-size:.62rem;opacity:.7;margin-left:.3rem}
 .filter.is-active,.filter:hover{background:var(--ink);border-color:var(--ink);color:white}
-.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 1.25rem}
-.product-card{min-width:0}
-.product-card__visual{position:relative;aspect-ratio:1 / .88;overflow:hidden;display:grid;place-items:center;background:var(--stage-1)}
-.product-card__visual--2{background:var(--stage-2)}
-.product-card__visual--3{background:var(--stage-3)}
-.product-card__visual--4{background:var(--stage-4)}
-.product-card__index,.product-card__weight{position:absolute;z-index:2;left:1rem;top:1rem;font-size:.62rem;font-weight:700;letter-spacing:.1em}
-.product-card__weight{top:auto;left:auto;right:1rem;bottom:1rem}
-.product-card__image-link{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
-.product-card__visual img{width:85%;height:85%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 13px 11px rgba(62,32,12,.13));transition:transform .35s ease}
-.product-card:hover .product-card__visual img{transform:scale(1.045) translateY(-3px)}
-.product-card__info{display:flex;align-items:start;justify-content:space-between;gap:.65rem;padding-top:1rem}
-.product-card__title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:-.035em;font-weight:610}
+
+.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.15rem 1.25rem}
+.product-card{min-width:0;--bread-tilt:-3deg;--bread-x:0px}
+.product-card:nth-child(3n+2){--bread-tilt:3deg;--bread-x:2px}
+.product-card:nth-child(3n){--bread-tilt:-1deg;--bread-x:-2px}
+
+/* The transparent stage deliberately has no rectangle, backdrop or outline. */
+.product-card__visual{position:relative;aspect-ratio:1 / .87;display:grid;place-items:center;isolation:isolate;overflow:visible;background:transparent}
+.product-card__visual::before{content:'';position:absolute;z-index:0;left:23%;bottom:6%;width:54%;height:9%;border-radius:50%;background:rgba(55,29,18,.17);filter:blur(13px);transform:rotate(-4deg);pointer-events:none;transition:opacity .3s,transform .4s}
+.product-card__visual::after{content:'';position:absolute;z-index:1;left:.6rem;bottom:1.1rem;width:28px;height:28px;border-left:1px solid rgba(150,63,53,.36);border-bottom:1px solid rgba(150,63,53,.36);pointer-events:none}
+.product-card__etch{position:absolute;z-index:1;top:10%;right:2%;width:42%;height:auto;max-width:none;overflow:visible;color:var(--heat);opacity:.30;pointer-events:none;transform:rotate(4deg)}
+.product-card:nth-child(3n+2) .product-card__etch{transform:scaleX(-1) rotate(-4deg);right:6%;opacity:.23}
+.product-card:nth-child(3n) .product-card__etch{top:7%;right:1%;transform:rotate(10deg);opacity:.26}
+.product-card__index,.product-card__weight{position:absolute;z-index:3;left:.45rem;top:.65rem;font-size:.62rem;font-weight:750;letter-spacing:.12em;color:var(--ink);font-variant-numeric:tabular-nums}
+.product-card__weight{top:auto;left:auto;right:.5rem;bottom:.45rem}
+.product-card__image-link{position:relative;z-index:2;display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+.product-card__visual img{display:block;width:94%;height:94%;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 13px 8px rgba(52,29,18,.21));transform:translate(var(--bread-x),-6px) rotate(var(--bread-tilt));transition:transform .45s cubic-bezier(.2,.75,.25,1),filter .4s ease}
+
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .product-card:hover .product-card__visual img{transform:translate(var(--bread-x),-14px) rotate(calc(var(--bread-tilt) + 1deg)) scale(1.035);filter:drop-shadow(0 21px 12px rgba(52,29,18,.23))}
+ .product-card:hover .product-card__visual::before{opacity:.7;transform:rotate(-4deg) scale(.9)}
+}
+@media(prefers-reduced-motion:no-preference){
+ .product-card:focus-within .product-card__visual img{transform:translate(var(--bread-x),-10px) rotate(var(--bread-tilt)) scale(1.02)}
+}
+
+.product-card__info{display:flex;align-items:start;justify-content:space-between;gap:.65rem;padding-top:.55rem}
+.product-card__info>div{min-width:0}
+.product-card__title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:-.035em;font-weight:610;line-height:1.2}
 .product-card__title:hover{color:var(--heat)}
-.product-card__info p{font-size:.75rem;margin:.42rem 0 0;color:var(--mute)}
-.product-card__price{font-size:1.06rem;white-space:nowrap}
+.product-card__info p{font-size:.75rem;margin:.4rem 0 0;color:var(--mute)}
+.product-card__price{font-size:1.06rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 .product-card__price small{font-size:.65rem;font-weight:700}
+.product-card__ingredients{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5;min-height:2.2rem;color:var(--mute);font-size:.69rem}
+.product-card__info p.product-card__ingredients{margin-top:.55rem;font-size:.68rem}
 .product-card__action{display:flex;align-items:center;justify-content:space-between;gap:.8rem;border-top:1px solid var(--line);margin-top:1rem;padding-top:.9rem}
 .add-button{border:0;background:var(--ink);color:white;display:inline-flex;justify-content:center;align-items:center;gap:.55rem;padding:.83rem 1rem;min-height:44px;font-size:.74rem;font-weight:700;transition:background .2s}
-.add-button:hover{background:var(--heat)}
+.add-button:hover,.product-card__action .add-button:hover{background:var(--heat)}
+.add-button:disabled{opacity:.48;cursor:not-allowed}
+.add-button:disabled:hover{background:var(--ink)}
 .add-button svg{flex:none}
 .text-link{font-size:.71rem;font-weight:700;color:var(--mute);white-space:nowrap}
 .text-link:hover{color:var(--heat)}
+.product-card__action a{min-height:36px;display:inline-flex;align-items:center}
 .catalog-footnote{text-align:right;color:var(--mute);font-size:.69rem;line-height:1.65;margin:1.6rem 0 0}
 
-.add-button:disabled{opacity:.48;cursor:not-allowed}
-.add-button:disabled:hover{background:var(--ink)}
+/* Home is a visual exhibition: minimal copy, three unframed bread silhouettes. */
+.featured-section .product-card__ingredients{display:none}
+.featured-section .product-card__visual{aspect-ratio:1 / .84}
+.featured-section .product-card__etch{opacity:.34}
+.featured-section .product-card__info{padding-top:.45rem}
 
-/* Quiet framing makes cut-out product photos feel like one cohesive collection. */
-.product-card__visual::before{content:'';position:absolute;left:15px;bottom:16px;width:30px;height:30px;border-left:1px solid rgba(56,27,20,.19);border-bottom:1px solid rgba(56,27,20,.19);pointer-events:none}
-.product-card__visual::after{content:'';position:absolute;inset:9px;border:1px solid rgba(89,55,36,.075);pointer-events:none}
-.product-card__visual img{will-change:auto}
-.product-card__index,.product-card__weight{font-variant-numeric:tabular-nums}
-.product-card__price{font-variant-numeric:tabular-nums}
-.product-card__action a{min-height:36px;display:inline-flex;align-items:center}
-
-/* Ingredient preview: useful product information without expanding the card. */
-.product-card__ingredients{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5;min-height:2.2rem;color:var(--mute);font-size:.69rem}
-.product-card__info>div{min-width:0}
-.product-card__info p.product-card__ingredients{margin-top:.55rem;font-size:.68rem}
-@media(max-width:720px){.product-card__ingredients{-webkit-line-clamp:2;min-height:2.2rem}}
-
-.product-card__visual{transition:background-color .2s ease}
-.product-card__title{line-height:1.2}
-.product-card__action .add-button:hover{background:var(--heat)}
+/* Full shop keeps the ingredient preview and smaller quiet decoration. */
+.products-section .product-card__etch{opacity:.2}
+.products-section .product-card__visual::after{opacity:.58}
+@media(max-width:720px){
+ .product-card__etch{width:47%;top:12%;right:2%;opacity:.24}
+ .product-card__visual::before{filter:blur(9px);bottom:7%;height:8%}
+ .product-card__visual::after{width:20px;height:20px;left:.3rem;bottom:.8rem}
+ .product-card__visual img{width:96%;height:96%}
+ .product-card__ingredients{-webkit-line-clamp:2;min-height:2.2rem}
+}
+@media(max-width:420px){
+ .product-card__etch{opacity:.18}
+ .product-card__visual::before{filter:blur(7px)}
+ .product-card__visual img{filter:drop-shadow(0 9px 6px rgba(52,29,18,.20))}
+}
+@media(prefers-reduced-motion:reduce){
+ .product-card__visual img,.product-card__visual::before{transition:none}
+ .product-card__visual img{transform:none}
+}

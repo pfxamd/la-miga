@@ -49,3 +49,9 @@ Design authorship footer: [PFXAMD](https://pfxamd.com/).
 ## Current editorial hero
 
 The leading headline is `Pan de verdad.` in a two-line Fraunces treatment. The framed bread stage is deliberately asymmetric and contains original hand-authored SVG contours echoing scoring cuts and fermentation. The old oversized circular `100% AMOR POR EL PAN` badge and decorative large LA MIGA ghost text were removed in favor of a small product identification label. All motion is CSS-only and honors reduced-motion settings.
+
+## Product presentation — PAN EN EL AIRE
+
+The `Los favoritos` section on the homepage treats the three real-bread WebP cutouts as floating editorial objects rather than enclosing them in cream photo boxes. The images sit directly over the flour-colored page, use responsive radial ground shadows, slightly different fixed angles, and small inline SVG scoring lines. This is an aesthetic treatment of existing transparent assets, not a new runtime animation system. A subtle hover lift appears only on hover-enabled devices and respects reduced-motion preferences.
+
+Keep three columns on desktop and two on small phones (one only below 350px). Product titles, MAD prices, cart controls and detail links remain in their existing locations. Hide ingredient preview **only in the home featured section**; show it in the full catalog and individual detail pages.
