@@ -29,45 +29,9 @@
 .hero__engraving-contours{opacity:.43}
 .hero__engraving-cuts{opacity:.55}
 .hero__engraving-marks{opacity:.60}
-
-/* Registered photo layers: one natural loaf, independent flour and a grounded shadow. */
-.hero__bread-stage{
- position:relative;z-index:1;width:min(101%,540px);aspect-ratio:1;max-width:none;
- transform:rotate(-6deg) translateY(-5px);transform-origin:center;
- --bread-lift:0px;--bread-tilt:-2deg;--bread-scale:1;
- --bread-shadow-opacity:.87;--bread-shadow-scale:1;
- --bread-flour-opacity:.16;--bread-score-opacity:.3;--bread-dust-opacity:.12;
- --bread-dust-x:-25px;--bread-dust-y:30px;--bread-dust-scale:.82;
-}
-.hero__bread-object{
- position:absolute;inset:0;z-index:1;
- transform-origin:50% 60%;
- transform:translate3d(0,var(--bread-lift),0) rotate(var(--bread-tilt)) scale(var(--bread-scale));
-}
-.hero__bread-layer{
- position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
- pointer-events:none;user-select:none;
-}
-.hero__bread-layer--shadow{
- z-index:0;opacity:var(--bread-shadow-opacity);
- transform:scale(var(--bread-shadow-scale));transform-origin:50% 85%;
-}
-.hero__bread-layer--body{z-index:1;filter:drop-shadow(0 17px 13px rgba(65,34,17,.19))}
-.hero__bread-layer--score{z-index:2;opacity:var(--bread-score-opacity)}
-.hero__bread-layer--flour{z-index:3;opacity:var(--bread-flour-opacity)}
-.hero__bread-layer--dust{
- z-index:2;opacity:var(--bread-dust-opacity);
- transform:translate3d(var(--bread-dust-x),var(--bread-dust-y),0) scale(var(--bread-dust-scale));
- filter:drop-shadow(0 1px 1px rgba(115,72,44,.16));
-}
-@media(prefers-reduced-motion:reduce){
- .hero__bread-object{transform:none}
- .hero__bread-layer--flour{opacity:1}
- .hero__bread-layer--score{opacity:.8}
- .hero__bread-layer--dust{opacity:.3;transform:none}
- .hero__bread-layer--shadow{opacity:.75;transform:none}
-}
-
+.hero__ground{position:absolute;left:21%;right:18%;bottom:12%;height:9%;border-radius:50%;background:rgba(74,35,19,.16);filter:blur(18px);transform:rotate(-5deg);z-index:0;pointer-events:none}
+.hero__bread{position:relative;z-index:1;width:min(101%,540px);max-width:none;object-fit:contain;filter:drop-shadow(0 20px 14px rgba(65,34,17,.21));transform:rotate(-6deg) translateY(-5px);transition:transform .5s cubic-bezier(.23,.7,.25,1),filter .5s ease}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.hero__visual:hover .hero__bread{transform:rotate(-4deg) translateY(-10px);filter:drop-shadow(0 25px 16px rgba(65,34,17,.24))}}
 .hero__visual-index{position:absolute;z-index:2;top:2.05rem;right:.2rem;color:var(--heat);font-size:.59rem;font-weight:750;letter-spacing:.16em;writing-mode:vertical-rl}
 .hero__product-label{position:absolute;z-index:2;right:.1rem;bottom:1.55rem;display:grid;gap:.2rem;justify-items:end;padding:.63rem .1rem .63rem 1.1rem;border-top:1px solid var(--heat);background:transparent;text-align:right}
 .hero__product-number{color:var(--heat);font-size:.56rem;font-weight:750;letter-spacing:.13em}
@@ -81,7 +45,7 @@
  .hero__copy{padding:2.8rem 0}
  .hero__visual{min-height:425px}
  .hero__art{inset:1.25rem -1.25rem 0 -1.6rem}
- .hero__bread-stage{width:min(104%,480px)}
+ .hero__bread{width:min(104%,480px)}
  .hero__meta{margin-top:1.75rem}
 }
 @media(max-width:720px){
@@ -94,8 +58,8 @@
  .hero__visual{min-height:280px;padding:0;height:clamp(280px,79vw,355px)}
  .hero__art{inset:-.4rem 0 -.2rem 0}
  .hero__engraving{transform:rotate(-11deg)}
- .hero__bread-stage{width:min(88%,375px)}
- 
+ .hero__bread{width:min(88%,375px)}
+ .hero__ground{bottom:9%;left:24%;right:20%;filter:blur(13px)}
  .hero__visual-index{top:.8rem;right:.3rem;font-size:.5rem}
  .hero__product-label{bottom:.55rem;right:0;padding:.4rem 0 .35rem .75rem}
  .hero__product-number{font-size:.5rem}
@@ -106,11 +70,10 @@
  .hero h1{font-size:clamp(3.25rem,13.6vw,4.1rem)}
  .hero__eyebrow{font-size:.56rem}
  .hero__visual{height:clamp(260px,80vw,315px);min-height:260px}
- .hero__bread-stage{width:min(90%,325px)}
+ .hero__bread{width:min(90%,325px)}
  .hero__meta{font-size:.53rem}
 }
 @media(prefers-reduced-motion:reduce){
- .hero__bread-stage{transform:rotate(-6deg)}
- .hero__bread-layer{transition:none!important}
+ .hero__bread{transform:rotate(-6deg);transition:none}
  .primary-link,.primary-link svg{transition:none}
 }

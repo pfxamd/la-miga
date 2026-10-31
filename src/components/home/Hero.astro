@@ -43,15 +43,16 @@ const featured = products[0];
       <div class="hero__art" aria-hidden="true">
         <HeroEngraving />
       </div>
-      <div class="hero__bread-stage" role="img" aria-label={`Pan artesanal: ${featured.name}`}>
-        <img class="hero__bread-layer hero__bread-layer--shadow" src={withBase('assets/hero-layers/base-shadow.webp')} width="800" height="800" alt="" aria-hidden="true" decoding="async" />
-        <div class="hero__bread-object" aria-hidden="true">
-          <img class="hero__bread-layer hero__bread-layer--body" src={withBase('assets/hero-layers/bread-body.webp')} width="800" height="800" alt="" fetchpriority="high" decoding="async" />
-          <img class="hero__bread-layer hero__bread-layer--score" src={withBase('assets/hero-layers/score-main.webp')} width="800" height="800" alt="" decoding="async" />
-          <img class="hero__bread-layer hero__bread-layer--flour" src={withBase('assets/hero-layers/flour-surface.webp')} width="800" height="800" alt="" decoding="async" />
-        </div>
-        <img class="hero__bread-layer hero__bread-layer--dust" src={withBase('assets/hero-layers/flour-particles.webp')} width="800" height="800" alt="" aria-hidden="true" decoding="async" />
-      </div>
+      <div class="hero__ground" aria-hidden="true"></div>
+      <img
+        class="hero__bread"
+        src={withBase(featured.image)}
+        width="800"
+        height="800"
+        alt={`Pan artesanal: ${featured.name}`}
+        fetchpriority="high"
+        decoding="async"
+      />
       <span class="hero__visual-index" aria-hidden="true">FIG. 01 — LA MIGA</span>
       <div class="hero__product-label" aria-hidden="true">
         <span class="hero__product-number">NUESTRA SELECCIÓN / 01</span>
@@ -68,44 +69,3 @@ const featured = products[0];
     <span>DESDE TETUÁN</span>
   </div>
 </div>
-
-<script>
-  // One physical loaf built from registered real photo layers. Scroll drives its
-  // lift, grounded shadow, score highlights, flour reveal and airborne particles.
-  // No synthetic dough deformation, wheel capture, or WebGL.
-  const hero = document.querySelector<HTMLElement>('.hero');
-  const stage = document.querySelector<HTMLElement>('.hero__bread-stage');
-  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (hero && stage && !motionPreference.matches) {
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      // The hero starts below the header: measure from page scroll zero so the
-      // scene visibly reacts to the first wheel/touch movement.
-      const distance = Math.max(250, hero.offsetHeight * .52);
-      const t = Math.max(0, Math.min(1, window.scrollY / distance));
-      // 70px of visible lift on desktop; 46px on a phone, while shadow remains.
-      const mobile = window.innerWidth <= 720;
-      const lift = mobile ? 46 : 72;
-      stage.style.setProperty('--bread-lift', `${-lift * t}px`);
-      stage.style.setProperty('--bread-tilt', `${-2 + 9 * t}deg`);
-      stage.style.setProperty('--bread-scale', String(1 + t * .075));
-      stage.style.setProperty('--bread-shadow-opacity', String(.87 - t * .47));
-      stage.style.setProperty('--bread-shadow-scale', String(1 - t * .19));
-      stage.style.setProperty('--bread-score-opacity', String(.3 + t * .7));
-      stage.style.setProperty('--bread-flour-opacity', String(.16 + t * .84));
-      stage.style.setProperty('--bread-dust-opacity', String(.12 + t * .88));
-      stage.style.setProperty('--bread-dust-x', `${-25 + t * 95}px`);
-      stage.style.setProperty('--bread-dust-y', `${30 - t * 112}px`);
-      stage.style.setProperty('--bread-dust-scale', String(.82 + t * .35));
-    };
-    const schedule = () => {
-      if (raf) return;
-      raf = window.requestAnimationFrame(update);
-    };
-    schedule();
-    window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', schedule, { passive: true });
-    window.addEventListener('pageshow', schedule);
-  }
-</script>
