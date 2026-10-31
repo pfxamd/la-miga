@@ -1,0 +1,232 @@
+---
+import { withBase } from '../../data/products';
+
+// The images are cropped for loading speed but retain their ORIGINAL
+// 2048px-canvas coordinates through percentage-positioned transparent layers.
+// Every landing point is identical to the photographer's final seeded loaf.
+const sunflowerLayers = [
+  {
+    "id": "sunflower-group-a",
+    "x": 37.54883,
+    "y": 55.61523,
+    "w": 10.49805,
+    "h": 7.86133
+  },
+  {
+    "id": "sunflower-group-b",
+    "x": 46.63086,
+    "y": 54.05273,
+    "w": 6.73828,
+    "h": 7.17773
+  },
+  {
+    "id": "sunflower-group-c",
+    "x": 52.92969,
+    "y": 60.15625,
+    "w": 6.98242,
+    "h": 6.5918
+  },
+  {
+    "id": "sunflower-group-d",
+    "x": 58.34961,
+    "y": 54.05273,
+    "w": 7.8125,
+    "h": 8.83789
+  },
+  {
+    "id": "sunflower-single-a",
+    "x": 41.8457,
+    "y": 57.8125,
+    "w": 4.29688,
+    "h": 2.29492
+  },
+  {
+    "id": "sunflower-single-b",
+    "x": 51.07422,
+    "y": 55.66406,
+    "w": 3.80859,
+    "h": 2.63672
+  },
+  {
+    "id": "sunflower-single-c",
+    "x": 58.00781,
+    "y": 61.71875,
+    "w": 3.95508,
+    "h": 2.58789
+  }
+];
+---
+
+<section class="seed-lab" id="seed-assembly-lab" data-seed-lab aria-labelledby="seed-lab-title">
+  <div class="container seed-lab__layout">
+    <div class="seed-lab__copy">
+      <div class="seed-lab__eyebrow">
+        <span class="seed-lab__eyebrow-line" aria-hidden="true"></span>
+        <span>LABORATORIO VISUAL / 01</span>
+      </div>
+      <h2 id="seed-lab-title">De la semilla <em>al calor.</em></h2>
+      <p>Una hogaza, unas pipas de girasol y el aroma de lo recién horneado. Cada detalle encuentra su lugar.</p>
+      <div class="seed-lab__phase" aria-live="polite">
+        <span class="seed-lab__phase-count" data-seed-phase-count>01 / 04</span>
+        <div>
+          <span class="seed-lab__phase-title" data-seed-phase-title>Pan recién hecho</span>
+          <span class="seed-lab__phase-note" data-seed-phase-note>El comienzo</span>
+        </div>
+      </div>
+      <div class="seed-lab__controls">
+        <label for="seed-lab-progress">Explora el proceso</label>
+        <input id="seed-lab-progress" class="seed-lab__range" data-seed-range type="range" min="0" max="100" step="1" value="0" aria-label="Avanzar o retroceder en la animación" />
+        <div class="seed-lab__control-foot">
+          <span>00%</span>
+          <button type="button" class="seed-lab__replay" data-seed-replay aria-label="Repetir la animación">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M5 10a7 7 0 1 1 1.2 5.5M5 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Repetir animación
+          </button>
+          <span>100%</span>
+        </div>
+      </div>
+      <p class="seed-lab__hint">Experimento visual independiente · 12 capas fotográficas</p>
+    </div>
+
+    <div class="seed-lab__visual">
+      <div class="seed-lab__scene" data-seed-stage role="img" aria-label="Pan artesano. Caen semillas de girasol sobre la corteza y después asciende vapor.">
+        <div class="seed-lab__scene-glow" aria-hidden="true"></div>
+
+        <img class="seed-lab__piece seed-lab__piece--shadow" src={withBase('assets/seed-assembly/bread-shadow.webp')} style="left:14.25781%;top:72.55859%;width:71.48438%;height:13.13477%" width="1440" height="245" loading="lazy" decoding="async" alt="" aria-hidden="true" />
+
+        <img class="seed-lab__piece seed-lab__piece--bread" src={withBase('assets/seed-assembly/bread-clean.webp')} style="left:19.43359%;top:47.41211%;width:61.13281%;height:34.13086%" width="1228" height="675" loading="lazy" decoding="async" alt="" aria-hidden="true" />
+
+        {sunflowerLayers.map((layer, i) => (
+          <div class="seed-lab__seed" data-seed-layer data-seed-index={i} aria-hidden="true">
+            <img class="seed-lab__piece" src={withBase(`assets/seed-assembly/${layer.id}.webp`)} style={`left:${layer.x}%;top:${layer.y}%;width:${layer.w}%;height:${layer.h}%`} alt="" loading="lazy" decoding="async" />
+          </div>
+        ))}
+
+        <img class="seed-lab__piece seed-lab__piece--seeded" data-seed-finish src={withBase('assets/seed-assembly/bread-seeded.webp')} style="left:19.43359%;top:47.41211%;width:61.13281%;height:34.13086%" width="1228" height="675" loading="lazy" decoding="async" alt="" aria-hidden="true" />
+
+        <div class="seed-lab__steam" data-seed-steam="back" aria-hidden="true">
+          <img class="seed-lab__piece" src={withBase('assets/seed-assembly/steam-back.webp')} style="left:36.37695%;top:18.75%;width:18.60352%;height:31.78711%" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="seed-lab__steam seed-lab__steam--front" data-seed-steam="front" aria-hidden="true">
+          <img class="seed-lab__piece" src={withBase('assets/seed-assembly/steam-front.webp')} style="left:46.72852%;top:23.0957%;width:16.45508%;height:29.73633%" alt="" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="seed-lab__scene-caption" aria-hidden="true"><span>LA MIGA / ESTUDIO 01</span><span>2048 · 12 CAPAS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const lab = document.querySelector<HTMLElement>('[data-seed-lab]');
+  if (lab) {
+    const range = lab.querySelector<HTMLInputElement>('[data-seed-range]');
+    const replay = lab.querySelector<HTMLButtonElement>('[data-seed-replay]');
+    const seeds = [...lab.querySelectorAll<HTMLElement>('[data-seed-layer]')];
+    const seeded = lab.querySelector<HTMLElement>('[data-seed-finish]');
+    const vaporBack = lab.querySelector<HTMLElement>('[data-seed-steam="back"]');
+    const vaporFront = lab.querySelector<HTMLElement>('[data-seed-steam="front"]');
+    const phaseCount = lab.querySelector<HTMLElement>('[data-seed-phase-count]');
+    const phaseTitle = lab.querySelector<HTMLElement>('[data-seed-phase-title]');
+    const phaseNote = lab.querySelector<HTMLElement>('[data-seed-phase-note]');
+
+    const clamp = (v: number) => Math.max(0, Math.min(1, v));
+    const smooth = (a: number, b: number, v: number) => {
+      const x = clamp((v - a) / (b - a));
+      return x * x * (3 - 2 * x);
+    };
+    const phases = [
+      ['01 / 04', 'Pan recién hecho', 'El comienzo'],
+      ['02 / 04', 'Lluvia de semillas', 'Cada pipa encuentra su lugar'],
+      ['03 / 04', 'La corteza', 'Todo en su sitio'],
+      ['04 / 04', 'Sale el vapor', 'El último toque de calor'],
+    ];
+    const driftX = [-7, 6, -5, 7, -3, 4, -6];
+    const spin = [13, -17, 11, -15, 28, -23, 19];
+    const delays = [0.035, 0.079, 0.123, 0.167, 0.211, 0.255, 0.299];
+    const duration = 6400;
+
+    let raf = 0;
+    let startAt = 0;
+    let progress = 0;
+    let played = false;
+    let currentPhase = -1;
+
+    const render = (t: number) => {
+      progress = clamp(t);
+      seeds.forEach((layer, i) => {
+        const u = clamp((progress - delays[i]) / 0.365);
+        const ease = 1 - (1 - u) ** 3;
+        const settle = u > 0.78 && u < 1 ? -1.1 * Math.sin((u - 0.78) / 0.22 * Math.PI) : 0;
+        const x = driftX[i] * (1 - ease);
+        const y = -63 * (1 - ease) + settle;
+        const r = spin[i] * (1 - ease);
+        layer.style.transform = `translate3d(${x}%, ${y}%, 0) rotate(${r}deg)`;
+        layer.style.opacity = String(smooth(0, 0.12, u) * (1 - smooth(0.66, 0.735, progress)));
+      });
+
+      if (seeded) seeded.style.opacity = String(smooth(0.66, 0.735, progress));
+      const steamAmount = smooth(0.725, 0.94, progress);
+      if (vaporBack) {
+        vaporBack.style.opacity = String(steamAmount * 0.95);
+        vaporBack.style.transform = `translate3d(${-2.3 * steamAmount}%, ${4 - steamAmount * 10}%, 0)`;
+      }
+      if (vaporFront) {
+        const amount = smooth(0.78, 1, progress);
+        vaporFront.style.opacity = String(amount * 0.9);
+        vaporFront.style.transform = `translate3d(${2.4 * amount}%, ${6 - amount * 12}%, 0)`;
+      }
+      if (range) {
+        range.value = String(Math.round(progress * 100));
+        range.style.setProperty('--seed-progress', `${Math.round(progress * 100)}%`);
+      }
+      const phase = progress >= 0.73 ? 3 : progress >= 0.67 ? 2 : progress >= 0.045 ? 1 : 0;
+      if (phase !== currentPhase) {
+        currentPhase = phase;
+        if (phaseCount) phaseCount.textContent = phases[phase][0];
+        if (phaseTitle) phaseTitle.textContent = phases[phase][1];
+        if (phaseNote) phaseNote.textContent = phases[phase][2];
+      }
+      lab.classList.toggle('seed-lab--complete', progress >= 1);
+    };
+
+    const stop = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+    };
+    const tick = (now: number) => {
+      render((now - startAt) / duration);
+      raf = progress < 1 ? requestAnimationFrame(tick) : 0;
+    };
+    const play = () => {
+      stop();
+      played = true;
+      render(0);
+      startAt = performance.now();
+      raf = requestAnimationFrame(tick);
+    };
+
+    range?.addEventListener('input', () => {
+      stop();
+      played = true;
+      render(Number(range.value) / 100);
+    });
+    replay?.addEventListener('click', play);
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      render(1);
+    } else {
+      render(0);
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some(entry => entry.isIntersecting) && !played) {
+          observer.disconnect();
+          play();
+        }
+      }, { threshold: 0.28 });
+      observer.observe(lab);
+    }
+  }
+</script>
