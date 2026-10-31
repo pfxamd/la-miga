@@ -12,7 +12,7 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Three featured products on home | `src/components/home/FeaturedBreads.astro` |
 | Standalone page content | `src/pages/panes/index.astro`, `src/pages/obrador/index.astro`, `src/pages/nosotros/index.astro`, `src/pages/contacto/index.astro` |
 | Shared internal-page styling | `src/styles/pages.css` |
-| Workshop process | `src/components/home/BakeryProcess.astro` |
+| Workshop four-stage editorial process, hand-coded SVG illustrations | `src/components/home/BakeryProcess.astro`, `src/styles/process-atelier.css` |
 | Brand story | `src/components/home/BrandStory.astro` |
 | Navbar, brand logo, footer, creator link | `src/layouts/BaseLayout.astro`, `src/styles/footer.css`, `src/components/ui/SocialIcon.astro` |
 | Example footer contact details and optional future real links | `src/data/contact.ts` |

@@ -3,9 +3,6 @@
   .nav{display:none}
   .mobile-nav{display:block}
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .process-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2.3rem 0}
-  .process-step:nth-child(2){border-right:0}
-  .process-step:nth-child(3){padding-left:0}
   .story-section__inner{gap:2.5rem}
 }
 @media(max-width:720px){
@@ -32,12 +29,6 @@
   .product-card__action{display:flex;flex-wrap:wrap;gap:.45rem}
   .add-button{padding:.77rem .7rem;min-height:44px;font-size:.72rem}
   .text-link{display:inline-flex;align-items:center}
-  .process-grid{gap:1.8rem .8rem}
-  .process-step{padding:1.3rem .65rem 0}
-  .process-step:first-child,.process-step:nth-child(3){padding-left:0}
-  .process-step svg{height:95px}
-  .process-step h3{font-size:1.1rem}
-  .process-step p{font-size:.7rem}
   .story-section__inner{grid-template-columns:1fr;gap:2rem}
   .story-section__badge{width:62%;max-width:250px;margin:auto}
   .story-section__badge>span{font-size:2.5rem}

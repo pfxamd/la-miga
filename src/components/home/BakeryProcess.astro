@@ -3,21 +3,156 @@ import { siteBase } from '../../data/products';
 interface Props { showLink?: boolean; }
 const { showLink = true } = Astro.props;
 ---
-<section class="process-section section" id="obrador" aria-labelledby="process-title">
+<section class="process-section process-section--atelier section" id="obrador" aria-labelledby="process-title">
   <div class="container">
-    <div class="section-heading section-heading--light">
-      <div>
-        <span class="eyebrow">DE LA HARINA AL HORNO</span>
+    <header class="section-heading section-heading--light process-section__heading">
+      <div class="process-section__heading-main">
+        <span class="process-section__eyebrow"><span aria-hidden="true" class="process-section__asterisk">✳</span> DE LA HARINA AL HORNO <span class="process-section__eyebrow-tail">/ EL OFICIO</span></span>
         <h2 id="process-title">El arte de <em>hacer pan.</em></h2>
       </div>
-      <p>Buenas herramientas, paciencia y manos que dan forma a cada pieza.</p>
+      <div class="process-section__heading-aside">
+        <span class="process-section__serial">LA MIGA / 04 ACTOS</span>
+        <p>De un puñado de harina a una corteza que cruje. Cuatro gestos, un mismo cuidado.</p>
+      </div>
+    </header>
+
+    <div class="process-grid" role="list" aria-label="Los cuatro pasos de hacer pan">
+      <article class="process-step process-step--mix" role="listitem">
+        <div class="process-step__index"><span>01</span><small>EL COMIENZO</small></div>
+        <div class="process-step__drawing">
+          <svg viewBox="0 0 260 180" aria-hidden="true" focusable="false" fill="none">
+            <g class="process-art__guide" stroke="currentColor" stroke-width="1">
+              <path d="M19 144h28M35 129v30M219 31h26M233 18v27"/>
+              <path d="M32 109C46 70 85 45 122 41" stroke-dasharray="3 6"/>
+              <circle cx="232" cy="31" r="13"/>
+            </g>
+            <g class="process-art__ink" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M47 113C52 145 79 156 130 158C181 156 208 145 213 113"/>
+              <ellipse cx="130" cy="113" rx="83" ry="27"/>
+              <path d="M55 120C74 143 184 144 205 120" opacity=".55"/>
+              <path d="M83 106c14-18 38-24 60-19s29 17 19 26c-12 12-43 12-54 2s8-22 25-20c14 2 19 10 10 13"/>
+              <path d="M76 104c-1-12 8-20 16-22M165 94c9-5 20-1 23 7"/>
+            </g>
+            <g class="process-art__accent" fill="currentColor">
+              <circle cx="73" cy="61" r="2.4"/><circle cx="96" cy="51" r="1.6"/><circle cx="117" cy="59" r="1.9"/><circle cx="170" cy="64" r="1.8"/><circle cx="192" cy="78" r="2.4"/>
+            </g>
+            <path class="process-art__accent-line" d="m155 30 7 18m3-21 1 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="process-step__copy">
+          <span class="process-step__micro">HARINA + AGUA</span>
+          <h3>El amasado<span class="process-step__period">.</span></h3>
+          <p>Los ingredientes se encuentran y la masa empieza a tomar cuerpo.</p>
+        </div>
+      </article>
+
+      <article class="process-step process-step--rest" role="listitem">
+        <div class="process-step__index"><span>02</span><small>EL TIEMPO</small></div>
+        <div class="process-step__drawing">
+          <svg viewBox="0 0 260 180" aria-hidden="true" focusable="false" fill="none">
+            <g class="process-art__guide" stroke="currentColor" stroke-width="1">
+              <circle cx="130" cy="88" r="62" stroke-dasharray="3 6" opacity=".55"/>
+              <path d="M24 134h31M39 119v30M202 27h30M217 12v30" />
+            </g>
+            <g class="process-art__ink" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M44 117c0 24 29 40 86 41c57-1 86-17 86-41"/>
+              <ellipse cx="130" cy="118" rx="86" ry="25"/>
+              <path d="M62 119c8-30 33-52 68-52c38 0 62 21 68 52"/>
+              <path d="M82 92c12-12 27-17 41-15m11 2c17 0 28 7 38 17"/>
+              <path d="M58 130c45 12 97 15 145 0M73 142c39 10 74 13 114 1"/>
+              <path d="M76 127l-5 14m32-10-2 17m28-15v18m30-20 2 17m27-18 5 14" opacity=".62"/>
+            </g>
+            <g class="process-art__accent" fill="currentColor">
+              <circle cx="108" cy="94" r="3"/><circle cx="144" cy="91" r="2.4"/><circle cx="154" cy="108" r="1.9"/><circle cx="89" cy="112" r="1.8"/>
+            </g>
+            <g class="process-art__accent-line" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M103 46c-2-8 2-12 5-16M132 40c-2-9 0-15 5-20M158 47c0-8 5-13 9-17" />
+            </g>
+          </svg>
+        </div>
+        <div class="process-step__copy">
+          <span class="process-step__micro">TIEMPO + CALMA</span>
+          <h3>La fermentación<span class="process-step__period">.</span></h3>
+          <p>La espera construye el aroma, la textura y una miga con carácter.</p>
+        </div>
+      </article>
+
+      <article class="process-step process-step--shape" role="listitem">
+        <div class="process-step__index"><span>03</span><small>EL GESTO</small></div>
+        <div class="process-step__drawing">
+          <svg viewBox="0 0 260 180" aria-hidden="true" focusable="false" fill="none">
+            <g class="process-art__guide" stroke="currentColor" stroke-width="1">
+              <path d="M25 47h26M38 34v26M215 136h26M228 123v26"/>
+              <path d="M29 155h204" stroke-dasharray="2 6" opacity=".6"/>
+            </g>
+            <g class="process-art__ink" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M36 121c8-28 38-47 80-61c42-15 74-11 91 2c14 11 17 22 15 34c-13 23-44 32-89 42c-48 11-80 9-97-17Z"/>
+              <path d="M41 123c35 14 63 11 92 5c47-10 71-21 87-31" opacity=".56"/>
+              <path d="M83 82c4 12 10 19 23 25M117 68c3 13 10 21 23 28M153 59c3 13 11 19 22 24M185 61c2 7 7 13 15 15"/>
+              <path d="M77 89c13 0 24-4 35-9M112 75c11 0 23-4 31-10M150 64c10-1 19-3 26-7" opacity=".55"/>
+            </g>
+            <path class="process-art__accent-line" d="M77 34c25-9 56-11 75-8M66 40l10-6-3 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g class="process-art__accent" fill="currentColor">
+              <circle cx="39" cy="67" r="2"/><circle cx="211" cy="48" r="2.2"/><circle cx="206" cy="137" r="1.6"/>
+            </g>
+          </svg>
+        </div>
+        <div class="process-step__copy">
+          <span class="process-step__micro">FORMA + CORTE</span>
+          <h3>El formado<span class="process-step__period">.</span></h3>
+          <p>Cada pieza recibe su forma y las marcas que la hacen única.</p>
+        </div>
+      </article>
+
+      <article class="process-step process-step--bake" role="listitem">
+        <div class="process-step__index"><span>04</span><small>EL FINAL</small></div>
+        <div class="process-step__drawing">
+          <svg viewBox="0 0 260 180" aria-hidden="true" focusable="false" fill="none">
+            <g class="process-art__guide" stroke="currentColor" stroke-width="1">
+              <path d="M15 158h230M24 49h19M33 40v18M223 29h20M233 19v20"/>
+              <circle cx="233" cy="29" r="12"/>
+            </g>
+            <path class="process-art__oven-fill" d="M49 153V88a81 81 0 0 1 162 0v65Z" fill="currentColor"/>
+            <g class="process-art__ink" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M42 153V89a88 88 0 0 1 176 0v64H42Z"/>
+              <path d="M59 153V90a71 71 0 0 1 142 0v63H59Z"/>
+              <path d="M77 153v-49a53 53 0 0 1 106 0v49"/>
+              <path d="M65 61h16m95 0h17M42 153h176"/>
+              <path d="M90 137c7-19 18-25 34-25s29 7 35 25c-18 10-50 11-69 0Z"/>
+              <path d="M105 122l9 13m10-15 9 15m11-12 7 12"/>
+            </g>
+            <g class="process-art__accent-line" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <path d="M103 103c-4-11-1-21 5-27m20 26c-4-12 0-22 6-30m20 32c-3-11 1-21 7-28"/>
+            </g>
+            <g class="process-art__accent" fill="currentColor">
+              <circle cx="67" cy="100" r="2.2"/><circle cx="194" cy="105" r="2"/><circle cx="191" cy="57" r="1.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="process-step__copy">
+          <span class="process-step__micro">CALOR + CORTEZA</span>
+          <h3>El horneado<span class="process-step__period">.</span></h3>
+          <p>El calor hace el resto: nace la corteza, aparece el buen pan.</p>
+        </div>
+      </article>
     </div>
-    <div class="process-grid">
-      <div class="process-step"><span>01</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M22 86h116M41 78q8-41 39-41t39 41M29 91l9-10m93 10-9-10M49 54h62M60 67h40" /></svg><h3>El amasado</h3><p>Harina, agua y una mezcla precisa para conseguir la textura adecuada.</p></div>
-      <div class="process-step"><span>02</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M23 86h114M36 72q9-35 44-35t44 35M42 72q39 18 76 0M80 24v-9m-18 13-7-8m43 8 7-8" /></svg><h3>La fermentación</h3><p>Tiempo para que la masa desarrolle su textura, aroma y sabor.</p></div>
-      <div class="process-step"><span>03</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M28 83q17-35 52-35t52 35q-52 19-104 0ZM51 72l16-15m-1 21 17-20m-1 24 16-20" /></svg><h3>El formado</h3><p>Cada variedad toma su forma: barra, hogaza, rosca o panecillo.</p></div>
-      <div class="process-step"><span>04</span><svg viewBox="0 0 160 115" aria-hidden="true"><path d="M24 92V52q1-32 56-32t56 32v40ZM39 92V59q1-23 41-23t41 23v33M40 92h80M55 80q-3-16 7-23m18 23q-5-16 6-25m17 25q-3-16 7-23" /></svg><h3>El horneado</h3><p>Calor y vapor para conseguir una corteza dorada y una miga cuidada.</p></div>
-    </div>
-    {showLink && <div class="process-section__link"><a href={`${siteBase}obrador/`} class="editorial-link editorial-link--light">Entra en el obrador <span aria-hidden="true">↗</span></a></div>}
+
+    {showLink && (
+      <div class="process-section__footer">
+        <div class="process-section__seal" aria-hidden="true">
+          <svg viewBox="0 0 55 55" fill="none">
+            <circle cx="27.5" cy="27.5" r="25" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3" />
+            <path d="M27.5 9v37M27 37C15 31 15 22 21 18M28 30C41 27 43 20 37 15M27 22c-8-5-8-11-4-14M28 40c10-3 13-9 12-14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          <span>HECHO CON TIEMPO · LA MIGA</span>
+        </div>
+        <a href={`${siteBase}obrador/`} class="process-section__cta">
+          <span>Descubre el obrador</span>
+          <svg viewBox="0 0 23 23" width="22" height="22" fill="none" aria-hidden="true">
+            <path d="M4 19 19 4M8 4h11v11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    )}
   </div>
 </section>

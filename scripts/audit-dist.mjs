@@ -57,6 +57,10 @@ for (const page of ['index.html', 'panes/index.html']) {
 const homepage = await readFile(new URL('index.html', dist), 'utf8');
 if (!homepage.includes('https://pfxamd.com/')) errors.push('Missing creator credit link');
 if (!homepage.includes('LA MIGA')) errors.push('Missing LA MIGA brand text');
+for (const marker of ['process-section--atelier', 'process-step--mix', 'process-step--rest', 'process-step--shape', 'process-step--bake', 'process-section__cta']) {
+  if (!homepage.includes(marker)) errors.push(`Home missing redesigned bakery process: ${marker}`);
+}
+
 for (const page of htmlFiles) {
   const html = await readFile(new URL(page, dist), 'utf8');
   if (!html.includes('site-header__progress')) errors.push(`${page}: missing scroll progress indicator`);
