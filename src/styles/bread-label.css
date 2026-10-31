@@ -1,0 +1,105 @@
+/* LA MIGA / artisan bread labels — original typographic component.
+   Inspired by an ink-stamped paper bakery slip, not a generic e-commerce card.
+   Only the lower portion of shared bread cards is styled here.
+ */
+.product-card{display:flex;flex-direction:column;min-width:0}
+.product-card__info{display:flex;flex:1;flex-direction:column;gap:0;min-width:0;padding-top:.55rem}
+.product-card__imprint{display:flex;align-items:center;gap:.6rem;color:var(--heat);font-size:.56rem;font-weight:820;letter-spacing:.16em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
+.product-card__imprint svg{flex:none;width:39px;height:13px;color:var(--copper);opacity:.78}
+.product-card__headline{display:grid;grid-template-columns:minmax(0,1fr) 82px;align-items:center;gap:.25rem;min-height:103px}
+.product-card__title-wrap{position:relative;min-width:0}
+.product-card__title{font-family:var(--font-display);font-size:clamp(1.48rem,2.25vw,2.04rem);font-weight:670;letter-spacing:-.063em;line-height:1.06;display:inline-block;overflow-wrap:normal;hyphens:none;transition:color .2s ease}
+.product-card__title:hover,.product-card__title:focus-visible{color:var(--heat)}
+.product-card__underline{display:block;width:min(92%,174px);height:9px;margin:.47rem 0 0 .13rem;color:var(--heat);opacity:.72}
+.product-card__seal{position:relative;flex:none;justify-self:end;display:grid;place-content:center;justify-items:center;gap:0;width:82px;aspect-ratio:1;color:var(--heat);text-align:center;transform:rotate(8deg);font-variant-numeric:tabular-nums;line-height:1;isolation:isolate}
+.product-card__seal-ring{position:absolute;inset:0;width:100%;height:100%;color:var(--heat)}
+.product-card__seal-number{position:relative;z-index:1;font-family:var(--font-display);font-size:1.73rem;letter-spacing:-.07em;font-weight:750;line-height:.94}
+.product-card__seal-currency{position:relative;z-index:1;font-size:.53rem;font-weight:900;letter-spacing:.16em;margin-top:.25rem}
+.product-card__description{font-family:var(--font-display);font-size:.99rem;font-style:italic;font-weight:440;line-height:1.45;color:var(--mute);margin:.15rem 0 .65rem;max-width:32ch}
+.product-card__traits{display:flex;align-items:center;gap:.6rem;margin-top:auto;min-width:0;padding:.75rem 0 .72rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--heat);font-size:.61rem;letter-spacing:.11em;line-height:1.15;font-weight:770;white-space:nowrap}
+.product-card__traits-separator{font-size:.68rem;color:var(--copper);opacity:.7}
+.product-card__traits-end{flex:1;min-width:12px;height:8px;align-self:center;border-top:1px solid var(--line);transform:translateY(4px);position:relative}
+.product-card__traits-end::after{content:'';position:absolute;top:-4px;right:0;width:7px;height:7px;border-top:1px solid var(--heat);transform:rotate(45deg);opacity:.75}
+.product-card__action{display:flex;justify-content:space-between;align-items:center;gap:.55rem;padding:1rem 0 0;border-top:0;margin:0;min-width:0}
+.product-card__action .add-button--artisan{position:relative;flex:none;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:49px;max-width:100%;padding:.6rem 1.2rem .6rem .7rem;background:var(--ink);color:var(--flour);border:0;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));font-size:.72rem;font-weight:800;letter-spacing:.035em;line-height:1.2;white-space:nowrap;transition:background-color .22s ease,transform .24s ease}
+.product-card__action .add-button--artisan:focus-visible{outline:3px solid var(--heat);outline-offset:5px;clip-path:none}
+.product-card__action .add-button--artisan:disabled{opacity:.55;cursor:not-allowed}
+.product-card__action .add-button--artisan:not(:disabled):hover{background:var(--heat);transform:translateY(-2px)}
+.product-card__action .add-button--artisan .add-button__symbol{width:27px;height:27px;flex:none;border:1px solid rgba(255,252,247,.55);border-radius:50%;padding:5px;transition:transform .23s ease}
+.product-card__action .add-button--artisan:hover .add-button__symbol{transform:rotate(90deg)}
+.product-card__discover{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.3rem;flex:none;min-height:44px;max-width:100%;color:var(--ink);font-size:.71rem;font-weight:750;white-space:nowrap}
+.product-card__discover::after{content:'';position:absolute;bottom:7px;left:0;right:0;height:1px;background:var(--heat);transform:scaleX(.26);transform-origin:0 50%;transition:transform .2s ease}
+.product-card__discover svg{flex:none;color:var(--heat);transition:transform .22s ease}
+.product-card__discover:hover{color:var(--heat)}
+.product-card__discover:hover::after,.product-card__discover:focus-visible::after{transform:scaleX(1)}
+.product-card__discover:hover svg{transform:translate(2px,-2px)}
+
+/* The shop uses the same bespoke label as the homepage; info must not be overridden. */
+.shop-page .product-card__info{padding-top:.55rem}
+.shop-page .product-card__action{padding:1rem 0 0;margin:0}
+.shop-page .product-card__title{display:inline-block}
+.shop-page .product-card__imprint{font-size:.56rem}
+
+/* Slight type refinement on wide, three-column layout. */
+@media(min-width:1100px){
+ .product-card__headline{min-height:112px;grid-template-columns:minmax(0,1fr) 91px}
+ .product-card__seal{width:91px}
+ .product-card__seal-number{font-size:1.93rem}
+ .product-card__title{font-size:2.03rem}
+}
+@media(max-width:1099px) and (min-width:961px){
+ .product-card__headline{grid-template-columns:minmax(0,1fr) 72px}
+ .product-card__seal{width:72px}
+ .product-card__title{font-size:1.55rem}
+ .product-card__seal-number{font-size:1.6rem}
+ .product-card__action .add-button--artisan{padding-right:.95rem}
+}
+@media(max-width:960px){
+ .product-card__headline{min-height:96px}
+ .product-card__title{font-size:clamp(1.55rem,3vw,1.9rem)}
+}
+@media(max-width:720px){
+ .product-card__info,.shop-page .product-card__info{padding-top:.3rem}
+ .product-card__imprint,.shop-page .product-card__imprint{font-size:.5rem;letter-spacing:.085em;gap:.3rem}
+ .product-card__imprint svg{width:25px}
+ .product-card__headline{grid-template-columns:minmax(0,1fr) 64px;align-items:center;min-height:102px;gap:.2rem}
+ .product-card__title{font-size:clamp(1.18rem,3.6vw,1.55rem);line-height:1.08}
+ .product-card__underline{width:86%;height:7px;margin-top:.34rem}
+ .product-card__seal{width:64px}
+ .product-card__seal-number{font-size:1.37rem}
+ .product-card__seal-currency{font-size:.45rem}
+ .product-card__description{font-size:.88rem;line-height:1.36;margin:0 0 .55rem;min-height:2.2em}
+ .product-card__traits{font-size:.53rem;letter-spacing:.035em;gap:.35rem;padding:.6rem 0;flex-wrap:wrap}
+ .product-card__traits-end{display:none}
+ .product-card__action{display:grid;grid-template-columns:1fr;justify-items:stretch;gap:.35rem;padding-top:.65rem}
+ .product-card__action .add-button--artisan{width:100%;min-height:45px;justify-content:flex-start;font-size:.69rem;padding:.5rem .7rem}
+ .product-card__action .add-button--artisan .add-button__symbol{width:25px;height:25px}
+ .product-card__discover{justify-self:start;min-height:37px;font-size:.71rem}
+}
+@media(max-width:420px){
+ .product-card__imprint svg{width:20px}
+ .product-card__headline{min-height:95px;grid-template-columns:minmax(0,1fr) 57px}
+ .product-card__seal{width:57px}
+ .product-card__seal-number{font-size:1.22rem}
+ .product-card__title{font-size:1.2rem}
+ .product-card__description{font-size:.81rem}
+ .product-card__traits{font-size:.49rem;gap:.23rem}
+ .product-card__action .add-button--artisan{font-size:.66rem}
+}
+@media(max-width:350px){
+ .product-card__headline{grid-template-columns:minmax(0,1fr) 78px}
+ .product-card__seal{width:78px}
+ .product-card__title{font-size:1.55rem}
+ .product-card__description{min-height:0}
+ .product-card__traits{font-size:.61rem;gap:.6rem}
+ .product-card__action{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+ .product-card__action .add-button--artisan{width:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ .product-card__action .add-button--artisan,
+ .product-card__action .add-button--artisan .add-button__symbol,
+ .product-card__discover::after,
+ .product-card__discover svg{transition:none}
+ .product-card__action .add-button--artisan:hover{transform:none}
+ .product-card__action .add-button--artisan:hover .add-button__symbol{transform:none}
+}

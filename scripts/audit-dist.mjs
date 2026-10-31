@@ -48,6 +48,12 @@ const shopPage = await readFile(new URL('panes/index.html', dist), 'utf8');
 if (!shopPage.includes('id="bread-grid"') || !shopPage.includes('aria-live="polite"')) {
   errors.push('Shop filtering UI and accessible result count not found');
 }
+for (const page of ['index.html', 'panes/index.html']) {
+  const html = await readFile(new URL(page, dist), 'utf8');
+  for (const marker of ['product-card__seal', 'product-card__imprint', 'product-card__traits', 'add-button--artisan', 'product-card__discover']) {
+    if (!html.includes(marker)) errors.push(`${page}: missing artisan bread label marker ${marker}`);
+  }
+}
 const homepage = await readFile(new URL('index.html', dist), 'utf8');
 if (!homepage.includes('https://pfxamd.com/')) errors.push('Missing creator credit link');
 if (!homepage.includes('LA MIGA')) errors.push('Missing LA MIGA brand text');

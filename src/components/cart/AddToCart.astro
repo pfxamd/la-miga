@@ -5,19 +5,20 @@ interface Props {
   title?: string;
   full?: boolean;
   available?: boolean;
+  artisan?: boolean;
 }
 const {
-  id, productName, title = 'Añadir', full = false, available = true,
+  id, productName, title = 'Añadir', full = false, available = true, artisan = false,
 } = Astro.props;
 ---
 <button
-  class:list={['add-button', { 'add-button--full': full }]}
+  class:list={['add-button', { 'add-button--full': full, 'add-button--artisan': artisan }]}
   type="button"
   data-add-to-cart={id}
   aria-label={available ? `Añadir ${productName} a la cesta` : `${productName} agotado`}
   disabled={!available}
 >
-  <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+  <svg class="add-button__symbol" aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
     <path d="M12 5v14M5 12h14" />
   </svg>
   <span>{available ? title : 'Agotado'}</span>

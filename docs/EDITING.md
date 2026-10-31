@@ -8,7 +8,7 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Homepage headline, featured product | `src/components/home/Hero.astro` |
 | Full catalog, filters and live result count | `src/components/home/BreadCatalog.astro` |
 | Shop-specific art direction and responsive rules | `src/styles/shop-experience.css` |
-| One reusable bread product card, floated cutouts & SVG scoring decoration | `src/components/shop/BreadCard.astro` and `src/styles/catalog.css` |
+| Custom bread labels, stamped prices and die-cut cart controls | `src/components/shop/BreadCard.astro`, `src/styles/bread-label.css` and `src/components/cart/AddToCart.astro` |
 | Three featured products on home | `src/components/home/FeaturedBreads.astro` |
 | Standalone page content | `src/pages/panes/index.astro`, `src/pages/obrador/index.astro`, `src/pages/nosotros/index.astro`, `src/pages/contacto/index.astro` |
 | Shared internal-page styling | `src/styles/pages.css` |
