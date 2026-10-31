@@ -1,59 +1,85 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BakeryProcess from '../../components/home/BakeryProcess.astro';
-import { siteBase } from '../../data/products';
-const equipment = [
-  {num: '01', title: 'La amasadora', type: 'PRECISIÓN', text: 'Une harina y agua sin perder el control de la textura. Cada masa necesita su propio ritmo.', symbol: 'amasadora'},
-  {num: '02', title: 'Las cestas', type: 'FERMENTACIÓN', text: 'Sostienen las hogazas durante el reposo y ayudan a conservar su forma.', symbol: 'cestas'},
-  {num: '03', title: 'El banco de trabajo', type: 'FORMADO', text: 'Una superficie limpia para dividir, pesar y dar a cada pan su silueta.', symbol: 'banco'},
-  {num: '04', title: 'El horno de solera', type: 'COCCIÓN', text: 'El calor uniforme y el vapor influyen en la corteza, el color y la miga.', symbol: 'horno'},
+import { siteBase, withBase } from '../../data/products';
+
+const tools = [
+  { id:'01', category:'AMASADO', name:'La amasadora', text:'La harina y el agua se convierten en una masa con textura y fuerza.', image:'amasadora', w:502, h:331, alt:'Amasadora profesional de acero inoxidable mezclando masa de pan.' },
+  { id:'02', category:'FERMENTACIÓN', name:'Las cestas', text:'La masa reposa sobre lino y mimbre, conservando su forma antes de pasar al horno.', image:'fermentacion', w:510, h:331, alt:'Masa de pan fermentando dentro de una cesta de mimbre forrada de lino.' },
+  { id:'03', category:'EL FORMADO', name:'El banco de trabajo', text:'Rasqueta, cuchilla y harina: las herramientas de los detalles que importan.', image:'banco', w:499, h:331, alt:'Rasqueta y cuchilla de panadería junto a una pieza de masa sobre una mesa de madera.' },
+];
+const moments = [
+  { id:'04', category:'EL CORTE', name:'La última marca.', text:'Un corte preciso guía la forma de la corteza durante la cocción.', image:'formado', w:762, h:331, alt:'Primer plano de manos sin rostro trazando cortes sobre una hogaza de masa cruda.' },
+  { id:'05', category:'EL HORNO', name:'El momento esperado.', text:'Del horno sale una corteza dorada, crujiente, lista para compartir.', image:'horno', w:761, h:331, alt:'Panes artesanales dorados sobre una pala junto a un horno encendido.' },
 ];
 ---
-<BaseLayout title="El obrador — LA MIGA" description="Descubre el proceso del pan: amasado, fermentación, formado y horneado en LA MIGA." active="obrador">
-  <main>
-    <header class="inner-intro inner-intro--workshop">
+<BaseLayout title="El obrador — LA MIGA" description="Un recorrido visual por el obrador: amasado, fermentación, formado y horneado." active="obrador">
+  <main class="obrador-gallery">
+    <header class="inner-intro inner-intro--workshop obrador-intro">
       <div class="container inner-intro__grid">
         <div>
           <span class="eyebrow inner-intro__eyebrow">LA MIGA / DENTRO DEL OBRADOR</span>
           <h1>Donde empieza <em>todo.</em></h1>
-          <p>El buen pan no necesita secretos. Necesita harina, agua, buenas herramientas y respetar cada paso.</p>
+          <p>Harina, agua, buenas herramientas y tiempo. Cada pieza nace de un proceso cuidado.</p>
         </div>
-        <div class="workshop-illustration" aria-hidden="true">
-          <svg viewBox="0 0 350 245" fill="none">
-            <g stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-              <rect x="80" y="35" width="180" height="37" rx="6" />
-              <path d="M170 35V19h27v16M115 72l10 72h89l11-72M125 144h89M145 144v30h49v-30" />
-              <path d="M109 85h121M107 94h125M125 115c14 9 26 9 40 0s26-9 40 0M132 129h80" stroke-dasharray="4 6" />
-              <path d="M98 174h146M113 174l-6 39M233 174l6 39M103 213h16M226 213h17" />
-              <circle cx="239" cy="54" r="8" />
-              <path d="M55 170V51M51 51h10M273 194h41M293 174v41" stroke-width="1" />
-            </g>
-          </svg>
-          <span>ESTUDIO 01 / AMASADO</span>
+        <div class="inner-intro__aside">
+          <span class="inner-intro__number">06</span>
+          <span>ESCENAS DEL<br />OBRADOR</span>
         </div>
       </div>
     </header>
-    <section class="section workshop-equipment">
+
+    <section class="obrador-panorama-section" aria-label="Vista del obrador">
+      <div class="container">
+        <figure class="obrador-panorama">
+          <a href={withBase('assets/obrador/hero.webp')} data-pswp-width="1530" data-pswp-height="333" aria-label="Ampliar la vista del obrador">
+            <img src={withBase('assets/obrador/hero.webp')} width="1530" height="333" decoding="async" fetchpriority="high" alt="Interior de una panadería con mesas de trabajo, cestas de fermentación, panes y horno profesional." />
+          </a>
+          <figcaption><span>00 / EL ESPACIO</span><strong>Hecho con tiempo.</strong></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section obrador-equipment" aria-labelledby="equipment-title">
       <div class="container">
         <div class="section-heading">
-          <div><span class="eyebrow">EL EQUIPO DEL OBRADOR</span><h2>Las herramientas <em>importan.</em></h2></div>
-          <p>Los instrumentos adecuados ayudan a que cada pan reciba el cuidado que necesita.</p>
+          <div><span class="eyebrow">LAS HERRAMIENTAS DEL OFICIO</span><h2 id="equipment-title">El trabajo <em>empieza aquí.</em></h2></div>
+          <p>Acero, madera, lino y harina. Materiales que acompañan cada etapa de nuestro pan.</p>
         </div>
-        <div class="equipment-grid">
-          {equipment.map((item) => (
-            <article class="equipment-item">
-              <div class="equipment-item__top"><span>{item.num}</span><span>{item.type}</span></div>
-              <div class:list={['equipment-item__drawing', `equipment-item__drawing--${item.symbol}`]} aria-hidden="true">
-                <span class="equipment-item__glyph">{item.symbol === 'amasadora' ? '◒' : item.symbol === 'cestas' ? '◎' : item.symbol === 'banco' ? '≋' : '◧'}</span>
-                <span class="equipment-item__rule"></span>
-              </div>
-              <h3>{item.title}</h3><p>{item.text}</p>
+        <div class="obrador-equipment__grid">
+          {tools.map((item) => (
+            <article class="obrador-equipment__item">
+              <div class="obrador-photo-meta"><span>LM / {item.id}</span><span>{item.category}</span></div>
+              <a class="obrador-photo" href={withBase(`assets/obrador/${item.image}.webp`)} data-pswp-width={String(item.w)} data-pswp-height={String(item.h)} aria-label={`Ampliar: ${item.name}`}>
+                <img src={withBase(`assets/obrador/${item.image}.webp`)} width={item.w} height={item.h} alt={item.alt} loading="lazy" decoding="async" />
+                <span aria-hidden="true">↗</span>
+              </a>
+              <h3>{item.name}</h3>
+              <p>{item.text}</p>
             </article>
           ))}
         </div>
       </div>
     </section>
-    <BakeryProcess showLink={false} />
+
+    <section class="section obrador-moments" aria-labelledby="moments-title">
+      <div class="container">
+        <div class="section-heading section-heading--light">
+          <div><span class="eyebrow">DE LAS MANOS AL HORNO</span><h2 id="moments-title">La última <em>transformación.</em></h2></div>
+          <p>Dar forma, cortar y hornear. Cada gesto deja su huella en el pan.</p>
+        </div>
+        <div class="obrador-moments__grid">
+          {moments.map((item) => (
+            <figure class="obrador-moments__item">
+              <a class="obrador-photo" href={withBase(`assets/obrador/${item.image}.webp`)} data-pswp-width={String(item.w)} data-pswp-height={String(item.h)} aria-label={`Ampliar: ${item.name}`}>
+                <img src={withBase(`assets/obrador/${item.image}.webp`)} width={item.w} height={item.h} alt={item.alt} loading="lazy" decoding="async" />
+                <span aria-hidden="true">↗</span>
+              </a>
+              <figcaption><span class="obrador-moments__meta">LM / {item.id} — {item.category}</span><h3>{item.name}</h3><p>{item.text}</p></figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
     <section class="section workshop-outro">
       <div class="container workshop-outro__inner">
         <span class="eyebrow">DEL OBRADOR A TU MESA</span>
@@ -62,4 +88,10 @@ const equipment = [
       </div>
     </section>
   </main>
+  <script>
+    import { mountLightbox } from '../../lib/lightbox';
+    mountLightbox('.obrador-gallery').catch(() => {
+      // Fallback: image links can still open normally.
+    });
+  </script>
 </BaseLayout>

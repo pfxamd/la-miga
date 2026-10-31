@@ -1,0 +1,44 @@
+/* LA MIGA / Obrador photo direction — no face, no decorative stock iconography. */
+.obrador-intro{padding-bottom:2.2rem}
+.obrador-panorama-section{padding:1.15rem 0 0}
+.obrador-panorama{position:relative;margin:0;background:var(--dark);overflow:hidden}
+.obrador-panorama>a{display:block;overflow:hidden}
+.obrador-panorama img{width:100%;height:auto;aspect-ratio:1530/333;object-fit:cover;display:block;transition:transform .35s ease}
+.obrador-panorama figcaption{position:absolute;left:1rem;bottom:1rem;pointer-events:none;display:grid;gap:.16rem;background:var(--paper);padding:.65rem .85rem;border-left:3px solid var(--heat);color:var(--ink)}
+.obrador-panorama figcaption span{color:var(--heat);font-size:.6rem;letter-spacing:.12em;font-weight:750}
+.obrador-panorama figcaption strong{font:620 1.1rem var(--font-display)}
+.obrador-equipment{padding-top:4.2rem}
+.obrador-equipment__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem}
+.obrador-equipment__item{min-width:0}
+.obrador-photo-meta{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.65rem 0;border-top:1px solid var(--line);font-size:.62rem;letter-spacing:.11em;color:var(--heat);font-weight:750}
+.obrador-photo{position:relative;display:block;overflow:hidden;background:var(--wheat)}
+.obrador-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .35s ease}
+.obrador-photo>span{position:absolute;bottom:.65rem;right:.65rem;width:28px;height:28px;display:grid;place-items:center;background:var(--paper);color:var(--ink);font-size:1rem;pointer-events:none}
+.obrador-equipment__item h3{font:620 1.45rem var(--font-display);letter-spacing:-.035em;margin:1.1rem 0 .5rem}
+.obrador-equipment__item p{font-size:.81rem;line-height:1.77;color:var(--mute);max-width:330px;margin:0}
+.obrador-moments{background:var(--dark);color:var(--paper)}
+.obrador-moments .section-heading--light>p{color:#d1c1b5}
+.obrador-moments__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.55rem}
+.obrador-moments__item{min-width:0;margin:0}
+.obrador-moments .obrador-photo{background:#4d3024}
+.obrador-moments .obrador-photo img{aspect-ratio:2/1}
+.obrador-moments .obrador-photo>span{background:var(--dark);color:var(--paper)}
+.obrador-moments__meta{display:block;color:var(--rose);font-size:.62rem;font-weight:750;letter-spacing:.12em;margin:1.15rem 0 .45rem}
+.obrador-moments__item h3{font:620 1.5rem var(--font-display);letter-spacing:-.03em;margin:0 0 .45rem}
+.obrador-moments__item p{font-size:.82rem;line-height:1.75;color:#d1c1b5;max-width:450px;margin:0}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.obrador-photo:hover img,.obrador-panorama>a:hover img{transform:scale(1.025)}}
+@media(max-width:820px){.obrador-equipment__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.obrador-equipment__item:last-child{grid-column:1/-1;max-width:calc(50% - .7rem)}}
+@media(max-width:720px){
+ .obrador-intro{padding-bottom:1.4rem}
+ .obrador-panorama-section{padding:.8rem 0 0}
+ .obrador-panorama img{aspect-ratio:1.7}
+ .obrador-panorama figcaption{left:.5rem;bottom:.5rem;padding:.5rem .7rem}
+ .obrador-panorama figcaption strong{font-size:.94rem}
+ .obrador-equipment{padding-top:3.4rem}
+ .obrador-equipment__grid{grid-template-columns:1fr;gap:2rem}
+ .obrador-equipment__item:last-child{grid-column:auto;max-width:none}
+ .obrador-photo img{aspect-ratio:1.65}
+ .obrador-moments__grid{grid-template-columns:1fr;gap:2rem}
+ .obrador-moments .obrador-photo img{aspect-ratio:1.8}
+}
+@media(prefers-reduced-motion:reduce){.obrador-photo img,.obrador-panorama img{transition:none}}
