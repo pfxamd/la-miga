@@ -61,3 +61,11 @@ Keep three columns on desktop and two on small phones (one only below 350px). Pr
 The `Pan de verdad.` title and the featured `Pan estilo payés` are now connected by the original inline `hero__thread` SVG. The same custom contour-line vocabulary wraps the loaf in the `HeroEngraving.astro` vector artwork. The old large beige solid background shape is removed; bread floats directly on the `Harina` canvas with restrained ground/drop shadows, lightweight type labels, and a deliberate serif size contrast between `Pan`, `de`, and `verdad.`. The main CTA still navigates to `/panes/`.
 
 Hero-specific responsive design lives in `src/styles/hero.css` so it cannot clash with generic `responsive.css`; it stays two-column on desktop and stacks text then bread on phone, without oversized cover images, runtime motion dependencies, mouse-follow interactions, or accessibility-breaking animations.
+
+## Shop and product editorial direction
+
+The complete shop on `/panes/` features `Seis panes. Uno para ti.` with original hand-coded artisan loaf-etching linework rather than another giant stock photograph. Six authentic Spanish-style bread cutouts keep the `PAN EN EL AIRE` treatment; the full catalog provides category-filter counts and an accessible live result count. The existing local cart and detailed ingredient summaries remain available.
+
+All six `/pan/[slug]/` pages now use a shared product dossier: unboxed bread photo over custom concentric scoring curves, legible weight/category/availability summaries, a grounded ingredients/allergen section, an immediate price and cart button, documented shape and method, and two linked other breads. Render data directly from `src/data/products.ts`; never write product-specific text or invent origins, certifications, ingredients or prices in the component.
+
+The entire enhancement is static Astro/CSS/SVG with no new image generation, no extra 3D/WebGL library and no new runtime dependencies. The same interactive cart and PhotoSwipe image zoom remain available.

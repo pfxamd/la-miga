@@ -1,0 +1,66 @@
+/* LA MIGA — shop-only commercial art direction.
+   No full-width cover cards and no unneeded JavaScript in the hero. */
+.shop-intro{background:var(--paper);border-bottom:1px solid var(--line)}
+.shop-intro__breadcrumb{display:flex;align-items:center;gap:.75rem;padding:1rem 0 0;font-size:.68rem;color:var(--mute)}
+.shop-intro__breadcrumb a:hover{color:var(--heat)}
+.shop-intro__grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);gap:2rem;align-items:center;padding:2.1rem 0 1.2rem}
+.shop-intro__copy{position:relative;z-index:1}
+.shop-intro__copy>.eyebrow{font-size:.63rem}
+.shop-intro__copy h1{display:grid;font-family:var(--font-display);font-size:clamp(3.9rem,6.5vw,6.85rem);font-weight:650;line-height:.97;letter-spacing:-.075em;margin:1rem 0 1.15rem}
+.shop-intro__copy h1>em{font-weight:430;color:var(--heat);line-height:1.07}
+.shop-intro__copy p{max-width:480px;color:var(--mute);font-size:.9rem;line-height:1.7;margin:0}
+.shop-intro__art{position:relative;align-self:stretch;display:grid;place-items:center;min-height:290px;isolation:isolate}
+.shop-intro__drawing{width:100%;max-width:345px;height:100%;max-height:292px;color:var(--heat);opacity:.7;transform:rotate(-13deg)}
+.shop-intro__art-index{position:absolute;bottom:1.2rem;left:.4rem;letter-spacing:.14em;font-size:.59rem;font-weight:750;color:var(--heat)}
+.shop-intro__art-number{position:absolute;top:.15rem;right:0;font-family:var(--font-display);font-size:clamp(3rem,6vw,5.4rem);font-weight:500;line-height:1;letter-spacing:-.06em;color:var(--ink)}
+.shop-intro__footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;padding:.88rem 0;font-size:.61rem;letter-spacing:.12em;font-weight:750;color:var(--mute)}
+.shop-page .products-section{padding-top:3.4rem}
+.shop-page .section-heading{align-items:end;margin-bottom:1.35rem}
+.shop-page .catalog-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-block:1px solid var(--line);padding:.75rem 0 0;margin-bottom:1.35rem}
+.shop-page .filters{margin-bottom:.75rem;gap:.4rem}
+.shop-page .filter{padding:.56rem .86rem;min-height:40px;border-radius:2rem;font-size:.71rem}
+.shop-page .filter.is-active{background:var(--heat);border-color:var(--heat)}
+.shop-page .filter:not(.is-active):hover{background:var(--wheat);border-color:var(--line);color:var(--ink)}
+.shop-page .catalog-result{display:block;font-size:.68rem;font-weight:700;color:var(--mute);white-space:nowrap;margin:0 0 .75rem}
+.shop-page .product-grid{gap:2.3rem 1.65rem}
+.shop-page .product-card__category{display:block;font-size:.61rem;text-transform:uppercase;letter-spacing:.12em;font-weight:750;color:var(--heat);margin-bottom:.35rem}
+.shop-page .product-card__title{display:inline-block}
+.shop-page .product-card__info{padding-top:.75rem}
+.shop-page .product-card__action{margin-top:.85rem;padding-top:.8rem}
+.shop-page .product-card__ingredients{min-height:1.9rem}
+.shop-page .catalog-footnote{margin-top:2rem}
+.product-card__category{display:none}
+.shop-page .product-card__category{display:block}
+@media(max-width:960px){
+ .shop-intro__grid{grid-template-columns:minmax(0,1.25fr) minmax(200px,.75fr)}
+ .shop-intro__copy h1{font-size:clamp(3.3rem,6.8vw,5rem)}
+ .shop-intro__art{min-height:230px}
+ .shop-page .catalog-toolbar{align-items:stretch;flex-wrap:wrap}
+ .shop-page .filters{flex:1}
+}
+@media(max-width:720px){
+ .shop-intro__grid{grid-template-columns:1fr;gap:.1rem;padding:1.5rem 0 .5rem}
+ .shop-intro__copy h1{font-size:clamp(3.35rem,11.7vw,5rem);margin:.85rem 0 1rem}
+ .shop-intro__copy p{font-size:.83rem}
+ .shop-intro__art{min-height:130px;max-height:150px;overflow:hidden;justify-items:end}
+ .shop-intro__drawing{width:180px;height:190px;transform:translateY(-16px) rotate(-17deg)}
+ .shop-intro__art-index{bottom:.65rem;left:0;font-size:.56rem}
+ .shop-intro__art-number{font-size:3.4rem;right:0;top:0}
+ .shop-intro__footer{padding:.8rem 0;font-size:.53rem}
+ .shop-page .products-section{padding-top:2.2rem}
+ .shop-page .catalog-toolbar{gap:.25rem}
+ .shop-page .filters{margin-right:-1rem;flex:1 1 100%;margin-bottom:.2rem}
+ .shop-page .catalog-result{padding:.25rem 0 .55rem;margin:0}
+ .shop-page .product-grid{gap:2.1rem .85rem}
+ .shop-page .product-card__category{font-size:.54rem}
+ .shop-page .product-card__info{padding-top:.45rem}
+ .shop-page .product-card__ingredients{min-height:2.2rem}
+ .shop-page .product-card__action{margin-top:.65rem}
+}
+@media(max-width:420px){
+ .shop-intro__copy h1{font-size:clamp(3rem,11.9vw,4.1rem)}
+ .shop-intro__art{max-height:115px;min-height:105px}
+ .shop-intro__drawing{width:152px;height:155px}
+ .shop-page .product-grid{gap:1.8rem .8rem}
+ .shop-page .product-card__category{font-size:.49rem}
+}

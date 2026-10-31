@@ -6,7 +6,8 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | --- | --- |
 | Bread catalog (name, category, price, weight, ingredients, photo, availability) | `src/data/products.ts` |
 | Homepage headline, featured product | `src/components/home/Hero.astro` |
-| Full catalog and category filters | `src/components/home/BreadCatalog.astro` |
+| Full catalog, filters and live result count | `src/components/home/BreadCatalog.astro` |
+| Shop-specific art direction and responsive rules | `src/styles/shop-experience.css` |
 | One reusable bread product card, floated cutouts & SVG scoring decoration | `src/components/shop/BreadCard.astro` and `src/styles/catalog.css` |
 | Three featured products on home | `src/components/home/FeaturedBreads.astro` |
 | Standalone page content | `src/pages/panes/index.astro`, `src/pages/obrador/index.astro`, `src/pages/nosotros/index.astro`, `src/pages/contacto/index.astro` |
@@ -17,7 +18,7 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Add-to-cart buttons | `src/components/cart/AddToCart.astro` (shared native handler) |
 | Cart drawer UI | `src/components/cart/CartDrawer.tsx` |
 | Cart rules, totals, WhatsApp message | `src/store/`, `src/lib/` |
-| Product detail template | `src/pages/pan/[slug].astro` |
+| Product detail layout, genuine recipe facts and related breads | `src/pages/pan/[slug].astro` and `src/styles/product-detail.css` |
 | Brand palette and reusable colors | `src/styles/tokens.css` and `docs/BRAND_SYSTEM.md` |
 | Typography and foundational element styling | `src/styles/base.css` |
 | Section design | Corresponding file under `src/styles/` |

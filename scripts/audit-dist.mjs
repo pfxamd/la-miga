@@ -39,6 +39,15 @@ for (const path of htmlFiles) {
   }
 }
 
+for (const item of ['panes/index.html', ...htmlFiles.filter((name) => name.startsWith('pan/') && name.endsWith('/index.html'))]) {
+  const html = await readFile(new URL(item, dist), 'utf8');
+  if (!html.includes('data-add-to-cart=')) errors.push(`${item}: missing add-to-cart action`);
+  if (!html.includes('assets/bread/')) errors.push(`${item}: missing bread photo`);
+}
+const shopPage = await readFile(new URL('panes/index.html', dist), 'utf8');
+if (!shopPage.includes('id="bread-grid"') || !shopPage.includes('aria-live="polite"')) {
+  errors.push('Shop filtering UI and accessible result count not found');
+}
 const homepage = await readFile(new URL('index.html', dist), 'utf8');
 if (!homepage.includes('https://pfxamd.com/')) errors.push('Missing creator credit link');
 if (!homepage.includes('LA MIGA')) errors.push('Missing LA MIGA brand text');

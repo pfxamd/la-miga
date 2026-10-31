@@ -1,38 +1,54 @@
 ---
 import { products, categoryLabels } from '../../data/products';
 import BreadCard from '../shop/BreadCard.astro';
+const counts = Object.fromEntries(Object.keys(categoryLabels).map((key) => [
+  key, products.filter((p) => p.category === key).length,
+]));
 ---
 <section class="products-section section" id="panes" aria-labelledby="catalog-title">
   <div class="container">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">EL CATÁLOGO · 06 VARIEDADES</span>
+        <span class="eyebrow">EL CATÁLOGO · EDICIÓN 01</span>
         <h2 id="catalog-title">Nuestros <em>panes.</em></h2>
       </div>
-      <p>Seis formas de entender el pan. Encuentra el tuyo y prepara tu cesta.</p>
+      <p>Distintas texturas, formas y recetas. El pan de siempre, para cada momento.</p>
     </div>
-    <div class="filters" role="group" aria-label="Filtrar tipos de pan">
-      <button class="filter is-active" data-filter="todos" type="button" aria-pressed="true">Todos <span>{String(products.length).padStart(2,'0')}</span></button>
-      {Object.entries(categoryLabels).map(([key, label]) =>
-        <button class="filter" data-filter={key} type="button" aria-pressed="false">{label}</button>
-      )}
+    <div class="catalog-toolbar">
+      <div class="filters" role="group" aria-label="Filtrar panes por variedad">
+        <button class="filter is-active" data-filter="todos" type="button" aria-controls="bread-grid" aria-pressed="true">Todos <span>{String(products.length).padStart(2, '0')}</span></button>
+        {Object.entries(categoryLabels).map(([key, label]) => (
+          <button class="filter" data-filter={key} type="button" aria-controls="bread-grid" aria-pressed="false">{label} <span>{String(counts[key]).padStart(2, '0')}</span></button>
+        ))}
+      </div>
+      <output class="catalog-result" id="catalog-result" aria-live="polite" aria-atomic="true">Mostrando {products.length} panes</output>
     </div>
-    <div class="product-grid">
+    <div class="product-grid" id="bread-grid">
       {products.map((product, index) => <BreadCard product={product} index={index} />)}
     </div>
-    <p class="catalog-footnote">Precios de referencia · Disponibilidad a confirmar antes de la recogida.</p>
+    <p class="catalog-footnote">Precios orientativos · Disponibilidad y recogida a confirmar.</p>
   </div>
 </section>
 <script>
-  const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter'));
-  const cards = Array.from(document.querySelectorAll<HTMLElement>('.product-card'));
-  filters.forEach((button) => button.addEventListener('click', () => {
-    const chosen = button.dataset.filter ?? 'todos';
-    filters.forEach((filter) => {
-      const active = filter === button;
-      filter.classList.toggle('is-active', active);
-      filter.setAttribute('aria-pressed', String(active));
-    });
-    cards.forEach((card) => { card.hidden = chosen !== 'todos' && card.dataset.category !== chosen; });
-  }));
+  const section = document.querySelector<HTMLElement>('.products-section');
+  if (section) {
+    const buttons = Array.from(section.querySelectorAll<HTMLButtonElement>('.filter'));
+    const cards = Array.from(section.querySelectorAll<HTMLElement>('.product-card'));
+    const output = section.querySelector<HTMLOutputElement>('.catalog-result');
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const selectedCategory = button.dataset.filter ?? 'todos';
+      buttons.forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle('is-active', selected);
+        item.setAttribute('aria-pressed', String(selected));
+      });
+      let visible = 0;
+      cards.forEach((card) => {
+        const show = selectedCategory === 'todos' || card.dataset.category === selectedCategory;
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      if (output) output.textContent = `Mostrando ${visible} ${visible === 1 ? 'pan' : 'panes'}`;
+    }));
+  }
 </script>

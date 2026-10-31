@@ -1,6 +1,6 @@
 ---
 import AddToCart from '../cart/AddToCart.astro';
-import { siteBase, withBase } from '../../data/products';
+import { siteBase, withBase, categoryLabels } from '../../data/products';
 import type { BreadProduct } from '../../data/products';
 
 interface Props { product: BreadProduct; index: number; }
@@ -27,6 +27,7 @@ const detail = `${siteBase}pan/${product.slug}/`;
   </div>
   <div class="product-card__info">
     <div>
+      <span class="product-card__category">{categoryLabels[product.category]}</span>
       <a href={detail} class="product-card__title">{product.name}</a>
       <p>{product.subtitle}</p>
       <p class="product-card__ingredients">{product.ingredients}</p>

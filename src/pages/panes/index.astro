@@ -3,22 +3,55 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadCatalog from '../../components/home/BreadCatalog.astro';
 import { products, siteBase } from '../../data/products';
 ---
-<BaseLayout title="Nuestros panes — LA MIGA" description="Conoce los seis tipos de pan artesano de LA MIGA: variedades españolas, ingredientes y precios." active="panes">
-  <main>
-    <header class="inner-intro inner-intro--shop">
-      <div class="container inner-intro__grid">
-        <div>
-          <span class="eyebrow inner-intro__eyebrow">LA MIGA / COLECCIÓN 01</span>
-          <h1>Pan, en todas <em>sus formas.</em></h1>
-          <p>De la barra crujiente al mollete más suave. Seis panes para elegir, compartir y volver a disfrutar.</p>
+<BaseLayout title="Nuestros panes — LA MIGA" description="Descubre seis variedades de pan artesanal de inspiración española, sus ingredientes y precios en LA MIGA." active="panes">
+  <main class="shop-page">
+    <header class="shop-intro">
+      <div class="container">
+        <nav class="shop-intro__breadcrumb" aria-label="Ruta de navegación">
+          <a href={siteBase}>Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Nuestros panes</span>
+        </nav>
+        <div class="shop-intro__grid">
+          <div class="shop-intro__copy">
+            <span class="eyebrow eyebrow--accent">LA MIGA / COLECCIÓN 01 — TETUÁN</span>
+            <h1><span>Seis panes.</span><em>Uno para ti.</em></h1>
+            <p>Una barra para compartir, una hogaza para la mesa, un mollete para la mañana. Elige el tuyo.</p>
+          </div>
+          <div class="shop-intro__art" aria-hidden="true">
+            <svg class="shop-intro__drawing" viewBox="0 0 360 292" fill="none" focusable="false">
+              <g stroke="currentColor" stroke-linejoin="round" stroke-width="1.3">
+                <path d="M179 31C252 31 301 88 301 151C301 217 246 269 180 268C112 267 62 218 62 151C62 83 109 31 179 31Z"/>
+                <path d="M179 48C239 48 284 92 284 151C284 211 235 250 180 250C120 250 79 208 79 151C79 94 120 48 179 48Z"/>
+                <path d="M180 66C230 66 265 105 265 151C265 198 228 232 180 232C131 232 97 198 97 151C97 104 134 66 180 66Z"/>
+                <path d="M180 84C221 84 248 115 248 151C248 185 220 214 180 214C139 214 114 183 114 151C114 112 141 84 180 84Z"/>
+              </g>
+              <g stroke="currentColor" stroke-linecap="round" stroke-width="1.7">
+                <path d="M103 103C130 118 151 126 182 122"/>
+                <path d="M110 124C138 138 160 143 188 139"/>
+                <path d="M181 204C199 184 213 171 239 166"/>
+                <path d="M173 221C192 204 220 185 244 183"/>
+                <path d="M188 70C198 92 212 102 238 112"/>
+              </g>
+              <g stroke="currentColor" stroke-width="1">
+                <path d="M24 67h44M46 45v44M294 218h42M315 197v42"/>
+                <circle cx="46" cy="67" r="34"/>
+                <circle cx="315" cy="218" r="33"/>
+                <path d="M294 55l14 14M308 55l-14 14"/>
+                <path d="M58 256h60M250 35h39"/>
+              </g>
+            </svg>
+            <span class="shop-intro__art-index">ESTUDIO DE LA MASA / 01</span>
+            <span class="shop-intro__art-number">{String(products.length).padStart(2,'0')}</span>
+          </div>
         </div>
-        <div class="inner-intro__aside" aria-label="Información del catálogo">
-          <span class="inner-intro__number">{String(products.length).padStart(2,'0')}</span>
-          <span>VARIEDADES DE PAN<br />UNA SOLA PASIÓN</span>
+        <div class="shop-intro__footer">
+          <span>HECHOS CON TIEMPO. PENSADOS PARA COMPARTIR.</span>
+          <span>{String(products.length).padStart(2,'0')} / VARIEDADES</span>
         </div>
       </div>
     </header>
+
     <BreadCatalog />
+
     <section class="order-steps">
       <div class="container order-steps__inner">
         <div>

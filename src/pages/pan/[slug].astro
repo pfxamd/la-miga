@@ -11,24 +11,111 @@ export const getStaticPaths = (() => products.map((product) => ({
 }))) satisfies GetStaticPaths;
 
 const { product } = Astro.props as { product: BreadProduct };
+const index = products.findIndex((p) => p.id === product.id);
+const number = String(index + 1).padStart(2, '0');
+const related = [...products.filter((p) => p.category === product.category && p.id !== product.id),
+  ...products.filter((p) => p.category !== product.category && p.id !== product.id)].slice(0, 2);
 const base = siteBase;
 ---
 <BaseLayout title={`${product.name} — LA MIGA`} description={product.description} active="panes">
-  <main class="detail-page container">
-    <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href={base}>Inicio</a><span aria-hidden="true">/</span><a href={`${base}panes/`}>Nuestros panes</a><span aria-hidden="true">/</span><span>{product.name}</span></nav>
-    <div class="detail-layout">
-      <div class="detail-visual"><span class="eyebrow">{categoryLabels[product.category]} · {product.weightGrams} G</span><a href={withBase(product.image)} class="detail-visual__image" data-pswp-width="800" data-pswp-height="800" aria-label={`Ampliar imagen de ${product.name}`}><img src={withBase(product.image)} width="800" height="800" alt={product.name} decoding="async"/></a><span class="detail-visual__note">HAZ CLIC PARA AMPLIAR ↗</span></div>
-      <div class="detail-copy"><span class="eyebrow eyebrow--accent">PAN HECHO CON TIEMPO</span><h1>{product.name}<span>.</span></h1><p class="detail-subtitle">{product.subtitle}</p><p class="detail-description">{product.description}</p><dl class="detail-facts"><div><dt>Peso</dt><dd>{product.weightGrams} g</dd></div><div><dt>Ingredientes</dt><dd>{product.ingredients}</dd></div><div><dt>Forma</dt><dd>{product.shape}</dd></div><div><dt>Elaboración</dt><dd>{product.method}</dd></div><div><dt>Alérgenos</dt><dd>{product.allergens}</dd></div><div><dt>Disponibilidad</dt><dd>{product.available ? 'Bajo confirmación' : 'Temporalmente agotado'}</dd></div></dl><div class="detail-buy"><strong>{product.priceMAD} <small>MAD</small></strong><AddToCart id={product.id} productName={product.name} title="Añadir a la cesta" available={product.available} full /></div><p class="detail-note">Precio orientativo. Recogida previa confirmación por WhatsApp.</p></div>
-    </div>
-    <div class="detail-return"><a href={`${base}panes/`}>← Volver a todos los panes</a></div>
+  <main class="detail-page detail-page--editorial container">
+    <nav class="breadcrumbs" aria-label="Ruta de navegación">
+      <a href={base}>Inicio</a><span aria-hidden="true">/</span>
+      <a href={`${base}panes/`}>Nuestros panes</a><span aria-hidden="true">/</span>
+      <span aria-current="page">{product.name}</span>
+    </nav>
+
+    <section class="detail-layout" aria-labelledby="detail-title">
+      <div class="detail-visual">
+        <span class="detail-visual__overline">LA MIGA / PAN Nº {number}</span>
+        <svg class="detail-visual__diagram" viewBox="0 0 540 500" fill="none" aria-hidden="true" focusable="false">
+          <g stroke="currentColor" stroke-width="1.1">
+            <path d="M73 288C68 151 162 67 282 64C403 61 472 152 470 268C469 376 379 438 267 438C162 438 74 392 73 288Z"/>
+            <path d="M91 284C88 171 170 89 282 85C392 83 454 162 452 268C449 364 372 420 266 420C166 420 92 380 91 284Z"/>
+            <path d="M111 284C109 181 182 109 283 107C380 105 435 171 434 269C433 350 365 401 268 401C177 400 111 373 111 284Z"/>
+            <path d="M132 280C129 199 197 126 285 125C366 124 414 190 413 265C412 335 349 382 269 382C191 382 134 357 132 280Z"/>
+            <path d="M154 280C154 207 206 150 284 149C355 148 391 203 391 268C391 322 335 361 271 361C203 361 155 346 154 280Z"/>
+          </g>
+          <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M155 242C193 218 217 195 236 165"/>
+            <path d="M170 262C212 238 236 215 258 184"/>
+            <path d="M306 147C335 171 359 179 390 183"/>
+            <path d="M310 166C339 190 366 202 401 206"/>
+            <path d="M345 356C372 340 396 315 408 284"/>
+          </g>
+          <g stroke="currentColor" stroke-width=".95">
+            <path d="M46 69h35M63.5 51.5v35M446 413h35M463.5 395.5v35"/>
+            <circle cx="63.5" cy="69" r="31"/>
+            <circle cx="463.5" cy="413" r="30"/>
+          </g>
+        </svg>
+        <div class="detail-visual__shadow" aria-hidden="true"></div>
+        <a href={withBase(product.image)} class="detail-visual__image" data-pswp-width="800" data-pswp-height="800" aria-label={`Ampliar imagen de ${product.name}`}>
+          <img src={withBase(product.image)} width="800" height="800" alt={product.name} fetchpriority="high" decoding="async" />
+        </a>
+        <span class="detail-visual__category">{categoryLabels[product.category]}</span>
+        <span class="detail-visual__note">AMPLIAR IMAGEN ↗</span>
+      </div>
+
+      <div class="detail-copy">
+        <span class="eyebrow eyebrow--accent">COLECCIÓN 01 / {number} — PAN ARTESANO</span>
+        <h1 id="detail-title">{product.name}<span>.</span></h1>
+        <p class="detail-subtitle">{product.subtitle}</p>
+        <p class="detail-description">{product.description}</p>
+
+        <dl class="detail-specs">
+          <div><dt>PESO</dt><dd>{product.weightGrams} g</dd></div>
+          <div><dt>TIPO</dt><dd>{categoryLabels[product.category]}</dd></div>
+          <div><dt>ESTADO</dt><dd>{product.available ? 'Bajo confirmación' : 'Agotado'}</dd></div>
+        </dl>
+
+        <div class="detail-ingredients">
+          <span class="detail-eyebrow">01 / QUÉ LLEVA</span>
+          <h2>Lo esencial, <em>bien hecho.</em></h2>
+          <p>{product.ingredients}</p>
+          <p class="detail-allergens">{product.allergens}</p>
+        </div>
+
+        <div class="detail-buy">
+          <div class="detail-buy__price"><span>PRECIO ORIENTATIVO</span><strong>{product.priceMAD} <small>MAD</small></strong></div>
+          <AddToCart id={product.id} productName={product.name} title="Añadir a la cesta" available={product.available} full />
+        </div>
+        <p class="detail-note">El pedido y la recogida se confirman antes de la entrega. Sin pago online.</p>
+      </div>
+    </section>
+
+    <section class="detail-craft" aria-labelledby="craft-title">
+      <div class="detail-craft__heading">
+        <span class="detail-eyebrow">LA FICHA DEL PAN / {number}</span>
+        <h2 id="craft-title">Detrás de <em>cada miga.</em></h2>
+      </div>
+      <div class="detail-craft__grid">
+        <div><span class="detail-craft__number">01 / LA FORMA</span><h3>Su silueta.</h3><p>{product.shape}</p></div>
+        <div><span class="detail-craft__number">02 / EL PROCESO</span><h3>Su elaboración.</h3><p>{product.method}</p></div>
+      </div>
+    </section>
+
+    <section class="detail-related" aria-labelledby="related-title">
+      <div class="detail-related__head">
+        <div><span class="eyebrow eyebrow--accent">SIGUE EXPLORANDO</span><h2 id="related-title">Tal vez te guste <em>también.</em></h2></div>
+        <a class="editorial-link" href={`${base}panes/`}>Ver todos los panes <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="detail-related__grid">
+        {related.map((next) => (
+          <a class="detail-related__item" href={`${base}pan/${next.slug}/`}>
+            <div class="detail-related__photo"><img src={withBase(next.image)} width="800" height="800" loading="lazy" decoding="async" alt={next.name} /></div>
+            <div class="detail-related__text"><span>{categoryLabels[next.category]} / {next.weightGrams} g</span><strong>{next.name}</strong><span>{next.priceMAD} MAD <b aria-hidden="true">↗</b></span></div>
+          </a>
+        ))}
+      </div>
+    </section>
   </main>
   <script>
     import { mountLightbox } from '../../lib/lightbox';
-    const gallery = document.querySelector('.detail-visual');
-    if (gallery) {
-      mountLightbox('.detail-visual').then((destroy) => {
-        document.addEventListener('astro:before-swap', destroy, { once: true });
-      }).catch(() => {});
-    }
+    mountLightbox('.detail-visual').then((destroy) => {
+      document.addEventListener('astro:before-swap', destroy, { once: true });
+    }).catch(() => {
+      // The original image link stays usable if the gallery is unavailable.
+    });
   </script>
 </BaseLayout>
