@@ -14,7 +14,8 @@ The site is a small static Astro storefront with no unused carousel or icon fram
 | Cart drawer UI | `src/components/cart/CartDrawer.tsx` |
 | Cart rules, totals, WhatsApp message | `src/store/`, `src/lib/` |
 | Product detail template | `src/pages/pan/[slug].astro` |
-| Colors and typography | `src/styles/base.css` |
+| Brand palette and reusable colors | `src/styles/tokens.css` and `docs/BRAND_SYSTEM.md` |
+| Typography and foundational element styling | `src/styles/base.css` |
 | Section design | Corresponding file under `src/styles/` |
 | Responsive adjustments | `src/styles/responsive.css` |
 | Original WebP product photos | `public/assets/bread/` |

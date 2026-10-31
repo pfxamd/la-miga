@@ -1,0 +1,27 @@
+/* LA MIGA — Tinta & Corteza
+ * Brand source of truth. Keep the approved logo unchanged.
+ * See docs/BRAND_SYSTEM.md before adding new colors.
+ */
+:root {
+  /* Identity anchors: ink and flour echo the existing LA MIGA wordmark. */
+  --ink: #381B14;       /* Tinta — brand typography */
+  --flour: #F6F2E9;     /* Harina — warm page canvas */
+  --heat: #963F35;      /* Rojo Arcilla — primary action */
+  --heat-hover: #7D302A;
+  --paper: #FFFCF7;     /* Miga — reading surfaces */
+  --wheat: #E9D8C5;     /* Trigo — bread product stage */
+  --rose: #E6C2B5;      /* Rosa Arcilla — controlled editorial accent */
+
+  /* Utility neutrals: designed to maintain readable contrast. */
+  --mute: #746158;
+  --line: #DBCBBC;
+  --dark: #2D1815;
+  --oven: #DDBEA3;
+  --copper: #A8502C;   /* Copper detail in the original mark */
+
+  /* Four muted photo stages, not independent brand colors. */
+  --stage-1: var(--wheat);
+  --stage-2: #EEE1D2;
+  --stage-3: #DFCCB8;
+  --stage-4: #E7CDBD;
+}

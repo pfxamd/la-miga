@@ -1,14 +1,6 @@
 /* base: LA MIGA */
 :root {
   color-scheme: light;
-  --flour: #f6f1e9;
-  --paper: #fffdf8;
-  --ink: #281d19;
-  --mute: #79695e;
-  --heat: #ac5735;
-  --line: #ddd2c7;
-  --wheat: #e8d9bc;
-  --dark: #2a1a16;
   font-family: system-ui, sans-serif;
   font-synthesis: none;
   background: var(--flour);

@@ -1,7 +1,7 @@
 /* header: LA MIGA */
 .announcement{height:29px;background:var(--dark);display:flex;align-items:center;justify-content:center;gap:1.2rem;color:#fff0dd;font-size:.63rem;font-weight:700;letter-spacing:.13em}
-.announcement span+span{color:#dca889}
-.site-header{position:sticky;z-index:30;top:0;background:rgba(246,241,233,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.announcement span+span{color:var(--rose)}
+.site-header{position:sticky;z-index:30;top:0;background:rgba(246,242,233,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
 .site-header__inner{min-height:73px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
 .brand{display:flex;flex-direction:column;align-items:flex-start;flex:none}
 .nav{display:flex;gap:2.5rem;margin-left:auto}

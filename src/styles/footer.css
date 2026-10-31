@@ -1,8 +1,8 @@
 /* footer: LA MIGA */
-.footer{background:#1e1714;color:#efe3d5;padding-top:3.3rem}
+.footer{background:var(--dark);color:#efe3d5;padding-top:3.3rem}
 .footer__top{display:flex;justify-content:space-between;gap:3rem;padding-bottom:3rem}
 .footer__wordmark{font-family:Georgia,serif;font-size:clamp(3rem,7vw,6rem);letter-spacing:-.085em;font-weight:900;line-height:1}
-.footer__wordmark span{color:#c37957}
+.footer__wordmark span{color:var(--rose)}
 .footer__top p{font-size:.88rem;color:#ccbaa9;margin:.7rem 0}
 .footer__top small{color:#ad9b8c}
 .footer__bottom{display:flex;justify-content:space-between;border-top:1px solid #45342b;padding:1.2rem 0;color:#ae9988;font-size:.63rem;font-weight:700;letter-spacing:.1em}

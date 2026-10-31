@@ -1,0 +1,47 @@
+# LA MIGA — Tinta & Corteza
+
+**Status:** approved working brand direction for the Spanish-language bakery concept in Tétouan.  
+**Positioning:** A small contemporary *panadería artesanal*, founded by a young woman, making real breads with a clear product-led storefront.
+
+## Identity rationale
+
+The existing LA MIGA wordmark is the anchor. Its dark cocoa lettering and fired-copper flour/flame detail define the hue family. The website extends those hues with an editorial, warm-mediterranean system; **the original logo artwork is not recolored**.
+
+There are only two strong chromatic ideas: **fired earth** (Rojo Arcilla and copper) and a softer derived **rose clay**. Flour, crumb and wheat tones are neutrals grounded in bakery ingredients. No unrelated blue, green, bright yellow, candy pink, or gradient effects.
+
+## Brand colors
+
+| Token | Name | Hex | Use |
+| --- | --- | --- | --- |
+| `--ink` | Tinta | `#381B14` | Headlines, wordmarks, high-contrast text |
+| `--heat` | Rojo Arcilla | `#963F35` | Primary CTAs, active states, key editorial accents |
+| `--flour` | Harina | `#F6F2E9` | Main canvas, navbar, logo-background match |
+| `--paper` | Miga | `#FFFCF7` | Reading surfaces, cart, light panels |
+| `--wheat` | Trigo | `#E9D8C5` | Bread photography and product cards |
+| `--rose` | Rosa Arcilla | `#E6C2B5` | Restrained handcrafted details and soft editorial shapes |
+| `--dark` | Cacao Oscuro | `#2D1815` | Footer and oven-process section |
+| `--mute` | Tinta Suave | `#746158` | Secondary text, product descriptions |
+| `--line` | Lino | `#DBCBBC` | Rules, borders and subtle structural lines |
+| `--oven` | Horno | `#DDBEA3` | Hero product art stage |
+| `--copper` | Cobre del logo | `#A8502C` | Logo-associated decorative detail only |
+
+Derived neutral card-stage colors live in `src/styles/tokens.css`. They should never be presented as additional brand accents.
+
+## Composition and usage rules
+
+- **About 65% warm flour**, 20% wheat/paper surfaces, 10% dark ink, up to 5% red-clay emphasis. Rose clay stays editorial, not the background for every section.
+- Use **white `#FFFFFF` on Rojo Arcilla** for interactive buttons; their approximate contrast is 6.9:1. Tinta/Harina is above 14:1; secondary text on Harina is above 5:1.
+- Use flat color surfaces, tactile paper-like neutrals and extremely restrained code-drawn scoring/heat lines. Avoid heavy gradients and glossy generic 3D graphics.
+- Product images are original isolated bread packshots on warm neutral cards; no photograph background, fake labels or props. Keep an equal visual scale and let each bread silhouette communicate the variety.
+- Headings: expressive high-contrast serif editorial hierarchy. Body and interface: compact, precise sans serif. Fonts are subject to a separate type-design pass; **do not import arbitrary remote font files**.
+- Preserve a clear path: catalog → quantity → cart → WhatsApp. Visual flourishes may not obscure names, weights, prices, ingredients or buttons.
+- The website's visual femininity is in careful composition, typography and soft tonal contrast, **not** obvious pink/flowers/bows.
+- For dark process sections, use `--dark` with flour/rose foregrounds. For light mode, never insert unrelated dark sections; the process and footer are intentional branded dark zones.
+
+## Editing source
+
+All canonical values live at `src/styles/tokens.css`, imported once by `src/styles/global.css`. **Do not scatter fresh hex values** across components: if a new functional color is necessary, create a named token first and document its semantic use.
+
+Logo: `public/assets/brand/la-miga-logo.webp`. Do not replace the approved mark with a font approximation.  
+Storefront: [LA MIGA](https://pfxamd.github.io/la-miga/).  
+Design authorship footer: [PFXAMD](https://pfxamd.com/).

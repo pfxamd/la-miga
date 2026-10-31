@@ -9,10 +9,10 @@
 .filter.is-active,.filter:hover{background:var(--ink);border-color:var(--ink);color:white}
 .product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 1.25rem}
 .product-card{min-width:0}
-.product-card__visual{position:relative;aspect-ratio:1 / .88;overflow:hidden;display:grid;place-items:center;background:#e8d9c7}
-.product-card__visual--2{background:#e9e1d2}
-.product-card__visual--3{background:#dbd3c4}
-.product-card__visual--4{background:#dfc5aa}
+.product-card__visual{position:relative;aspect-ratio:1 / .88;overflow:hidden;display:grid;place-items:center;background:var(--stage-1)}
+.product-card__visual--2{background:var(--stage-2)}
+.product-card__visual--3{background:var(--stage-3)}
+.product-card__visual--4{background:var(--stage-4)}
 .product-card__index,.product-card__weight{position:absolute;z-index:2;left:1rem;top:1rem;font-size:.62rem;font-weight:700;letter-spacing:.1em}
 .product-card__weight{top:auto;left:auto;right:1rem;bottom:1rem}
 .product-card__image-link{display:flex;width:100%;height:100%;align-items:center;justify-content:center}

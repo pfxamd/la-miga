@@ -8,7 +8,7 @@
 .icon-button{width:44px;height:44px;border:1px solid var(--line);background:transparent;font-size:1.7rem;line-height:1}
 .cart-items{padding:0 1.5rem;flex:1;overflow:auto}
 .cart-item{display:grid;grid-template-columns:92px 1fr auto;gap:.9rem;align-items:center;padding:1.2rem 0;border-bottom:1px solid var(--line)}
-.cart-item__image{width:92px;height:92px;background:#e8ddcf;display:grid;place-items:center}
+.cart-item__image{width:92px;height:92px;background:var(--wheat);display:grid;place-items:center}
 .cart-item__image img{width:90%;height:90%;object-fit:contain}
 .cart-item__body strong{font-family:Georgia,serif;font-size:1rem}
 .cart-item__body small{display:block;color:var(--mute);margin:.33rem 0 .6rem;font-size:.73rem}

@@ -2,6 +2,10 @@
 
 A fictional, modern bread-only bakery storefront based in Tétouan, Morocco. The site is designed like a real bakery business, with bespoke original imagery and a distinctive brand identity.
 
+## Brand identity
+
+The current design system is **Tinta & Corteza** — flour-white surfaces, cocoa ink, a fired-clay action color, wheat photo stages, and a restrained rose-clay editorial accent. Colors and visual rules are centralized in [the brand system](docs/BRAND_SYSTEM.md) and [CSS tokens](src/styles/tokens.css). The approved original LA MIGA logo is preserved.
+
 ## Tech stack
 
 Astro (static), TypeScript, one Preact cart drawer, native product buttons, Nano Stores persisted cart, PhotoSwipe and GitHub Pages. See [open-source decisions](docs/OPEN_SOURCE.md) for licenses and deployment rationale.
